@@ -1,20 +1,15 @@
-import Recommand from './recommand'
-import Star from './star'
-import * as S from './info.style'
-const Render = () => {
-    return (
-    <S.MainContainer>
-        <Star/>
-        <S.Explanation>
+import Recommand from "./recommand";
+import Star from "./star";
+import Explanation from "./explanation";
+import * as S from "./info.style";
 
-        </S.Explanation>
-        <S.Explanation>
-            
-        </S.Explanation>
-        <S.RecommandContainer>
-            <Recommand/>
-            <Recommand/>
-        </S.RecommandContainer> 
-    </S.MainContainer> )
-}
-export default Render
+const Render = () => {
+  return (
+    <S.MainContainer>
+      <Star />
+      <Explanation />
+      <Recommand />
+    </S.MainContainer>
+  );
+};
+export default Render;
