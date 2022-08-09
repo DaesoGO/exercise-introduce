@@ -5,9 +5,22 @@ export const MainContainer = styled.div`
     height: 80vh;
     background-color: red;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 `
 
-export const StarContainer = styled.div`
+export const Explanation = styled.div`
+    width: 90%;
+    height: 30%;
+    background-color: black;
+`
 
+export const RecommandContainer = styled.div`
+    width: 90%;
+    height: 20%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: space-between;
+    
 `

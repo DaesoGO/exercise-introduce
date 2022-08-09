@@ -1,4 +1,5 @@
 import Main from './main'
+import QnA from './qna'
 import * as S from './index.style'
 import human from 'skeletalmuscle-drawer/dist/human.gltf'
 const dummy = {
@@ -11,6 +12,7 @@ const Render = () => {
         <S.Root>
             <S.Container>
                 <Main info={dummy}/>
+                <QnA/>
             </S.Container>
         </S.Root>
     )
