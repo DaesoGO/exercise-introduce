@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const Explanation = styled.div`
-  width: 90%;
+  width: calc(90% - 5px);
   height: 30%;
-  background-color: white;
 
+  background-color: greenyellow;
   color: black;
 
   font-size: 15px;
   font-weight: bolder;
 
-  border-radius: 8px;
+  /* border-radius: 8px; */
+
+  padding-left: 5px;
 
   h3 {
     margin-top: 5px;

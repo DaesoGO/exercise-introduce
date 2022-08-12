@@ -6,8 +6,12 @@ import * as S from "./info.style";
 const Render = () => {
   return (
     <S.MainContainer>
-      <Star />
+      <S.ContentContainer>
+        <Star />
+      </S.ContentContainer>
+
       <Explanation />
+
       <Recommand />
     </S.MainContainer>
   );

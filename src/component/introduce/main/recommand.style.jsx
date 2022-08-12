@@ -10,7 +10,9 @@ export const Main = styled.div`
   width: 90%;
   height: calc(20% - 11px);
 
-  background-color: yellowgreen;
+  border-radius: 0px 0px 8px 8px;
+
+  background-color: #cfffe5;
   margin-bottom: 11px;
 
   display: flex;
@@ -18,10 +20,10 @@ export const Main = styled.div`
 `;
 
 export const SplitLine = styled.div`
-  width: 6px;
+  width: 20px;
   height: 100%;
 
-  background-color: black;
+  background-color: white;
 `;
 
 export const Title = styled.h4`
