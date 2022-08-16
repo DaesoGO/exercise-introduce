@@ -101,6 +101,7 @@ export const Options = styled.button`
 
 export const Questions = styled.div`
   width: 100%;
+  height: auto;
   margin-top: 10px;
 
   display: flex;
