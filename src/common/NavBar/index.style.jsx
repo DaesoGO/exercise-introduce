@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     height: 50px;
-    width: 100vw;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
     position: absolute;
