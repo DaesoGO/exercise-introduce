@@ -9,7 +9,7 @@ const DropBox = ({ setIsExist }) => {
   const [isDragging, setIsDragging] = useState(false);
 
   // 이미지 저장 / 파일
-  const [imgFiles, setImgFiles] = useState({});
+  const [imgFiles, setImgFiles] = useState(null);
 
   const dragOver = useCallback((e) => {
     e.preventDefault();
@@ -19,21 +19,23 @@ const DropBox = ({ setIsExist }) => {
     e.preventDefault();
     console.log(e);
 
-    const formData = new FormData();
+    // const formData = new FormData();
 
     if (e.dataTransfer.items) {
       [...e.dataTransfer.items].forEach((item, i) => {
         // If dropped items aren't files, reject them
         if (item.kind === "file") {
           const file = item.getAsFile();
-          formData.append("image", file);
-          console.log(file);
+          // formData.append("image", file);
+          addFile(file)
+          // console.log(file)
         }
       });
     } else {
-      [...e.dataTransfer.files].forEach((file, i) => {
-        formData.append("image", e.dataTransfer.files[i]);
-        console.log(file);
+      [...e.dataTransfer.files].forEach((file) => {
+        addFile(file)
+        // formData.append("image", e.dataTransfer.files[i]);
+        // console.log(file);
       });
     }
     setIsDragging(false);
@@ -42,9 +44,28 @@ const DropBox = ({ setIsExist }) => {
   function handleChangeFile(e) {
     console.log('file내용',imgFiles)
     console.log(e.target.files)
-    const file = e.target.files;
-    setImgFiles({...imgFiles,...file});
+    const files = e.target.files;
+    files.forEach((file) => {
+      addFile(file)
+    })
   }
+
+  // 파일을 하나씩 더해준다
+  function addFile(files){
+    console.log(files)
+    if (imgFiles != null){
+      setImgFiles([...imgFiles,files]);
+    } else if (files.length > 0) {
+      setImgFiles([...files])
+    } else {
+      setImgFiles(files)
+    }
+  }
+
+  useEffect(() => {
+    console.log(imgFiles)
+  },[imgFiles])
+  
 
   /**
    * @todo 전체를 기준으로 파일을 받을 때 어썸한 방법
