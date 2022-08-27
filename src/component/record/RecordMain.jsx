@@ -19,10 +19,6 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
-  useEffect(() => {
-    console.log(inView);
-  }, [inView]);
-
   // 정방형 사진이여야만 한다
   const dum = [
     "220805",
