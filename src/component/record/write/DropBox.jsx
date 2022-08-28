@@ -9,7 +9,7 @@ const DropBox = () => {
   // ondrop과 ondragOver이벤트가 있는 곳이 drop zone, 이미지 drop이 발생할 수 있다
   const [isDragging, setIsDragging] = useState(false);
   // 이미지 저장 / 파일
-  const [setImgFiles] = useContext(ImgContext);
+  const [imgFiles,setImgFiles] = useContext(ImgContext);
 
   const dragOver = useCallback((e) => {
     e.preventDefault();

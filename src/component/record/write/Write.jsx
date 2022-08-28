@@ -26,7 +26,7 @@ const Write = () => {
                 {isExist && 
                 <button>다음</button>}
             </W.Menu>
-            <ImgContext.Provider value={[setImgFiles]}>
+            <ImgContext.Provider value={[imgFiles,setImgFiles]}>
                 {
                     isExist ?
                     <EditImg/>
