@@ -52,7 +52,15 @@ export const WirteBPlus = styled.div`
     font-weight:bold;
 `
 
+
 export const WirteBComment = styled.b`
+    @media (max-width:800px){
+        font-size:13px;
+    }
+    font-size:15px;
+`
+export const WriteBSubComment = styled.p`
+    margin-top:7px;
     @media (max-width:800px){
         font-size:13px;
     }

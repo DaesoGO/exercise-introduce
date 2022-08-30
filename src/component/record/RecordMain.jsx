@@ -83,6 +83,9 @@ const RecordMain = () => {
           <R.WirteBComment >
             오늘 작성된 기록이 없습니다
           </R.WirteBComment>
+          <R.WriteBSubComment>
+            (정방형 사진을 추천합니다)
+          </R.WriteBSubComment>
         </R.WriteB>
         {dum.map((i, idx) => (
           <Link key={i} to={`${username}/${i}`}>

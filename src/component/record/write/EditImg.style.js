@@ -24,14 +24,14 @@ const button = styled.button`
     border-radius:50%;
     border:none;
     background-color:black;
-    width:30px;
-    height:30px;
+    width:35px;
+    height:35px;
     display:flex;
     justify-content:center;
     align-items:center;
     > img{
-        width:17px;
-        height:17x;
+        width:20px;
+        height:20px;
     }
 `
 
@@ -55,7 +55,7 @@ export const fitSizeButton = styled(button)`
 `
 export const zoomButton = styled(button)`
     bottom:15px;
-    left:55px;
+    left:60px;
 `
 export const addFileButton = styled(button)`
     bottom:15px;

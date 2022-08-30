@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 60vw;
-  max-height: 600px;
+  /* height: 60vw;
+  max-height: 600px; */
   width:50vw;
   max-width: 700px;
   display: flex;
