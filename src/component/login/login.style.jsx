@@ -11,8 +11,11 @@ export const Login = styled.div`
 `;
 
 export const Img = styled.img`
-  height: 100%;
+    margin-top: 40px;
+    margin-left: 50px;
+  height: 800px;
   width: 720px;
+
 `;
 
 export const LoginContainer = styled.div`
@@ -22,7 +25,7 @@ export const LoginContainer = styled.div`
   font-style: normal;
   font-weight: 400;
   color: #000000;
-
+  margin-left: 100px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -33,8 +36,8 @@ export const LoginContainer = styled.div`
     line-height: 46px;
 
     text-align: left;
-    margin-left: 80px;
-    margin-top: 90spx;
+    margin-left: 120px;
+    margin-top: 90px;
     margin-bottom: 100px;
   }
 

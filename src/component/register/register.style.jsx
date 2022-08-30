@@ -10,7 +10,7 @@ export const Login = styled.div`
 `;
 
 
-export const LoginContainer = styled.div`
+export const registerContainer1 = styled.div`
   width: 720px;
 
   font-family: "Arial";

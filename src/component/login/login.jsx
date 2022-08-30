@@ -1,6 +1,6 @@
 import React from "react";
 import * as L from "./login.style";
-import tempImg from "../../component/login/loginImage/.temp.png";
+import tempImg from "../loginImage/temp.jpg";
 const Login = () => {
   return (
     <L.Login>
@@ -8,10 +8,10 @@ const Login = () => {
       <L.LoginContainer>
         <h3>Exercise Introduce</h3>
 
-        <p>email</p>
-        <L.Input type="email"></L.Input>
+        <p>ID</p>
+        <L.Input type="id"></L.Input>
 
-        <p style={{ marginTop: "50px" }}>passwoard</p>
+        <p style={{ marginTop: "50px" }}>비밀번호</p>
         <L.Input type="password"></L.Input>
 
         <div className="register">

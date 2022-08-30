@@ -9,7 +9,7 @@ const Render = () => {
             <S.MyRecord></S.MyRecord>
             <S.TrainingList>
                 {
-                    items.map(item => (<S.TestBox><span>{item}</span></S.TestBox>))
+                    items.map(item => <S.TestBox><span>{item}</span></S.TestBox>)
                 }
             </S.TrainingList>
         </S.Main>

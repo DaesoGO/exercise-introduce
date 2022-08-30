@@ -4,10 +4,10 @@ const register = () => {
   return (
     <L.Login>
         
-      <L.LoginContainer>
+      <L.registerContainer1>
         <h3>Exercise Introduce</h3>
 
-        <p>email</p>
+        <p>ID</p>
         <L.Input type="email"></L.Input>
 
         <p style={{ marginTop: "50px" }}>passwoard</p>
@@ -18,7 +18,7 @@ const register = () => {
         </div>
 
         <L.Btn>다음</L.Btn>
-      </L.LoginContainer>
+      </L.registerContainer1>
     </L.Login>
   );
 };
