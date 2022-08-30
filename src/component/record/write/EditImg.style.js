@@ -2,13 +2,16 @@ import styled,{ css } from "styled-components";
 
 export const Wrapper = styled.div`
     width:100%;
-    height:100%;
+    height:calc(100% - 34px);
     position:relative;
+    border-radius:0px 0px 10px 10px;
 `
 
 export const ImgContainer = styled.img`
     width:100%;
     height:100%;
+    border-radius:10px;
+    object-fit:contain;
 `
 
 /**
@@ -39,11 +42,22 @@ export const GoLeftButton = styled(button)`
         margin-left:6px;
     }
 `
-
 export const GoRightButton = styled(button)`
     top:50%;
     right:11px;
     >img{
         margin-left:3px;
     }
+`
+export const fitSizeButton = styled(button)`
+    bottom:15px;
+    left:15px;
+`
+export const zoomButton = styled(button)`
+    bottom:15px;
+    left:55px;
+`
+export const addFileButton = styled(button)`
+    bottom:15px;
+    right:15px;
 `

@@ -34,7 +34,7 @@ export const ModalInner = styled.div`
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
-  padding: 10px 0px;
+  padding: 10px 0px 0px 0px;
   width:fit-content;
   transition:width 0.5s;
 `;

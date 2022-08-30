@@ -4,7 +4,12 @@ import { ImgContext } from "./Write";
 
 import leftArrow from "../../../static/record/leftArrow.svg";
 import rightArrow from "../../../static/record/rightArrow.svg";
-import { ThemeProvider } from "styled-components";
+import zoomIn from "../../../static/record/zoomIn.svg"
+import addFile from "../../../static/record/addFile.svg"
+import sizeFree from "../../../static/record/sizeFree.svg"
+import size1x1 from "../../../static/record/size1x1.svg"
+import size4x5 from "../../../static/record/size4x5.svg"
+import size16x9 from "../../../static/record/size16x9.svg"
 
 const EditImg = () => {
   const [imgFiles, setImgFiles] = useContext(ImgContext);
@@ -45,6 +50,15 @@ const EditImg = () => {
           <img src={rightArrow} alt="goRight" />
         </E.GoRightButton>
       )}
+      <E.fitSizeButton>
+        <img src={sizeFree} alt="fitSize" />
+      </E.fitSizeButton>
+      <E.zoomButton>
+        <img src={zoomIn} alt="zoom" />
+      </E.zoomButton>
+      <E.addFileButton>
+        <img src={addFile} alt="addFile" />
+      </E.addFileButton>
     </E.Wrapper>
   );
 };
