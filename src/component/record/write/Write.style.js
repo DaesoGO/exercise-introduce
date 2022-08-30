@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 60vw;
-  max-height: 600px; */
-  width:50vw;
+  height: calc(55vw + 35px);
+  max-height: 735px;
+  width:55vw;
   max-width: 700px;
   display: flex;
   flex-direction: column;
@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 
 export const Menu = styled.header`
   height: 35px;
+  box-sizing:border-box;
   display: flex;
   flex-direction:row-reverse;
   justify-content: space-between;
