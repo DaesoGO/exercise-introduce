@@ -1,34 +1,39 @@
-import styled,{ css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
     width:100%;
-    height:calc(100% - 34px);
+    height:100%;
     position:relative;
     border-radius:0px 0px 10px 10px;
 `
 
-export const ImgContainer = styled.img`
+export const ImgContainer = styled.div`
+    width:100%;
+    height:100%;
+`
+
+export const Img = styled.img`
     width:100%;
     height:100%;
     border-radius:0px 0px 10px 10px;
     object-fit:cover;
 `
 
-/**
- * @todo left, right, top, bottom을 멋지게 어떻게 사용할까?
- * 요소가 있을 수도 있고 없을 수도 있어서 저렇게 함
- * 컴포넌트로 따로 빼야하는가?
- */
 const button = styled.button`
     position:absolute;
     border-radius:50%;
     border:none;
-    background-color:black;
+    background-color:rgba(0,0,0,0.7);
     width:35px;
     height:35px;
     display:flex;
     justify-content:center;
     align-items:center;
+    cursor:pointer;
+    transition:background-color 0.3s;
+    :hover{
+        background-color:rgba(0,0,0,0.5)
+    }
     > img{
         width:20px;
         height:20px;

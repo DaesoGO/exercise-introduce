@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import * as D from "./DropBox.style";
 
-import fileSvg from "../../../static/record/reciveFile.svg";
-import { ImgContext } from "./Write";
+import fileSvg from "../../../../static/record/reciveFile.svg";
+import { ImgContext } from "../Write";
 
 
 const DropBox = () => {

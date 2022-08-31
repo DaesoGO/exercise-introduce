@@ -23,10 +23,6 @@ const EditImg = () => {
     setCurrentIndex((prev) => prev+1)
   }
 
-  useEffect(() => {
-    console.log(currentIndex)
-  },[currentIndex])
-
   function makeImgURL(){
     const temp = []
     imgFiles.forEach(file => {
@@ -37,9 +33,16 @@ const EditImg = () => {
 
   const imgURL = useMemo(() => makeImgURL(),[imgFiles])
 
+
+  /** 
+   * @todo button을 styled-component와 더불어(absolute위치) 컴포넌트로 만들어서
+   * onClick때 함수 실행 시키도록 만들기
+   */
   return (
     <E.Wrapper>
-      <E.ImgContainer src={imgURL[currentIndex]} />
+      <E.ImgContainer>
+        <E.Img src={imgURL[currentIndex]}/>
+      </E.ImgContainer>
       {currentIndex !== 0 && (
         <E.GoLeftButton onClick={nextImg}>
           <img src={leftArrow} alt="goLeft" />

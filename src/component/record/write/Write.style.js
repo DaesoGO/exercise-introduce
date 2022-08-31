@@ -3,10 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(55vw + 70px);
-  max-height: 770px;
-  /* height: calc(55vw + 47px);
-  max-height: 747px; */
   width:55vw;
   max-width: 700px;
   display: flex;
@@ -14,8 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Menu = styled.header`
-  height: 70px;
-  /* height: 47px; */
+  height: 46px;
   width:100%;
   box-sizing:border-box;
 `;
@@ -48,5 +43,8 @@ export const ButtonWithSvg = styled(Button)`
 `
 
 export const Content = styled.div`  
-
+  height:55vw;
+  max-height:700px;
+  width:100%;
+  position:relative;
 `

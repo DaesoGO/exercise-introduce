@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect} from 'react';
 import * as W from "./Write.style"
 
-import DropBox from './DropBox';
+import DropBox from './dropBox/DropBox';
 import EditImg from './EditImg';
 
 import backArrow from "../../../static/record/write/back.svg"
