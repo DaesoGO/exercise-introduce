@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 export const ImgContainer = styled.div`
     width:100%;
     height:100%;
+    position:relative;
 `
 
 export const Img = styled.img`

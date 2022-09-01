@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "i": "^0.3.7",
+    "npm": "^8.19.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-easy-crop": "^4.5.0",
     "react-intersection-observer": "^9.4.0",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.4",
