@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     width:100%;
@@ -20,8 +20,7 @@ export const Img = styled.img`
     object-fit:cover;
 `
 
-const button = styled.button`
-    position:absolute;
+export const Button = styled.button`
     border-radius:50%;
     border:none;
     background-color:rgba(0,0,0,0.7);
@@ -41,29 +40,36 @@ const button = styled.button`
     }
 `
 
-export const GoLeftButton = styled(button)`
+export const GoLeftButton = styled(Button)`
+    position:absolute;
     top: 50%;
     left:11px;
     >img{
         margin-left:6px;
     }
 `
-export const GoRightButton = styled(button)`
+export const GoRightButton = styled(Button)`
+    position:absolute;
     top:50%;
     right:11px;
     >img{
         margin-left:3px;
     }
 `
-export const fitSizeButton = styled(button)`
+
+/**
+ * @ask 이렇게 속성이 있을 때 사용해야 할 때 어떻게 함?
+ * 먼 문법 있지 않나? 
+ */
+export const EditOption = styled.div`
+    position:absolute;
+    ${(props) => props.left && css`left:${(props) => props.left+"px"};`};
+    ${(props) => props.right && css`right:${(props) => props.right+"px"};`}
     bottom:15px;
-    left:15px;
 `
-export const zoomButton = styled(button)`
-    bottom:15px;
-    left:60px;
-`
-export const addFileButton = styled(button)`
-    bottom:15px;
-    right:15px;
+
+export const OptionInfo = styled.div`
+    width:100px;
+    height:100px;
+    background-color:powderblue;
 `
