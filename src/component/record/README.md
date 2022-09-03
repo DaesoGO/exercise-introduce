@@ -81,7 +81,14 @@ import Cropper from "react-easy-crop";
 3. ViewImg의 EditMode를 켰다 껏다 함으로써 Edit할 수 있게 하면 편리하게 위의 기능을 제공할 수 있을것이다
 4. 사실, 컴포넌트를 이렇게 조밀조밀하게 나누는게 쉽지 않다ㅋㅋ
 
-## EditMode만들기
+## EditMode만들기(220903)
 editMode를 줬을 때 이미지를 수정할 수 있고, 수정하는 기능들을 사용할 수 있도록 mode에 따른 변경을 해주면 된다
+
+## 옵션 버튼 컴포넌트 만들기
+자를 비율, 줌, 사진 선택 옵션 버튼들은 모두 같은 역할을 한다, 버튼이 눌리면 그 버튼에 혜당하는 툴팁형태의 옵션을 띄우는 것이다,
+
+![옵션버튼](https://user-images.githubusercontent.com/85085375/188266708-508bb1e0-da19-47ff-959d-3941f802c11b.png)
+
+이런 옵션 버튼들을 위한 [헤드리스 컴포넌트](https://www.howdy-mj.me/design/headless-components/)를 만든다
 
 ## Cropper의 마우스 이동시 분할선 생기게 하기(module변경)

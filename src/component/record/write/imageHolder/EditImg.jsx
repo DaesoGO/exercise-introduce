@@ -12,11 +12,12 @@ import leftArrow from "../../../../static/record/leftArrow.svg";
 import rightArrow from "../../../../static/record/rightArrow.svg";
 import zoomIn from "../../../../static/record/zoomIn.svg";
 import addFile from "../../../../static/record/addFile.svg";
-import sizeFree from "../../../../static/record/sizeFree.svg";
-import size1x1 from "../../../../static/record/size1x1.svg";
-import size4x5 from "../../../../static/record/size4x5.svg";
-import size16x9 from "../../../../static/record/size16x9.svg";
+import fitSize from "../../../../static/record/fitSize.svg";
 
+import OptionButton from "./optionButton/OptionButton";
+import FitSize from "./fitSize/FitSize";
+import Zoom from "./zoom/Zoom";
+import AddFile from "./addFile/AddFile"
 import Cropper from "react-easy-crop";
 
 const EditImg = () => {
@@ -24,9 +25,12 @@ const EditImg = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [crop, setCrop] = useState({ x: 0, y: 0 });
+  
+  // 7배가 최대?
   const [zoom, setZoom] = useState(1);
+  const [aspect,setAspect] = useState(1/1)
 
-  const [selectedOption, setSelectedOption] = useState(-1);
+  const [selectedOption, setSelectedOption] = useState("");
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     console.log(croppedArea, croppedAreaPixels);
@@ -50,20 +54,23 @@ const EditImg = () => {
   const imgURL = useMemo(() => makeImgURL(), [imgFiles]);
 
 
-  function clickOption(index){
-    if (selectedOption === index){
+  function clickOption(option){
+    if (selectedOption === option){
       setSelectedOption(-1)
     } else {
-      setSelectedOption(index)
+      setSelectedOption(option)
     }
   }
 
   /**
-   * @todo button을 styled-component와 더불어(absolute위치) 컴포넌트로 만들어서
-   * onClick때 함수 실행 시키도록 만들기
-   * @ask 버튼 ui가 선택되면 뛰우는걸 다 비교로 하는게 맞는가
-   * @ask 만약에 근데 컴포넌트에 저 함수가 다 있으면 가독성은 좋은데 오히려 안좋은거 아님?
+   * @ask OptionButton 컴포넌트에 children으로 저렇게 넣는거 맞나?
+   * 형 같으면 어케할거임? 그 때 말했던거 이해를 제대로 못한듯
+   * 
+   * 애초에 버튼이라는 똑같이 생긴 것들을 하나의 컴포넌트로 했고, optionButton의 로직을 수행하는 컴포넌트에 넣는것도 좋을듯
+   * 
+   * @ask position을 저렇게 글로 줘도 괜찮죠?
    */
+
   return (
     <E.Wrapper>
       <E.ImgContainer>
@@ -72,7 +79,7 @@ const EditImg = () => {
           image={imgURL[currentIndex]}
           crop={crop}
           zoom={zoom}
-          aspect={1 / 1}
+          aspect={aspect}
           onCropChange={setCrop}
           onCropComplete={onCropComplete}
           onZoomChange={setZoom}
@@ -89,34 +96,35 @@ const EditImg = () => {
         </E.GoRightButton>
       )}
 
-      <E.EditOption left={15}>
-        <E.Button
-        onClick={() => clickOption(0)}
-        >
-          <img src={sizeFree} alt="fitSize" />
-        </E.Button>
-        {selectedOption === 0 &&
-        <E.OptionInfo>
+      <OptionButton
+        position={"left:15px"}
+        src={fitSize}
+        alt={"fitSize"}
+        buttonPosition={"left"}
+        handler={clickOption}
+      >
+        {selectedOption === "fitSize" && <FitSize setAspect={setAspect} />}
+      </OptionButton>
 
-        </E.OptionInfo>
-        }
-      </E.EditOption>
+      <OptionButton
+        position={"left:60px"}
+        src={zoomIn}
+        alt={"zoom"}
+        buttonPosition={"left"}
+        handler={clickOption}
+      >
+        {selectedOption === "zoom" && <E.OptionInfo></E.OptionInfo>}
+      </OptionButton>
 
-      <E.EditOption left={60}>
-        <E.Button
-        onClick={() => clickOption(1)}
-        >
-          <img src={zoomIn} alt="zoom" />
-        </E.Button>
-      </E.EditOption>
-
-      <E.EditOption right={15}>
-        <E.Button
-        onClick={() => clickOption(2)}
-        >
-          <img src={addFile} alt="addFile" />
-        </E.Button>
-      </E.EditOption>
+      <OptionButton
+        position={"right:15px"}
+        src={addFile}
+        alt={"addFile"}
+        buttonPosition={"right"}
+        handler={clickOption}
+      >
+        {selectedOption === "addFile" && <E.OptionInfo></E.OptionInfo>}
+      </OptionButton>
 
     </E.Wrapper>
   );

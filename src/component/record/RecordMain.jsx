@@ -60,7 +60,6 @@ const RecordMain = () => {
   }, [inView]);
   /**
    * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
-   * @todo 선택된게  있으면 바탕을 눌렀을 때 삭제 확인 뛰우기
    */
   return (
     <R.Wrapper>

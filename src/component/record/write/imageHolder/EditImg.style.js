@@ -57,15 +57,14 @@ export const GoRightButton = styled(Button)`
     }
 `
 
-/**
- * @ask 이렇게 속성이 있을 때 사용해야 할 때 어떻게 함?
- * 먼 문법 있지 않나? 
- */
 export const EditOption = styled.div`
     position:absolute;
     ${(props) => props.left && css`left:${(props) => props.left+"px"};`};
     ${(props) => props.right && css`right:${(props) => props.right+"px"};`}
     bottom:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
 `
 
 export const OptionInfo = styled.div`
@@ -73,3 +72,9 @@ export const OptionInfo = styled.div`
     height:100px;
     background-color:powderblue;
 `
+
+// Button은 OptionButton에서도 쓴다
+/**
+ * @todo button common으로 빼기
+ */
+export default {Button}
