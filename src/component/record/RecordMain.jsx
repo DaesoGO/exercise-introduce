@@ -69,7 +69,6 @@ const RecordMain = () => {
           onClose={closeModal}
           maskCloseable={true}
           visible="true"
-          menu="안녕"
           checkClose={true}
         >
          <Write/>

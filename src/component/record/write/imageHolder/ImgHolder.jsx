@@ -77,27 +77,28 @@ const ImgHolder = ({ mode = "view" }) => {
 
   return (
     <E.Wrapper>
-      {mode === "view" ? (
-        <E.ImgContainer>
+      <E.ImgContainer>
+        {mode === "view" ? (
           <E.Img src={imgURL[currentIndex]} />
-        </E.ImgContainer>
-      ) : (
-        <E.ImgContainer>
-          <Cropper
-            image={imgURL[currentIndex]}
-            crop={crop}
-            zoom={zoom}
-            aspect={aspect}
-            onCropChange={setCrop}
-            onCropComplete={onCropComplete}
-            onZoomChange={setZoom}
-          />
-          <E.ContainerSupporter aspect={aspect}>
-            <div />
-            <div />
-          </E.ContainerSupporter>
-        </E.ImgContainer>
-      )}
+        ) : (
+          <>
+            <Cropper
+              image={imgURL[currentIndex]}
+              crop={crop}
+              zoom={zoom}
+              aspect={aspect}
+              onCropChange={setCrop}
+              onCropComplete={onCropComplete}
+              onZoomChange={setZoom}
+            />
+            <E.ContainerSupporter aspect={aspect}>
+              <div />
+              <div />
+            </E.ContainerSupporter>
+          </>
+        )}
+      </E.ImgContainer>
+
       {currentIndex !== 0 && (
         <E.GoLeftButton onClick={nextImg}>
           <img src={leftArrow} alt="goLeft" />
@@ -144,6 +145,9 @@ const ImgHolder = ({ mode = "view" }) => {
           </OptionButton>
         </>
       )}
+      
+      <label></label>
+
     </E.Wrapper>
   );
 };
