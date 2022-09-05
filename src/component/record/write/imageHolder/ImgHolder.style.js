@@ -67,8 +67,11 @@ export const ContainerSupporter = styled.div`
       border-radius:0px 0px 10px 10px;
     }
   ` : css`
-    > * {
+    > :first-child {
       border-radius:0px 0px 0px 10px;
+    }
+    > :last-child{
+      border-radius:0px 0px 10px 0px;
     }
   `}
 `;
@@ -81,6 +84,7 @@ export const Img = styled.img`
 `;
 
 export const Button = styled.button`
+  pointer-events:all;
   border-radius: 50%;
   border: none;
   background-color: rgba(0, 0, 0, 0.7);

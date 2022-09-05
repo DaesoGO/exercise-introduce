@@ -1,10 +1,11 @@
 import React from 'react';
+import * as A from "./AddFile.style"
 
 const AddFile = () => {
     return (
-        <div>
+        <A.Wrapper>
             
-        </div>
+        </A.Wrapper>
     );
 };
 

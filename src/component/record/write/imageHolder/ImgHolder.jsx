@@ -72,6 +72,7 @@ const ImgHolder = ({ mode = "view" }) => {
    * 애초에 버튼이라는 똑같이 생긴 것들을 하나의 컴포넌트로 했고, optionButton의 로직을 수행하는 컴포넌트에 넣는것도 좋을듯
    *
    * @ask position을 저렇게 글로 줘도 괜찮죠?
+   * @todo Cropper에 4/3 을 하면 1/1 로 해도 이상함
    */
 
   return (
@@ -109,7 +110,7 @@ const ImgHolder = ({ mode = "view" }) => {
       )}
 
       {mode !== "view" && (
-        <div>
+        <>
           <OptionButton
             position={"left:15px"}
             src={fitSize}
@@ -139,9 +140,9 @@ const ImgHolder = ({ mode = "view" }) => {
             buttonPosition={"right"}
             handler={clickOption}
           >
-            {selectedOption === "addFile" && <E.OptionInfo></E.OptionInfo>}
+            {selectedOption === "addFile" && <AddFile />}
           </OptionButton>
-        </div>
+        </>
       )}
     </E.Wrapper>
   );
