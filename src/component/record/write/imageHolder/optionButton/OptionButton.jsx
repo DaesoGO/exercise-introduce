@@ -1,7 +1,7 @@
 import React from 'react';
 import * as O from "./OptionButton.style"
 
-import {Button} from "../EditImg.style"
+import {Button} from "../ImgHolder.style"
 
 /** 
  * @ask 이거 조금 더 확실하게 props값 하나 있으면 다른 거 없게 할 수 있는방법?

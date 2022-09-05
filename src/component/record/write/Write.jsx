@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect} from 'react';
 import * as W from "./Write.style"
 
 import DropBox from './dropBox/DropBox';
-import EditImg from './imageHolder/EditImg';
+import ImgHolder from './imageHolder/ImgHolder';
 
 import backArrow from "../../../static/record/write/back.svg"
 
@@ -38,7 +38,7 @@ const Write = () => {
             <W.Content>
                 {
                     isExist ?
-                    <EditImg/>
+                    <ImgHolder mode="edit" />
                     :<DropBox/>
                 }
             </W.Content>
