@@ -15,7 +15,14 @@ export const ImgContainer = styled.div`
 
   .reactEasyCrop_Container{
     border-radius:0px 0px 10px 10px !important;
+    .reactEasyCrop_CropAreaGrid{
+      visibility:hidden;
+    }
+    :active > .reactEasyCrop_CropAreaGrid{
+      visibility:visible;
+    };
   }
+
 `;
 
 export const ContainerSupporter = styled.div`

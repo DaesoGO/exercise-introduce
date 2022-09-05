@@ -6,9 +6,6 @@ import ImgHolder from './imageHolder/ImgHolder';
 
 import backArrow from "../../../static/record/write/back.svg"
 
-import 더미1 from "./더미1.jpg"
-import 더미2 from "./더미2.jpg"
-
 export const ImgContext = createContext();
 
 const Write = () => {

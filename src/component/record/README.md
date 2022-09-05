@@ -223,3 +223,37 @@ export const ContainerSupporter = styled.div`
 **바로 찾아보니 `pointer-events` 를 추가하면 된다고 한다!**
 
 ## Cropper의 마우스 이동시 분할선 생기게 하기
+Cropper는 기본적으로 아래처럼 분할 선이 있었다
+
+![기본적 분할선](https://user-images.githubusercontent.com/85085375/188401724-0396b104-913a-43e9-90fa-ae7fc285c15e.png)
+
+**아래의 인스타를 보면 편집을 하기 위해 마우스를 클릭 했을 때만 분할선이 생긴다**
+기본적으로 분할선이 없는 사진을 보며 편집을 할 수 있어야 조금 더 편할 것 같다
+
+![인스타 분할선](https://user-images.githubusercontent.com/85085375/188409934-6be78b40-30fb-4d0a-a48c-68827d8c51fc.gif)
+
+라이브러리 뷰를 변경하면서 당연하지만 중요한 사실을 알게됐다
+**`npm i` 했을 때 초기화가 되기 때문에 내부적인 로직은 변경 못 하고, css만 건들 수 있다, 그래서 모듈을 만들 땐 유연하게 로직이 변경 될 수 있는게 중요하다는 걸 다시 느꼈다**
+
+다행이 내가 하려는 것은 css만으로 변경할 수 있었다
+
+위쪽의 DOM을 보면 `reactEasyCrop_Container` 가 가장 최상단의 엘리먼트이고, 이벤트를 이 엘리먼트에서만 인식할 수 있었다
+그래서 아래처럼 `>` 자식결합자와 `visibility` 속성을 활용해 변경했다
+
+```css
+.reactEasyCrop_Container{
+  border-radius:0px 0px 10px 10px !important;
+  .reactEasyCrop_CropAreaGrid{
+    visibility:hidden;
+  }
+  :active > .reactEasyCrop_CropAreaGrid{
+    visibility:visible;
+  };
+}
+```
+
+결과는 아래와 같다
+
+![결과](https://user-images.githubusercontent.com/85085375/188411651-0b3cd4af-e031-4f40-8b2b-2540974a4af9.gif)
+
+그래도 어떻게 만들려는걸 뚝딱뚝딱 만들어 지는게 재미있다
