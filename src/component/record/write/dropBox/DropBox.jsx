@@ -36,10 +36,7 @@ const DropBox = () => {
   }
 
   function handleChangeFile(e) {
-    const files = e.target.files;
-    files.forEach((file) => {
-      addFile(file);
-    });
+    [...e.target.files].forEach(file => addFile(file))
   }
 
   // 많은 파일이 들어가지 않고, drop함수에서 하나씩 비교해야하는 작업이 있기 때문에
@@ -66,7 +63,7 @@ const DropBox = () => {
       <img src={fileSvg} />
       <h3>{isDragging ? "놓으세요" : "파일을 드래그하세요"}</h3>
       <label htmlFor="fileBox">업로드</label>
-      <input type="file" id="fileBox" onChange={handleChangeFile} multiple />
+      <input type="file" id="fileBox" onChange={(e) => handleChangeFile(e)} multiple />
     </D.Wrapper>
   );
 };

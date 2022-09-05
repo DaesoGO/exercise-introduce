@@ -222,4 +222,4 @@ export const ContainerSupporter = styled.div`
 
 **바로 찾아보니 `pointer-events` 를 추가하면 된다고 한다!**
 
-## Cropper의 마우스 이동시 분할선 생기게 하기(module변경)
+## Cropper의 마우스 이동시 분할선 생기게 하기
