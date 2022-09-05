@@ -81,14 +81,133 @@ import Cropper from "react-easy-crop";
 3. ViewImg의 EditMode를 켰다 껏다 함으로써 Edit할 수 있게 하면 편리하게 위의 기능을 제공할 수 있을것이다
 4. 사실, 컴포넌트를 이렇게 조밀조밀하게 나누는게 쉽지 않다ㅋㅋ
 
-## EditMode만들기(220903)
-editMode를 줬을 때 이미지를 수정할 수 있고, 수정하는 기능들을 사용할 수 있도록 mode에 따른 변경을 해주면 된다
-
-## 옵션 버튼 컴포넌트 만들기
+## 옵션 버튼 컴포넌트 만들기(220903)
 자를 비율, 줌, 사진 선택 옵션 버튼들은 모두 같은 역할을 한다, 버튼이 눌리면 그 버튼에 혜당하는 툴팁형태의 옵션을 띄우는 것이다,
 
 ![옵션버튼](https://user-images.githubusercontent.com/85085375/188266708-508bb1e0-da19-47ff-959d-3941f802c11b.png)
 
 이런 옵션 버튼들을 위한 [헤드리스 컴포넌트](https://www.howdy-mj.me/design/headless-components/)를 만든다
+
+```js
+/**
+ * @param position 옵션 전체의 absolute적 위치(left또는 right 과 값을 문자열로)
+ * @param src 이미지 소스
+ * @param alt 이미지 이름, handler에 넣어줄 이름
+ * @param buttonPosition 툴팁과 버튼의 상대적 위치(툴팁을 기준으로 left또는 right문자열)
+ * @param handler 클릭 했을 때 실행될 함수
+ * @param children 툴팁, 열리고 닫히는 상황이 포함된 jsx형태를 받는다
+ */
+<OptionButton
+position={"left:15px"}
+src={fitSize}
+alt={"fitSize"}
+buttonPosition={"left"}
+handler={clickOption}
+>
+{selectedOption === "fitSize" && <FitSize setAspect={setAspect} />}
+</OptionButton>
+```
+
+위의 방법으로 사용할 수 있는 버튼을 만들었다
+children으로 클릭했을 때 사용할 버튼을 만들어 준다
+
+`selectedOption` 비교를 버튼 컴포넌트 밖에서 하는게 맞는건진 모르겠는데, 일단 변경하기 쉽게 밖에서 뺏다
+
+버튼을 사용하면 아래처럼 작동이 된다
+
+![버튼 시연](https://user-images.githubusercontent.com/85085375/188348234-511f9ba1-ffab-46b9-9d9f-41f4407348a4.gif)
+
+`Zoom` 컴포넌트는 `input range` 를 사용했다
+
+## EditMode만들기(220905)
+editMode를 줬을 때 이미지를 수정할 수 있고, 수정하는 기능들을 사용할 수 있도록 mode에 따른 변경을 해주면 된다
+
+## 자르는 비율에 따른 옆 빈 공백 채워주기
+비율을 선택했을 때 옆 부분(잘릴 부분)이 보여지는게 조금 신경쓰였다, 사실 아얘 인스타처럼 따라하기 시작한 이상, 기술때문에 구현 못하는걸 최대한 줄이고 싶어서 괜히 빈 공백이 싫어 보이기도 했다, 그래서 빈 공백을 채워주자
+
+![공백 채우기 전](https://user-images.githubusercontent.com/85085375/188348566-a00aa1bd-3685-416d-890c-2351fb65655b.gif)
+
+> 위는 공백을 채우기 전이다
+
+```js
+<E.ImgContainer>
+{/* <E.Img src={imgURL[currentIndex]}/> */}
+<Cropper
+    image={imgURL[currentIndex]}
+    crop={crop}
+    zoom={zoom}
+    aspect={aspect}
+    onCropChange={setCrop}
+    onCropComplete={onCropComplete}
+    onZoomChange={setZoom}
+    />
+    -----------
+    <E.ContainerSupporter aspect={aspect} >
+    <div/><div/>
+    </E.ContainerSupporter>
+    -----------
+</E.ImgContainer>
+```
+
+> 빈 공백을 채워줄 div를 만들어 준다, 1 / 1 비율이 아닐 때 좌 우 두개의 빈 공간이 생기기 때문에 div 2개를 넣어준다, 16 / 9 비율에서는 `flex-direction` 만 바꿔준다(`width` 랑 `height` 도..)
+
+**채워줄 비율은 CSS로 채워준다, 자르는 비율이기 때문에 계산이 가능하다**
+
+```js
+export const ContainerSupporter = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // 가로 세로가 똑같으니 그냥 계산
+  display: flex;
+  flex-direction: ${(props) => (props.aspect === 16 / 9 ? "column" : "row")};
+  justify-content:space-between;
+
+  > div {
+    background-color:white;
+
+    // 1/1 비율일 땐 없어야 하기 때문에
+    width: ${(props) => {
+      switch (props.aspect) {
+        case 16 / 9:
+          return "100%";
+        case 4 / 5:
+            return "10%";
+        default:
+          return "0px";
+      }
+    }};
+    height: ${(props) => {
+        switch (props.aspect) {
+            case 16 / 9:
+                return "21.875%";
+            case 4 / 5:
+                return "100%";
+            default:
+                return "0px";
+        }
+    }};
+
+  }
+`;
+```
+
+> 뿌듯한 내 css다, 설명을 조금 하자면,
+`flex-direction` 은 위에서 말했듯 3 /4 , 16 / 9 에 따라 흰 부분이 생기는 부분이 달라지기 때문에 `column` 과 `row` 로 바꿔준다
+`width` 와 `height` 는 일단 1 / 1 비율일 땐 없다, `0px` 로 설정, 16 / 9 와 4 / 5 둘 다 height 또는 width 가 100%인 경우가 생긴다
+![16x9일때예](https://user-images.githubusercontent.com/85085375/188349452-4f91dcc9-394d-4e49-abfb-f24a1afd29fd.png)
+예시로 위처럼 16 / 9일 때 width가 100%이다
+<br/>
+16 / 9 일 때 하나의 `div` height 는 `(100 - ((100 / 16) * 9)) / 2` 일 것이다
+4 / 5 일 때 하나의 `div` width 는 `(100 - ((100 / 5) * 4)) / 2` 일 것이다
+
+암튼 머 이렇게 했습니다
+아래는 빈 공간을 채운 후 이다
+
+![공간을 채운 후](https://user-images.githubusercontent.com/85085375/188350853-093754ba-b6a9-4a1a-b7e8-8145d3a20a61.gif)
+
+**하지만 이 채우는 `div` 때문에 Cropper가 선택이 안된다**
+
+**바로 찾아보니 `pointer-events` 를 추가하면 된다고 한다!**
 
 ## Cropper의 마우스 이동시 분할선 생기게 하기(module변경)

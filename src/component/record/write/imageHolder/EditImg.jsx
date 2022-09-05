@@ -83,7 +83,10 @@ const EditImg = () => {
           onCropChange={setCrop}
           onCropComplete={onCropComplete}
           onZoomChange={setZoom}
-        />
+          />
+          <E.ContainerSupporter aspect={aspect} >
+            <div/><div/>
+          </E.ContainerSupporter>
       </E.ImgContainer>
       {currentIndex !== 0 && (
         <E.GoLeftButton onClick={nextImg}>
@@ -113,7 +116,7 @@ const EditImg = () => {
         buttonPosition={"left"}
         handler={clickOption}
       >
-        {selectedOption === "zoom" && <E.OptionInfo></E.OptionInfo>}
+        {selectedOption === "zoom" && <Zoom zoom={zoom} setZoom={setZoom} />}
       </OptionButton>
 
       <OptionButton
