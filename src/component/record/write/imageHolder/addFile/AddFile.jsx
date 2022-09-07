@@ -7,11 +7,11 @@ import add from "../../../../../static/record/add.svg";
 import close from "../../../../../static/record/close.svg";
 
 /**
- *
+ * @todo 이미지 여러 개 있을 때 스크롤로 넘어가게
  * @ask 이거 props가 맞을까 context가 맞을까
  * 어떤걸 기준으로 정함?
  */
-const AddFile = () => {
+const AddFile = ({imgURL}) => {
   const [imgFiles, setImgFiles] = useContext(ImgContext);
 
   /**
@@ -25,12 +25,15 @@ const AddFile = () => {
   }
 
   function deleteFile(key) {
+      temp = [...imgURL]
+      temp.slice(key,1);
+      imgURL = temp;
     // 파일 삭제
     console.log(key)
     let temp = [...imgFiles];
     temp.splice(key,1);
-    console.log(temp)
     setImgFiles(temp)
+
   }
 
 //   const imgId = useRef(0);
@@ -38,6 +41,7 @@ const AddFile = () => {
 
   return (
     <A.Wrapper>
+      <A.ImgContainer>
       {imgURL.reverse().map((url) => {
         const key = imgId++;
         return (
@@ -49,6 +53,7 @@ const AddFile = () => {
           </A.Desc>
         );
       })}
+      </A.ImgContainer>
       <label htmlFor="exUpload">
         <img src={add} alt="plus" />
       </label>

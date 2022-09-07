@@ -1,8 +1,15 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+
+  /* width:55vw;
+  max-width:700px;
+  max-height:700px;
+  height: 100%; */
+
+  width:100%;
+  height:100%;
   position: relative;
   border-radius: 0px 0px 10px 10px;
 `;
@@ -150,3 +157,4 @@ export const OptionInfo = styled.div`
  * @todo button common으로 빼기
  */
 export default { Button };
+
