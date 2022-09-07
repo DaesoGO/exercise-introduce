@@ -141,11 +141,11 @@ const ImgHolder = ({ mode = "view" }) => {
             buttonPosition={"right"}
             handler={clickOption}
           >
-            {selectedOption === "addFile" && <AddFile />}
+            {selectedOption === "addFile" && <AddFile imgURL={imgURL} />}
           </OptionButton>
         </>
       )}
-      
+
       <label></label>
 
     </E.Wrapper>
