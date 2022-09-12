@@ -7,6 +7,8 @@ import React, {
 } from "react";
 import * as E from "./ImgHolder.style";
 import { ImgContext } from "../Write";
+import { useRecoilValue } from "recoil";
+import { creatingStep } from "../../../../stores/write/writeData";
 
 import leftArrow from "../../../../static/record/leftArrow.svg";
 import rightArrow from "../../../../static/record/rightArrow.svg";
@@ -25,6 +27,8 @@ import Cropper from "react-easy-crop";
  * @param mode 기본모드는 view, edit을 줄 수 있다
  */
 const ImgHolder = ({ mode = "view" }) => {
+  const step = useRecoilValue(creatingStep)
+
   const [imgFiles, setImgFiles] = useContext(ImgContext);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -77,9 +81,9 @@ const ImgHolder = ({ mode = "view" }) => {
 
   return (
     <E.Wrapper>
-      <E.ImgContainer>
+      <E.ImgContainer >
         {mode === "view" ? (
-          <E.Img src={imgURL[currentIndex]} />
+          <E.Img step={step} src={imgURL[currentIndex]} />
         ) : (
           <>
             <Cropper

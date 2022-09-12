@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  transition:width 1s;
   width:${(props) => props.width+"vw"};
   max-width:${(props) => props.maxWidth+"px"};
-  display: flex;
-  flex-direction: column;
+
 `;
 
 export const Menu = styled.header`
@@ -42,7 +42,11 @@ export const ButtonWithSvg = styled(Button)`
   }
 `
 
-export const ImgArea = styled.div`  
+export const ContentWrapper = styled.div`
+  display:flex;
+`
+
+export const ImgArea = styled.section`  
   // 정방형을 유지해야 하기 때문에
   height:55vw;
   max-height:700px;
@@ -52,7 +56,11 @@ export const ImgArea = styled.div`
   position:relative;
 `
 
-export const WriteArea = styled.div`
-  height:100%;
+export const WriteArea = styled.section`
+  height:55vw;
+  max-height:700px;
   width:35vw;
+  max-width:400px;
+  display: flex;
+  flex-direction:column;
 `

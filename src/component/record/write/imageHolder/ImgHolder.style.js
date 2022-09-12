@@ -25,10 +25,15 @@ export const ImgContainer = styled.div`
     .reactEasyCrop_CropAreaGrid{
       visibility:hidden;
     }
+    .reactEasyCrop_CropArea{
+      border:0px;
+    }
     :active > .reactEasyCrop_CropAreaGrid{
       visibility:visible;
     };
+
   }
+  
 
 `;
 
@@ -86,7 +91,10 @@ export const ContainerSupporter = styled.div`
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: ${(props) => 
+  props.step === 1 ?
+  "0px 0px 0px 10px" : 
+  "0px 0px 10px 10px"};
   object-fit: cover;
 `;
 
