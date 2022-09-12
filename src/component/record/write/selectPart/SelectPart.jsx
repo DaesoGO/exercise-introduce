@@ -1,10 +1,11 @@
 import React from 'react';
+import * as S from "./SelectPart.style"
 
 const selectPart = () => {
     return (
-        <div>
+        <S.Wrapper>
             
-        </div>
+        </S.Wrapper>
     );
 };
 
