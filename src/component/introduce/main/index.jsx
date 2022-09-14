@@ -15,7 +15,7 @@ const Render = ({ info }) => {
   return (
     <S.MainContainer>
       <S.DisplayContainer>
-        <S.AppContainer ref={dom} />
+        <S.AppContainer ref={dom} />hr
         <S.InfoContainer>
           {muscle.map((element, idx) => {
             return <S.Muscle key={idx}>{element}</S.Muscle>;

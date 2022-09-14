@@ -1,10 +1,11 @@
 import React from 'react';
+import * as M from "./MakeContent.style"
 
 const MakeContent = () => {
     return (
-        <div>
+        <M.Wrapper>
             
-        </div>
+        </M.Wrapper>
     );
 };
 
