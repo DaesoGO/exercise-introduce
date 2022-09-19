@@ -12,6 +12,9 @@ import backArrow from "../../../static/record/write/back.svg";
 import MakeContent from "./makeContent/MakeContent";
 import SelectPart from "./selectPart/SelectPart";
 
+import img1 from "./1.jpg"
+import img2 from "./2.jpg"
+
 export const ImgContext = createContext();
 
 const Write = () => {
@@ -37,7 +40,7 @@ const Write = () => {
 
   // 이미지 유무
   const [isExist, setIsExist] = useState(false);
-  const [imgFiles, setImgFiles] = useState([]);
+  const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
 
   // 운동 부위, 글
   const [part, setPart] = useState();

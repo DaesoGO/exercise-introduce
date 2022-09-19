@@ -2,7 +2,7 @@ import {atom} from "recoil"
 
 const creatingStep = atom({
     key:"creatingStep",
-    default:0
+    default:2
 })
 
 export {creatingStep}
