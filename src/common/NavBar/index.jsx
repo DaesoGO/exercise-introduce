@@ -28,9 +28,9 @@ const Render = () => {
             </S.logoContainer>
             <S.navigator>
                 {
-                    contents.map((item) => {
+                    contents.map((item, idx) => {
                         return (
-                            <S.container>
+                            <S.container key={idx}>
                                 <Link to={item.param}>
                                     <S.menu>{item.title}</S.menu>
                                 </Link>
