@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.details`
+    border-top:1px solid #bdbebd ;
     width:100%;
 `
 
@@ -10,14 +11,11 @@ export const Title = styled.summary`
     align-items:Center;
     justify-content:space-between;
     padding:0px 16px;
-    >div{
-        
-    }
     > img{
         height:38px;
     }
 `  
 
 export const Content = styled.div`
-    padding:4px 16px;
+    padding:5px 16px;
 `

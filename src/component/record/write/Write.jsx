@@ -18,6 +18,17 @@ import img2 from "./2.jpg"
 export const ImgContext = createContext();
 
 const Write = () => {
+
+  const [step, setStep] = useRecoilState(creatingStep);
+
+  // 이미지 유무
+  const [isExist, setIsExist] = useState(false);
+  const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
+
+  // 운동 부위, 글
+  const [part, setPart] = useState();
+  const [content,setContent] = useState();
+
   const createStep = [
     {
       name: "holdImg",
@@ -35,16 +46,6 @@ const Write = () => {
       MaxWidth: 1100,
     },
   ];
-
-  const [step, setStep] = useRecoilState(creatingStep);
-
-  // 이미지 유무
-  const [isExist, setIsExist] = useState(false);
-  const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
-
-  // 운동 부위, 글
-  const [part, setPart] = useState();
-  const [content,setContent] = useState();
 
   useEffect(() => {
     if (imgFiles.length > 0) {
@@ -111,7 +112,7 @@ const Write = () => {
                 <W.ContentWrapper>
                   <W.ImgArea><ImgHolder/></W.ImgArea>
                   <W.WriteArea>
-                    <MakeContent content={content} setContent={setContent} />
+                    <MakeContent contents={content} setContents={setContent} />
                   </W.WriteArea>
                 </W.ContentWrapper>
               );
