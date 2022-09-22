@@ -27,20 +27,25 @@ const selectPart = ({part,setPart}) => {
     },
 ]
 
+    /**
+     * @todo ExeKind, ExePart컴포넌트로 안나누기
+     */
     return (
         <S.Wrapper>
-            <DropDownMenu title="운동종류" >
+            <DropDownMenu title="운동종류" defaultOpen="open">
+                <S.ExeKindWrapper>
                 {
-                    exeKinds.map((i) => {
+                    exeKinds.map((i) => (
                         <S.ExeKind key={i.id}>
-                            
+                            {i.name}
                         </S.ExeKind>
-                    })
+                    ))
                 }
+                </S.ExeKindWrapper>
             </DropDownMenu>
             <DropDownMenu title="운동부위" defaultOpen="open">
                 
-                
+
                 {/* exepart는 일단은 글로만, 시간되면 svg까지 쫌 ㄱㄱ */}
                 <ExePart part={part} /> 
 

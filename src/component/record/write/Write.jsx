@@ -30,12 +30,15 @@ const Write = () => {
   const [part, setPart] = useState([
     {
       id:4,
+      part:["등","광배"],
       name:"턱걸이"
   },{
       id:5,
+      part:["목"],
       name:"기뮤띠"
   },{
       id:6,
+      part:["손가락","전완근"],
       name:"코딩하기"
   },
   ]);

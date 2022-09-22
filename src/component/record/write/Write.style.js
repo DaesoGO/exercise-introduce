@@ -57,10 +57,12 @@ export const ImgArea = styled.section`
 `
 
 export const WriteArea = styled.section`
+  overflow-y:hidden;
   height:55vw;
   max-height:700px;
   width:35vw;
   max-width:400px;
   display: flex;
   flex-direction:column;
+
 `
