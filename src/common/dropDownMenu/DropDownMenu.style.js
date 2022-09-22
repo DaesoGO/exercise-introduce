@@ -13,6 +13,7 @@ export const Title = styled.summary`
     padding:0px 16px;
     > img{
         height:38px;
+        user-select:none;
     }
 `  
 

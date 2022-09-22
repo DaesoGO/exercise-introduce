@@ -25,8 +25,9 @@ const DropDownMenu = ({
                 <div>{title}</div>
                 {
                     isOpen ? 
-                    <img src={More} alt="더보기" onClick={() => setIsOpen((prev) => !prev)} />:   
                     <img src={Less} alt="더보기 닫기" onClick={() => setIsOpen((prev) => !prev)} />
+                    :   
+                    <img src={More} alt="더보기" onClick={() => setIsOpen((prev) => !prev)} />
                 }
             </D.Title>
             <D.Content>

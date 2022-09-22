@@ -23,10 +23,22 @@ const Write = () => {
 
   // 이미지 유무
   const [isExist, setIsExist] = useState(false);
-  const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
+  const [imgFiles, setImgFiles] = useState([]);
+  // const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
 
   // 운동 부위, 글
-  const [part, setPart] = useState();
+  const [part, setPart] = useState([
+    {
+      id:4,
+      name:"턱걸이"
+  },{
+      id:5,
+      name:"기뮤띠"
+  },{
+      id:6,
+      name:"코딩하기"
+  },
+  ]);
   const [content,setContent] = useState();
 
   const createStep = [
