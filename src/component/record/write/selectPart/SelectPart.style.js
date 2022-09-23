@@ -12,12 +12,8 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ItemWrapper = styled.div`
-  overflow-y: auto;
 
-  height:30vw;
-  max-height:200px;
-
+const ItemWrapper = styled.div`
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -30,12 +26,27 @@ export const ItemWrapper = styled.div`
     border-radius: 15px;
   }
 `
+export const ItemRowWrapper = styled(ItemWrapper)`
+  width:100%;
+  overflow-x:auto;
+  height:auto;
+`
+export const ItemColWrapper = styled(ItemWrapper)`
+  overflow-y: auto;
+  height:30vw;
+  max-height:200px;
+`
+
 
 export const Item = styled.div`
-  margin:10px 0px;
+  margin:10px 7px;
   font-size: small;
   max-width: calc(85% - 10px);
   padding: 15px 15px;
   border-radius: 15px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
 `;
+export const rowItem = styled(Item)`
+  display:inline-block;
+  margin:0px;
+`

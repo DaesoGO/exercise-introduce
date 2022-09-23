@@ -4,6 +4,7 @@ import * as S from "./SelectPart.style"
 
 const selectPart = ({part,setPart}) => {
 
+    // 서버한테 받아올 운동 목록
     const exeKinds = [
     {
         id:1,
@@ -26,13 +27,39 @@ const selectPart = ({part,setPart}) => {
     },
 ]
 
+    const selectedExe = [
+        {
+            id:2,
+            name:"스쿼트",
+        },{
+            id:4,
+            name:"턱걸이"
+        },{
+            id:6,
+            name:"코딩하기"
+        },{
+            id:12,
+            name:"코딩하기"
+        },{
+            id:13,
+            name:"코딩하기"
+        },{
+            id:14,
+            name:"코딩하기"
+        },{
+            id:15,
+            name:"코딩하기"
+        }
+        
+    ]
+
     /**
      * @todo ExeKind, ExePart컴포넌트로 안나누기
      */
     return (
         <S.Wrapper>
-            <DropDownMenu title="운동종류" defaultOpen="open">
-                <S.ItemWrapper>
+            <DropDownMenu title="운동 선택" defaultOpen="open">
+                <S.ItemColWrapper>
                 {
                     exeKinds.map((i) => (
                         <S.Item key={i.id}>
@@ -40,18 +67,29 @@ const selectPart = ({part,setPart}) => {
                         </S.Item>
                     ))
                 }
-                </S.ItemWrapper>
+                </S.ItemColWrapper>
             </DropDownMenu>
-            <DropDownMenu title="운동부위" defaultOpen="open">
+            <DropDownMenu title="선택된 운동" defaultOpen="open">
+                <S.ItemRowWrapper>
+                {
+                    selectedExe.map((i) => (
+                        <S.rowItem key={i.id}>
+                            {i.name}
+                        </S.rowItem>
+                    ))
+                }
+                </S.ItemRowWrapper>
+            </DropDownMenu>
+            <DropDownMenu title="운동 부위" defaultOpen="open">
                 
 
-                <S.ItemWrapper>
+                <S.ItemColWrapper>
                     {
                         part.map((i) => (
                             <S.Item key={i.id} >{i.name}</S.Item>
                         ))
                     }
-                </S.ItemWrapper>
+                </S.ItemColWrapper>
                 
                 {/* exepart는 일단은 글로만, 시간되면 svg까지 쫌 ㄱㄱ */}
                 {/* <ExePart part={part} />  */}

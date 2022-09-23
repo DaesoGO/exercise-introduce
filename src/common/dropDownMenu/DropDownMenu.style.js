@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.details`
     border-top:1px solid #bdbebd ;
     width:100%;
-
+    background-color:rgba(0,0,0,0);
 `
 
 export const Title = styled.summary`
