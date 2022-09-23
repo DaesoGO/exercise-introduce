@@ -1,6 +1,5 @@
 import React from 'react';
 import DropDownMenu from '../../../../common/dropDownMenu/DropDownMenu';
-import ExePart from './exePart/ExePart';
 import * as S from "./SelectPart.style"
 
 const selectPart = ({part,setPart}) => {
@@ -33,21 +32,29 @@ const selectPart = ({part,setPart}) => {
     return (
         <S.Wrapper>
             <DropDownMenu title="운동종류" defaultOpen="open">
-                <S.ExeKindWrapper>
+                <S.ItemWrapper>
                 {
                     exeKinds.map((i) => (
-                        <S.ExeKind key={i.id}>
+                        <S.Item key={i.id}>
                             {i.name}
-                        </S.ExeKind>
+                        </S.Item>
                     ))
                 }
-                </S.ExeKindWrapper>
+                </S.ItemWrapper>
             </DropDownMenu>
             <DropDownMenu title="운동부위" defaultOpen="open">
                 
 
+                <S.ItemWrapper>
+                    {
+                        part.map((i) => (
+                            <S.Item key={i.id} >{i.name}</S.Item>
+                        ))
+                    }
+                </S.ItemWrapper>
+                
                 {/* exepart는 일단은 글로만, 시간되면 svg까지 쫌 ㄱㄱ */}
-                <ExePart part={part} /> 
+                {/* <ExePart part={part} />  */}
 
             </DropDownMenu>
             <hr />

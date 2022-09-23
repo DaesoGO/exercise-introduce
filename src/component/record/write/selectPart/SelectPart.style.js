@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ExeKindWrapper = styled.div`
+export const ItemWrapper = styled.div`
   overflow-y: auto;
 
   height:30vw;
@@ -29,9 +29,9 @@ export const ExeKindWrapper = styled.div`
     background: #f4f4f4;
     border-radius: 15px;
   }
-`;
+`
 
-export const ExeKind = styled.div`
+export const Item = styled.div`
   margin:10px 0px;
   font-size: small;
   max-width: calc(85% - 10px);
