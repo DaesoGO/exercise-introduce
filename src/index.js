@@ -1,18 +1,18 @@
 import React from "react";
-
 import * as ReactDOM from 'react-dom/client';
-import App from './App.jsx';
 import './index.css'
-import GlobalFonts from './styles/fonts/pretendard'
-
+import App from './App.jsx';
 import axios from "axios";
+import { RecoilRoot } from 'recoil'
 
-ReactDOM.createRoot(
-document.getElementById("app")).
-    render(
-        <React.StrictMode>
-            <GlobalFonts/>
+ReactDOM
+.createRoot(document.getElementById("app"))
+.render(
+    <React.StrictMode>
+        <RecoilRoot>
             <App />
-        </React.StrictMode>
-    )
+        </RecoilRoot>
+    </React.StrictMode>
+)
+
 axios.defaults.baseURL = "/api";
