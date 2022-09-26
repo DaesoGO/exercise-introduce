@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { useState, useLayoutEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
-import NavBar from '../common/NavBar'
-import Footer from '../common/Footer'
+import NavBar from '../common/NavBar/index'
+import Footer from '../common/Footer/index'
 
 import routes from './routes'
 

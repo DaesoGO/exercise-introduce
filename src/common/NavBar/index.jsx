@@ -4,7 +4,6 @@ import GlobalStyle from './index.globalstyle'
 import logo from './navlogo.png'
 import * as S from './index.style'
 const Render = () => {
-    const [logohover, setLogohover] = useState(false)
     const contents = [
         { title: '운동 소개', param: '/introduce' },
         { title: '추천', param: '/recommend' },
@@ -15,16 +14,9 @@ const Render = () => {
             <GlobalStyle/>
             <S.background>
             <S.logoContainer>
-                <div>
-                    <Link to='/'>
-                        <S.Logo
-                        src={logo}
-                        onMouseEnter={() => {setLogohover(true)}}
-                        onMouseLeave={() => {setLogohover(false)}}
-                        />
-                    </Link>
-                </div>
-                <S.logoTitle isvisible={logohover}>어깨어때</S.logoTitle>
+                <S.imgContainer to='/'>
+                    <S.Logo src={logo}/>
+                </S.imgContainer>
             </S.logoContainer>
             <S.navigator>
                 {
@@ -40,10 +32,13 @@ const Render = () => {
                 }
             </S.navigator>
             <S.loginForm>
-                
-                <S.loginText>로그인</S.loginText>
+                <Link to={'/login'}>
+                    <S.loginText>로그인</S.loginText>
+                </Link>
                 &nbsp;
-                <S.loginText>회원가입</S.loginText>
+                <Link to={'/login'}>
+                    <S.loginText>회원가입</S.loginText>
+                </Link>
             </S.loginForm>
             </S.background>
         </>
