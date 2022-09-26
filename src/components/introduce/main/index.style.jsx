@@ -17,6 +17,7 @@ export const AppContainer = styled.div`
   height: 80vh;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  position: relative;
 `;
 
 export const InfoContainer = styled.div`
