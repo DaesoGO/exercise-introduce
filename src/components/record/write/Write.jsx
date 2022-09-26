@@ -109,12 +109,13 @@ const Write = () => {
         <W.ContentWrapper>
           {
             isExist ?
-            <W.ImgArea step={step} >
+            <W.ImgArea >
             <ImgHolder mode={step === 0 ? "edit" : "view"} />
             </W.ImgArea>
             :
             <DropBox />
           }
+
           {(() => {
             switch (step) {
               // case 0:
@@ -136,6 +137,16 @@ const Write = () => {
             }
           })()}
         </W.ContentWrapper>
+
+        {/* {
+            isExist ?
+            <W.ImgArea >
+            <ImgHolder mode={step === 0 ? "edit" : "view"} />
+            </W.ImgArea>
+            :
+            <DropBox />
+          } */}
+
         {/* {(() => {
           switch (step) {
             case 0:

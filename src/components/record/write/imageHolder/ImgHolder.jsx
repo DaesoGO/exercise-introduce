@@ -79,9 +79,11 @@ const ImgHolder = ({ mode = "view" }) => {
    * @todo Cropper에 4/3 을 하면 1/1 로 해도 이상함
    */
 
+  console.log(mode === "view")
+
   return (
     <E.Wrapper>
-      <E.ImgContainer>
+      <E.ImgContainer pointerEvent={mode === "edit"} >
         {/* {mode === "view" ? (
           <E.Img step={step} src={imgURL[currentIndex]} />
         ) : (

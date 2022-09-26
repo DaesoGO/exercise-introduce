@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  transition:width 1s;
   width:${(props) => props.width+"vw"};
   max-width:${(props) => props.maxWidth+"px"};
+  transition:width 1s;
+
 `;
 
 export const Menu = styled.header`
@@ -54,14 +55,13 @@ export const ImgArea = styled.section`
   // 정방형을 유지해야 하기 때문에
   height:100%;
   box-sizing:border-box;
-  /* width:${(props) => props.step === 0 ? "100%" : "62%"}; */
   width:60vw;
   max-width: 700px;
-  transition:all 0s;
 
 `
 
 export const WriteArea = styled.section`
+
   overflow-y:hidden;
   height:100%;
   width:35vw;
