@@ -48,17 +48,17 @@ const Write = () => {
   const createStep = [
     {
       name: "holdImg",
-      Width: 55, // vw
+      Width: 60, // vw
       MaxWidth: 700, // px
     },
     {
       name: "selectPart",
-      Width: 90,
+      Width: 95,
       MaxWidth: 1100,
     },
     {
       name: "write",
-      Width: 90,
+      Width: 95,
       MaxWidth: 1100,
     },
   ];
@@ -107,9 +107,14 @@ const Write = () => {
       </W.Menu>
       <ImgContext.Provider value={[imgFiles, setImgFiles]}>
         <W.ContentWrapper>
-          <W.ImgArea>
-            {isExist ? <ImgHolder mode={step === 0 ? "edit" : "view"} /> : <DropBox />}
-          </W.ImgArea>
+          {
+            isExist ?
+            <W.ImgArea step={step} >
+            <ImgHolder mode={step === 0 ? "edit" : "view"} />
+            </W.ImgArea>
+            :
+            <DropBox />
+          }
           {(() => {
             switch (step) {
               // case 0:

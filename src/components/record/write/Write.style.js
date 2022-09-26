@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   transition:width 1s;
   width:${(props) => props.width+"vw"};
   max-width:${(props) => props.maxWidth+"px"};
-
 `;
 
 export const Menu = styled.header`
@@ -47,25 +46,25 @@ export const ContentWrapper = styled.div`
   /* display:flex;
   justify-content:center;
   align-items:center; */
+  height:60vw;
+  max-height:700px;
 `
 
 export const ImgArea = styled.section`  
   // 정방형을 유지해야 하기 때문에
-  height:55vw;
-  max-height:700px;
-  width:55vw;
-  
+  height:100%;
+  box-sizing:border-box;
+  /* width:${(props) => props.step === 0 ? "100%" : "62%"}; */
+  width:60vw;
   max-width: 700px;
-  position:relative;
   transition:all 0s;
+
 `
 
 export const WriteArea = styled.section`
   overflow-y:hidden;
-  height:55vw;
-  max-height:700px;
+  height:100%;
   width:35vw;
-  /* width:40%; */
   max-width:400px;
   display: flex;
   flex-direction:column;
