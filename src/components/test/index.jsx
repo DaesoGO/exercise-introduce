@@ -5,7 +5,7 @@ import {
     BoneName,
     Vector3
 } from 'skeletalmuscle-drawer'
-import human from 'skeletalmuscle-drawer/dist/human.gltf'
+// import human from 'skeletalmuscle-drawer/dist/human.gltf'
 
 const Render = () => {
     const dom = useRef()
