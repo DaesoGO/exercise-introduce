@@ -52,11 +52,23 @@ export const WirteBPlus = styled.div`
     font-weight:bold;
 `
 
-export const WirteBComment = styled.b`
+
+const WriteBCommentFont = styled.p`
     @media (max-width:800px){
         font-size:13px;
     }
+    @media (max-width:620px){
+        font-size:10px;
+    }
     font-size:15px;
+`
+
+export const WirteBComment = styled(WriteBCommentFont)`
+    font-weight:bold;
+    margin:0px;
+`
+export const WriteBSubComment = styled(WriteBCommentFont)`
+    margin-top:7px;
 `
 
 export const PostWrapper = styled.div`
