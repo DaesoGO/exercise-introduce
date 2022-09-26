@@ -9,6 +9,7 @@ const Modal = ({
   maskCloseable,
   visible,
   children,
+  checkClose,
 }) => {
   // 모달을 생성 했을 때 배경의 스크롤을 body태그의 css를 변경해서 못 움직이도록 해준다,
   // overflow-y를 그대로 스크롤로 해놓고 top을 변경했기 때문에, 모달이 생겼을 때도 스크롤이 없어지지 않는다
@@ -25,7 +26,10 @@ const Modal = ({
 
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
-      onClose(e);
+      console.log(e)
+      if (window.confirm('모달을 닫을까요?')){
+        onClose(e);
+      }
     }
   };
 
@@ -36,7 +40,8 @@ const Modal = ({
         visible={visible}
         className={name}
         tabIndex="-1"
-        onClick={maskCloseable ? onMaskClick : null}
+        // onClick={maskCloseable ? onMaskClick : null}
+        onMouseDown={maskCloseable ? onMaskClick : null}
       >
         <M.ModalInner tabIndex="0" className="modal-inner">
           {children}
