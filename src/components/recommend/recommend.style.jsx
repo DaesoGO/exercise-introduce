@@ -8,8 +8,8 @@ export const HeadBox = styled.div`
 `
 
 export const Box = styled.div`
-    width: 1000px;
-    height: 750px;
+    width: 1200px;
+    height: 1000px;
     margin-top: 50px;
     display: flex;
     flex-direction: row;
@@ -17,7 +17,7 @@ export const Box = styled.div`
 `
 
 export const ExercisePart = styled.div` //운동 부분
-    width: 100%;
+    width: 70%;
     height: 600px;
     background-color: #eee;
     margin-right: 20px;
@@ -33,7 +33,7 @@ export const FoodPart = styled.div` //음식 부분
     width: 100%;
     height: 100%;
     margin-left: 20px;
-    margin-top: 20%;
+    margin-top: 13%;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@ export const SmallImgPart = styled.div` //음식 사진 이미지 부분
 `
 
 export const Img = styled.img` //음식 사진 이미지
-    width: 90%;
+    width: 92%;
     height: 100%;
     margin:10px;
     &:hover{
