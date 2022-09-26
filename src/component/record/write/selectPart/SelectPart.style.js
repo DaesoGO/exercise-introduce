@@ -13,9 +13,36 @@ export const Wrapper = styled.div`
 `;
 
 
+export const SearchWrapper = styled.div`
+  position:relative;
+  max-width: calc(85% + 20px);
+  box-sizing:border-box;
+  >img{
+    position:absolute;
+    right:5px;
+    top:8px;
+    height:24px;
+    cursor:pointer;
+  }
+`
+export const SearchInput = styled.input`
+  padding:0px 0px 0px 15px;
+  box-sizing:border-box;
+
+  border-radius:15px;
+  outline:none;
+  border:1px solid #e4e4e4;
+  margin:0px 7px;
+
+  width:100%;
+  height:40px;
+`
+
+
 const ItemWrapper = styled.div`
   ::-webkit-scrollbar {
     width: 10px;
+    height:10px;
   }
   ::-webkit-scrollbar-thumb {
     background: #e4e4e4;
@@ -29,6 +56,7 @@ const ItemWrapper = styled.div`
 export const ItemRowWrapper = styled(ItemWrapper)`
   width:100%;
   overflow-x:auto;
+  white-space: nowrap;
   height:auto;
 `
 export const ItemColWrapper = styled(ItemWrapper)`
@@ -48,5 +76,6 @@ export const Item = styled.div`
 `;
 export const rowItem = styled(Item)`
   display:inline-block;
-  margin:0px;
+  margin:10px 7px;
+  max-width:none;
 `

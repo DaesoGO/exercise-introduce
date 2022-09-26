@@ -2,6 +2,9 @@ import React from 'react';
 import DropDownMenu from '../../../../common/dropDownMenu/DropDownMenu';
 import * as S from "./SelectPart.style"
 
+import search from "../../../../static/record/write/search.svg"
+import { useState } from 'react';
+
 const selectPart = ({part,setPart}) => {
 
     // 서버한테 받아올 운동 목록
@@ -30,7 +33,7 @@ const selectPart = ({part,setPart}) => {
     const selectedExe = [
         {
             id:2,
-            name:"스쿼트",
+            name:"스쿼트 스쿼트 스쿼트스쿼트스쿼트스쿼트스쿼트 스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트스쿼트",
         },{
             id:4,
             name:"턱걸이"
@@ -53,6 +56,14 @@ const selectPart = ({part,setPart}) => {
         
     ]
 
+    const [searchValue,setSearchValue] = useState("");
+
+    
+    function searchExe(){
+        console.log(searchValue,"를 서버에 검색")
+    }
+
+
     /**
      * @todo ExeKind, ExePart컴포넌트로 안나누기
      */
@@ -60,6 +71,12 @@ const selectPart = ({part,setPart}) => {
         <S.Wrapper>
             <DropDownMenu title="운동 선택" defaultOpen="open">
                 <S.ItemColWrapper>
+                <S.SearchWrapper>
+                    <S.SearchInput>
+                        
+                    </S.SearchInput>
+                    <img src={search} alt="검색" onClick={searchExe} />
+                </S.SearchWrapper>
                 {
                     exeKinds.map((i) => (
                         <S.Item key={i.id}>
