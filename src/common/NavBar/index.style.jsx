@@ -52,8 +52,8 @@ export const container = styled.div`
     }
 `
 export const menu = styled.span`
-    color: black;
-    font-size: 25px;
+    color: #0a1240dd;
+    font-size: 20px;
     font-weight: bold;
     user-select: none;
 `
