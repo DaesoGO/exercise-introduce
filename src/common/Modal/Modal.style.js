@@ -34,19 +34,6 @@ export const ModalInner = styled.div`
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
-  padding: 10px 0px;
   width:fit-content;
   transition:width 0.5s;
 `;
-
-export const CloseButton = styled.button`
-    border:none;
-    position:absolute;
-    right:15px;
-    top:15px;
-    background:none;
-    font-weight:bold;
-    font-size:15px;
-    color:#0095f6;
-    cursor:pointer;
-` 
