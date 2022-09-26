@@ -12,13 +12,12 @@ import backArrow from "../../../static/record/write/back.svg";
 import MakeContent from "./makeContent/MakeContent";
 import SelectPart from "./selectPart/SelectPart";
 
-import img1 from "./1.jpg"
-import img2 from "./2.jpg"
+import img1 from "./1.jpg";
+import img2 from "./2.jpg";
 
 export const ImgContext = createContext();
 
 const Write = () => {
-
   const [step, setStep] = useRecoilState(creatingStep);
 
   // 이미지 유무
@@ -29,20 +28,22 @@ const Write = () => {
   // 운동 부위, 글
   const [part, setPart] = useState([
     {
-      id:4,
-      part:["등","광배"],
-      name:"턱걸이"
-  },{
-      id:5,
-      part:["목"],
-      name:"기뮤띠"
-  },{
-      id:6,
-      part:["손가락","전완근"],
-      name:"코딩하기"
-  },
+      id: 4,
+      part: ["등", "광배"],
+      name: "턱걸이",
+    },
+    {
+      id: 5,
+      part: ["목"],
+      name: "기뮤띠",
+    },
+    {
+      id: 6,
+      part: ["손가락", "전완근"],
+      name: "코딩하기",
+    },
   ]);
-  const [content,setContent] = useState();
+  const [content, setContent] = useState();
 
   const createStep = [
     {
@@ -71,7 +72,7 @@ const Write = () => {
   }, [imgFiles]);
 
   function nextStep() {
-    if (step === (createStep.length - 1)) {
+    if (step === createStep.length - 1) {
       console.log("내용 서버에 보내기");
     } else {
       setStep((prev) => prev + 1);
@@ -99,13 +100,38 @@ const Write = () => {
               <img src={backArrow} alt="back" />
             </W.ButtonWithSvg>
             <W.Button onClick={nextStep}>
-              {step === (createStep.length - 1) ? "생성하기" : "다음"}
+              {step === createStep.length - 1 ? "생성하기" : "다음"}
             </W.Button>
           </W.MenuInner>
         )}
       </W.Menu>
       <ImgContext.Provider value={[imgFiles, setImgFiles]}>
-        {(() => {
+        <W.ContentWrapper>
+          <W.ImgArea>
+            {isExist ? <ImgHolder mode={step === 0 ? "edit" : "view"} /> : <DropBox />}
+          </W.ImgArea>
+          {(() => {
+            switch (step) {
+              // case 0:
+              //   return (
+
+              //   );
+              case 1:
+                return (
+                  <W.WriteArea>
+                    <SelectPart part={part} setPart={setPart} />
+                  </W.WriteArea>
+                );
+              case 2:
+                return (
+                  <W.WriteArea>
+                    <MakeContent contents={content} setContents={setContent} />
+                  </W.WriteArea>
+                );
+            }
+          })()}
+        </W.ContentWrapper>
+        {/* {(() => {
           switch (step) {
             case 0:
               return (
@@ -132,7 +158,7 @@ const Write = () => {
                 </W.ContentWrapper>
               );
           }
-        })()}
+        })()} */}
       </ImgContext.Provider>
     </W.Wrapper>
   );

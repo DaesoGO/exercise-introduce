@@ -44,16 +44,20 @@ export const ButtonWithSvg = styled(Button)`
 
 export const ContentWrapper = styled.div`
   display:flex;
+  /* display:flex;
+  justify-content:center;
+  align-items:center; */
 `
 
 export const ImgArea = styled.section`  
   // 정방형을 유지해야 하기 때문에
   height:55vw;
   max-height:700px;
-  /* width:100%; */
   width:55vw;
+  
   max-width: 700px;
   position:relative;
+  transition:all 0s;
 `
 
 export const WriteArea = styled.section`
@@ -61,6 +65,7 @@ export const WriteArea = styled.section`
   height:55vw;
   max-height:700px;
   width:35vw;
+  /* width:40%; */
   max-width:400px;
   display: flex;
   flex-direction:column;

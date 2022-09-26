@@ -19,7 +19,6 @@ export const ImgContainer = styled.div`
   height: 100%;
   position: relative;
   box-sizing: border-box;
-
   .reactEasyCrop_Container{
     border-radius:0px 0px 10px 10px !important;
     .reactEasyCrop_CropAreaGrid{
