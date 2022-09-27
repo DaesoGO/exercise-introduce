@@ -22,7 +22,10 @@ export const ImgContainer = styled.div`
   box-sizing: border-box;
 
   .reactEasyCrop_Container{
-    border-radius:0px 0px 10px 10px !important;
+    /* border-radius:0px 0px 10px 10px !important; */
+    // 이미지 편집에서는 radius가 좌우, 아닐 땐 왼쪽만
+    border-radius:${(props) => props.pointerEvent ?
+     "0px 0px 10px 10px" : "0px 0px 0px 10px"};
     .reactEasyCrop_CropAreaGrid{
       visibility:hidden;
     }

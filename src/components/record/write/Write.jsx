@@ -25,24 +25,11 @@ const Write = () => {
   const [imgFiles, setImgFiles] = useState([]);
   // const [imgFiles, setImgFiles] = useState([new File([img1],"img1.jpg"), new File([img2],"img2.jpg")]);
 
-  // 운동 부위, 글
-  const [part, setPart] = useState([
-    {
-      id: 4,
-      part: ["등", "광배"],
-      name: "턱걸이",
-    },
-    {
-      id: 5,
-      part: ["목"],
-      name: "기뮤띠",
-    },
-    {
-      id: 6,
-      part: ["손가락", "전완근"],
-      name: "코딩하기",
-    },
-  ]);
+  // 운동 종류,부위
+  const [exe, setExe] = useState([]);
+  const [part,setPart] = useState([]);
+
+  // 글
   const [content, setContent] = useState();
 
   const createStep = [
@@ -138,7 +125,10 @@ const Write = () => {
                       <ImgHolder mode="view" />
                     </W.ImgArea>
                     <W.WriteArea>
-                      <SelectPart part={part} setPart={setPart} />
+                      <SelectPart 
+                      exe={exe} setExe={setExe}
+                      part={part} setPart={setPart} 
+                      />
                     </W.WriteArea>
                   </>
                 );
