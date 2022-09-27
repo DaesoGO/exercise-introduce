@@ -107,32 +107,54 @@ const Write = () => {
       </W.Menu>
       <ImgContext.Provider value={[imgFiles, setImgFiles]}>
         <W.ContentWrapper>
-          {
-            isExist ?
-            <W.ImgArea >
-            <ImgHolder mode={step === 0 ? "edit" : "view"} />
-            </W.ImgArea>
-            :
-            <DropBox />
-          }
-
           {(() => {
             switch (step) {
-              // case 0:
-              //   return (
+              case 0:
+                return (
+                  <>
+                    {isExist ? (
+                      <W.ImgArea>
+                        <ImgHolder mode="edit" />
+                      </W.ImgArea>
+                    ) : (
+                      <DropBox />
+                    )}
+                  </>
+                );
 
-              //   );
+              // {
+              //   isExist ?
+              //   <W.ImgArea >
+              //   <ImgHolder mode={step === 0 ? "edit" : "view"} />
+              //   </W.ImgArea>
+              //   :
+              //   <DropBox />
+              // }
+
               case 1:
                 return (
-                  <W.WriteArea>
-                    <SelectPart part={part} setPart={setPart} />
-                  </W.WriteArea>
+                  <>
+                    <W.ImgArea>
+                      <ImgHolder mode="view" />
+                    </W.ImgArea>
+                    <W.WriteArea>
+                      <SelectPart part={part} setPart={setPart} />
+                    </W.WriteArea>
+                  </>
                 );
               case 2:
                 return (
-                  <W.WriteArea>
-                    <MakeContent contents={content} setContents={setContent} />
-                  </W.WriteArea>
+                  <>
+                    <W.ImgArea>
+                      <ImgHolder mode="view" />
+                    </W.ImgArea>
+                    <W.WriteArea>
+                      <MakeContent
+                        contents={content}
+                        setContents={setContent}
+                      />
+                    </W.WriteArea>
+                  </>
                 );
             }
           })()}

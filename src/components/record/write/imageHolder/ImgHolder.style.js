@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   max-width:700px;
   max-height:700px;
   height: 100%; */
-
   width:100%;
   height:100%;
   position: relative;

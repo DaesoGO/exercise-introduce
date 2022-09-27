@@ -31,11 +31,15 @@ export const SearchInput = styled.input`
 
   border-radius:15px;
   outline:none;
-  border:1px solid #e4e4e4;
+  border:1px solid #bdbebd;
   margin:0px 7px;
 
   width:100%;
   height:40px;
+
+  ::placeholder{
+    color:#bdbebd;
+  }
 `
 
 

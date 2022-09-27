@@ -72,7 +72,7 @@ const selectPart = ({part,setPart}) => {
             <DropDownMenu title="운동 선택" defaultOpen="open">
                 <S.ItemColWrapper>
                 <S.SearchWrapper>
-                    <S.SearchInput>
+                    <S.SearchInput placeholder='검색'>
                         
                     </S.SearchInput>
                     <img src={search} alt="검색" onClick={searchExe} />
