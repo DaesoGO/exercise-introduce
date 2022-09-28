@@ -39,7 +39,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     } else {
         // 이미 있을 땐 가중치를 추가해준다
         // 객체가 복사가 되어도 setter에 넣어서 괜찮다..
-        const temp = exe;
+        const temp = [...exe];
         temp[index].value += 1;
         console.log(temp)
         setExe(temp)
