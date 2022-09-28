@@ -30,19 +30,22 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
   // 선택된 객체형식의 운동이 들어온다
   function selectExe(selectedExe){
 
-    let isInclude = false;
-    for (let i of exe){
-        if (i.name === selectExe.name){
-            isInclude = true;
-            break;
-        }
+    // 못 찾았다면 결과값으로 -1이 나온다
+    const index = exe.findIndex((element) => element.name === selectedExe.name)
+    if (index === -1){ // 못 찾았을 때
+        // 가중치는 0으로 해준다
+        selectedExe.value = 1;
+        setExe((prev) => [...prev,selectedExe]);
+    } else {
+        // 이미 있을 땐 가중치를 추가해준다
+        // 객체가 복사가 되어도 setter에 넣어서 괜찮다..
+        const temp = exe;
+        temp[index].value += 1;
+        console.log(temp)
+        setExe(temp)
+        // setExe((prev) => [...prev[index].value += 1]);
     }
 
-    if (isInclude) {
-        setExe((prev) => [...prev,selectedExe])
-    } else {
-        // 있으니깐 추가가 아닌 요소의 가중치 추가
-    }
   }
 
   useEffect(() => {
@@ -75,7 +78,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <DropDownMenu title="선택된 운동" defaultOpen="open">
         <S.ItemRowWrapper>
           {exe.map((i) => (
-            <S.rowItem key={i.id}>{i.name}</S.rowItem>
+            <S.rowItem key={i.id}>{i.name}{i.value}</S.rowItem>
           ))}
         </S.ItemRowWrapper>
       </DropDownMenu>

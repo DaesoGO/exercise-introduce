@@ -25,18 +25,18 @@ module.exports = {
                     loader: 'file-loader',
                 }
             },
-            {
-                test: /\.(svg)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        name: '[name].[ext]?[hash]',
-                        limit: 10000,
-                        outputPath: webpack_path.build, 
-                        publicPath: webpack_path.source 
-                    }
-                }
-            }
+            // {
+            //     test: /\.(svg)$/,
+            //     use: {
+            //         loader: 'url-loader',
+            //         options: {
+            //             name: '[name].[ext]?[hash]',
+            //             limit: 10000,
+            //             outputPath: webpack_path.build, 
+            //             publicPath: webpack_path.source 
+            //         }
+            //     }
+            // }
             
         ]
     },
