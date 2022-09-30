@@ -11,7 +11,7 @@ const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
     setModalVisible(true);
   }

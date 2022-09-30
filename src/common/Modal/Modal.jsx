@@ -40,7 +40,6 @@ const Modal = ({
         visible={visible}
         className={name}
         tabIndex="-1"
-        // onClick={maskCloseable ? onMaskClick : null}
         onMouseDown={maskCloseable ? onMaskClick : null}
       >
         <M.ModalInner tabIndex="0" className="modal-inner">
