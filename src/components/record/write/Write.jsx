@@ -17,7 +17,7 @@ import img2 from "./2.jpg";
 
 export const ImgContext = createContext();
 
-const Write = () => {
+const Write = ({onClose}) => {
   const [step, setStep] = useRecoilState(creatingStep);
 
   // 이미지 유무
@@ -60,7 +60,9 @@ const Write = () => {
 
   function nextStep() {
     if (step === createStep.length - 1) {
-      console.log("내용 서버에 보내기");
+      if (window.confirm('글을 작성할까요?')){
+        console.log(imgFiles,exe,part,content);
+      }
     } else {
       setStep((prev) => prev + 1);
     }
@@ -69,7 +71,10 @@ const Write = () => {
   function prevPage() {
     if (step === 0) {
       // 끄는 함수 받아야함
-      console.log("모달 닫기");
+      if (window.confirm('모달을 닫을까요?')){
+        console.log("모달닫기")
+      }
+      onClose();
     } else {
       setStep((prev) => prev - 1);
     }
@@ -108,16 +113,6 @@ const Write = () => {
                     )}
                   </>
                 );
-
-              // {
-              //   isExist ?
-              //   <W.ImgArea >
-              //   <ImgHolder mode={step === 0 ? "edit" : "view"} />
-              //   </W.ImgArea>
-              //   :
-              //   <DropBox />
-              // }
-
               case 1:
                 return (
                   <>
@@ -149,44 +144,6 @@ const Write = () => {
             }
           })()}
         </W.ContentWrapper>
-
-        {/* {
-            isExist ?
-            <W.ImgArea >
-            <ImgHolder mode={step === 0 ? "edit" : "view"} />
-            </W.ImgArea>
-            :
-            <DropBox />
-          } */}
-
-        {/* {(() => {
-          switch (step) {
-            case 0:
-              return (
-                <W.ImgArea>
-                  {isExist ? <ImgHolder mode="edit" /> : <DropBox />}
-                </W.ImgArea>
-              );
-            case 1:
-              return (
-                <W.ContentWrapper>
-                  <W.ImgArea><ImgHolder /></W.ImgArea>
-                  <W.WriteArea>
-                    <SelectPart part={part} setPart={setPart} />
-                  </W.WriteArea>
-                </W.ContentWrapper>
-              );
-            case 2:
-              return (
-                <W.ContentWrapper>
-                  <W.ImgArea><ImgHolder/></W.ImgArea>
-                  <W.WriteArea>
-                    <MakeContent contents={content} setContents={setContent} />
-                  </W.WriteArea>
-                </W.ContentWrapper>
-              );
-          }
-        })()} */}
       </ImgContext.Provider>
     </W.Wrapper>
   );

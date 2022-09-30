@@ -67,7 +67,7 @@ const RecordMain = () => {
           visible="true"
           checkClose={true}
         >
-         <Write/>
+         <Write onClose={closeModal} />
         </Modal>
       )}
 

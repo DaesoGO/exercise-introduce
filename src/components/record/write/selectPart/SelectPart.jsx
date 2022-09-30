@@ -40,6 +40,8 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       temp[index].value += 1;
       setPart(temp);
     }
+
+    setPart((prev) => sortValues(prev))
   }
 
   // 선택된 객체형식의 운동이 들어온다
@@ -57,23 +59,26 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
         temp[index].value += 1;
         setExe(temp);
     }
-    // // 운동에 따른 part값 변경
+
+    setExe((prev) => sortValues(prev));
+
+    // 운동에 따른 part값 변경
     selectedExe.part.forEach((i) => {
       addPart(i)
     })
   }
 
-  // 값 정렬
-  useEffect(() => {
-    sortValues(part,setPart)
-  },[part])
-  useEffect(() => {
-    sortValues(exe,setExe)
-  },[exe])
+  // // 값 정렬
+  // useEffect(() => {
+  //   sortValues(part,setPart)
+  // },[part])
+  // useEffect(() => {
+  //   sortValues(exe,setExe)
+  // },[exe])
   /**객체를 받고 객체의 value를 비교해 정렬해서 return*/ 
-  function sortValues(obj,setter){
-    obj.sort((a,b) => b.value - a.value - 1)
-    setter(obj)
+  function sortValues(obj){
+    obj.sort((a,b) => b.value - a.value)
+    return obj
   }
 
 
