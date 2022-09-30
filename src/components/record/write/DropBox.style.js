@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -7,22 +8,22 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   > * {
     margin: 25px;
   }
-  > img {
-    width: 120px;
-    -webkit-user-drag: none; 
-    @media (max-width:1000px){
-      width:80px;
-    }
-  }
-  >div{
+  > h3{
+    font-weight:normal;
     font-size:35px;
     margin-bottom:0px;
     @media (max-width:800px) {
       font-size:25px; 
+    }
+  }
+  >img{
+    width: 120px;
+    -webkit-user-drag: none; 
+    @media (max-width:1000px){
+      width:80px;
     }
   }
   > label {

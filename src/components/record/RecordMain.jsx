@@ -19,10 +19,6 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
-  useEffect(() => {
-    // console.log(inView);
-  }, [inView]);
-
   // 정방형 사진이여야만 한다
   const dum = [
     "220805",
@@ -60,20 +56,30 @@ const RecordMain = () => {
   }, [inView]);
   /**
    * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
-   * @todo 선택된게  있으면 바탕을 눌렀을 때 삭제 확인 뛰우기
    */
   return (
     <R.Wrapper>
       {modalVisible && (
-        <Modal name="hi" onClose={closeModal} maskCloseable={true} visible="true" menu="안녕">
-          <Write />
+        <Modal
+          name="hi"
+          onClose={closeModal}
+          maskCloseable={true}
+          visible="true"
+          checkClose={true}
+        >
+         <Write/>
         </Modal>
       )}
 
       <R.Content>
         <R.WriteB onClick={openModal}>
           <R.WirteBPlus>+</R.WirteBPlus>
-          <R.WirteBComment>오늘 작성된 기록이 없습니다</R.WirteBComment>
+          <R.WirteBComment >
+            오늘 작성된 기록이 없습니다
+          </R.WirteBComment>
+          <R.WriteBSubComment>
+            (정방형 사진을 추천합니다)
+          </R.WriteBSubComment>
         </R.WriteB>
         {dum.map((i, idx) => (
           <Link key={i} to={`${username}/${i}`}>

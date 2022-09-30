@@ -1,9 +1,29 @@
+<<<<<<< HEAD
 import Core from "../core";
+=======
+import { useEffect, useRef, useState } from "react";
+import { App } from "skeletalmuscle-drawer";
+import human from "../../../static/introduce/asset/man.gltf";
+import animation from "../../../static/introduce/animation/test.json";
+>>>>>>> 2cbf4b6112fe1d877fd83f275f7bd6e0af0c6de1
 import * as S from "./index.style";
 import Info from "./info";
 
 
 const Render = ({ info }) => {
+<<<<<<< HEAD
+=======
+  const dom = useRef();
+  let isApp;
+  const [app, setApp] = useState()
+  useEffect(() => {
+    if (!isApp) {
+      setApp(new App(dom.current, human, animation))
+      isApp = true
+    }
+  }, [dom]);
+
+>>>>>>> 2cbf4b6112fe1d877fd83f275f7bd6e0af0c6de1
   return (
     <S.MainContainer>
       <S.DisplayContainer>
