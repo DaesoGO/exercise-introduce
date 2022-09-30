@@ -71,6 +71,7 @@ export const ItemColWrapper = styled(ItemWrapper)`
 
 
 export const Item = styled.div`
+  cursor:pointer;
   margin:10px 7px;
   font-size: small;
   max-width: calc(85% - 10px);

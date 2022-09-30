@@ -16,7 +16,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     },
     {
       id: 5,
-      part: ["목"],
+      part: ["목","등"],
       name: "기뮤띠",
     },
     {
@@ -25,40 +25,62 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       name: "코딩하기",
     },
   ];
+
+  
+
   const [searchValue, setSearchValue] = useState("");
 
-  // 선택된 객체형식의 운동이 들어온다
-  function selectExe(selectedExe){
 
+  function addPart(exePart){
+    const index = part.findIndex((element) => element.name === exePart)
+    if (index === -1){ //못 찾았을 때
+      setPart((prev) => [...prev,{name:exePart,value:1}])
+    } else {
+      const temp = [...part];
+      temp[index].value += 1;
+      setPart(temp);
+    }
+  }
+
+  // 선택된 객체형식의 운동이 들어온다
+  function addExe(selectedExe){
     // 못 찾았다면 결과값으로 -1이 나온다
     const index = exe.findIndex((element) => element.name === selectedExe.name)
     if (index === -1){ // 못 찾았을 때
-        // 가중치는 0으로 해준다
+        // 추가해준다, 가중치는 0으러
         selectedExe.value = 1;
+        console.log(selectedExe)
         setExe((prev) => [...prev,selectedExe]);
     } else {
         // 이미 있을 땐 가중치를 추가해준다
-        // 객체가 복사가 되어도 setter에 넣어서 괜찮다..
-        const temp = [...exe];
+        const temp = [...exe]
         temp[index].value += 1;
-        console.log(temp)
-        setExe(temp)
-        // setExe((prev) => [...prev[index].value += 1]);
+        setExe(temp);
     }
-
+    // // 운동에 따른 part값 변경
+    selectedExe.part.forEach((i) => {
+      addPart(i)
+    })
   }
 
+  // 값 정렬
   useEffect(() => {
-    console.log(exe)
+    sortValues(part,setPart)
+  },[part])
+  useEffect(() => {
+    sortValues(exe,setExe)
   },[exe])
+  /**객체를 받고 객체의 value를 비교해 정렬해서 return*/ 
+  function sortValues(obj,setter){
+    obj.sort((a,b) => b.value - a.value - 1)
+    setter(obj)
+  }
+
 
   function searchExe() {
     console.log(searchValue, "를 서버에 검색");
   }
 
-  /**
-   * @todo ExeKind, ExePart컴포넌트로 안나누기
-   */
   return (
     <S.Wrapper>
       <DropDownMenu title="운동 선택" defaultOpen="open">
@@ -69,7 +91,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
           </S.SearchWrapper>
           {exeKinds.map((i) => (
             <S.Item
-            onClick={() => selectExe(i)}
+            onClick={() => addExe(i)}
             key={i.id}
             >{i.name}</S.Item>
           ))}
@@ -78,19 +100,19 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <DropDownMenu title="선택된 운동" defaultOpen="open">
         <S.ItemRowWrapper>
           {exe.map((i) => (
-            <S.rowItem key={i.id}>{i.name}{i.value}</S.rowItem>
+            <S.rowItem key={i.name}>{i.name}{i.value}</S.rowItem>
           ))}
         </S.ItemRowWrapper>
       </DropDownMenu>
       <DropDownMenu title="운동 부위" defaultOpen="open">
         <S.ItemColWrapper>
           {part.map((i) => (
-            <S.Item key={i.id}>{i.name}</S.Item>
+            <S.Item key={i.name}>{i.name}{i.value}</S.Item>
           ))}
         </S.ItemColWrapper>
 
         {/* exepart는 일단은 글로만, 시간되면 svg까지 쫌 ㄱㄱ */}
-        {/* <ExePart part={part} />  */}
+
       </DropDownMenu>
       <hr />
     </S.Wrapper>
