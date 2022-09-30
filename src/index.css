@@ -1,10 +1,4 @@
 @font-face {
-<<<<<<< HEAD
-    font-family: 'InfinitySans-RegularA1';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-=======
 	font-family: 'InfinitySans-RegularA1';
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
 	font-weight: normal;
@@ -14,7 +8,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'InfinitySans-RegularA1', sans-serif;
->>>>>>> 2cbf4b6112fe1d877fd83f275f7bd6e0af0c6de1
 }
 body {
 	padding: 0;
@@ -24,12 +17,9 @@ body {
 #app {
 	display: flex;
 	flex-direction: column;
-<<<<<<< HEAD
 }
 * {
 	margin: 0;
 	padding: 0;
 	font-family: 'InfinitySans-RegularA1', sans-serif;
-=======
->>>>>>> 2cbf4b6112fe1d877fd83f275f7bd6e0af0c6de1
 }
