@@ -68,13 +68,6 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     })
   }
 
-  // // 값 정렬
-  // useEffect(() => {
-  //   sortValues(part,setPart)
-  // },[part])
-  // useEffect(() => {
-  //   sortValues(exe,setExe)
-  // },[exe])
   /**객체를 받고 객체의 value를 비교해 정렬해서 return*/ 
   function sortValues(obj){
     obj.sort((a,b) => b.value - a.value)

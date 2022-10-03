@@ -9,7 +9,7 @@ module.exports = merge(common, {
     static: {
       directory: webpack_path.build,
     },
-    historyApiFallback: true,
+    historyApiFallback:true,
     port: 3000,
     hot: true,
     proxy: {
