@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  > hr {
+  hr {
     height: 1px;
     background-color: #bdbebd;
     border: none;

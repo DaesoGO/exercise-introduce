@@ -81,6 +81,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
   return (
     <S.Wrapper>
+      <hr/>
       <DropDownMenu title="운동 선택" defaultOpen="open">
         <S.ItemColWrapper>
           <S.SearchWrapper>
@@ -95,6 +96,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
           ))}
         </S.ItemColWrapper>
       </DropDownMenu>
+      <hr/>
       <DropDownMenu title="선택된 운동" defaultOpen="open">
         <S.ItemRowWrapper>
           {exe.map((i) => (
@@ -102,6 +104,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
           ))}
         </S.ItemRowWrapper>
       </DropDownMenu>
+      <hr/>
       <DropDownMenu title="운동 부위" defaultOpen="open">
         <S.ItemColWrapper>
           {part.map((i) => (
