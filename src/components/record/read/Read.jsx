@@ -30,14 +30,7 @@ const Read = () => {
 
           <R.Content>
             <hr />
-            <DropDownMenu title="운동 부위" defaultOpen={false}>
-              <R.ItemRowWrapper>
-                {post.part.map((i) => (
-                  <R.rowItem key={i}>{i}</R.rowItem>
-                ))}
-              </R.ItemRowWrapper>
-            </DropDownMenu>
-            <hr />
+
             <DropDownMenu title="운동 종류" defaultOpen={false}>
               <R.ItemRowWrapper>
                 {post.exe.map((i) => (
@@ -46,15 +39,16 @@ const Read = () => {
               </R.ItemRowWrapper>
             </DropDownMenu>
             <hr />
+            <DropDownMenu title="운동 부위" defaultOpen={false}>
+              <R.ItemRowWrapper>
+                {post.part.map((i) => (
+                  <R.rowItem key={i}>{i}</R.rowItem>
+                ))}
+              </R.ItemRowWrapper>
+            </DropDownMenu>
+            <hr />
           </R.Content>
         </R.Article>
-
-        {/* <R.Header>
-                    <R.Title>{post.title}</R.Title>
-                </R.Header>
-                <R.Article>
-                
-                </R.Article> */}
       </R.Section>
     </R.Wrapper>
   );
