@@ -2,10 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const Main = styled.div`
     width: 100%;
-    height: 0px;
-    min-height: 100%;
-    /* background-color: red; */
-
+    height: 100vh;
 `
 export const TopContainer = styled.div`
     width: 100%;
@@ -19,7 +16,7 @@ export const ImageContainer = styled.div`
 `
 export const SideImage = styled.img`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-size: cover;
     object-fit: cover;
     transition: 2000ms;

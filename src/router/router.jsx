@@ -16,7 +16,6 @@ const Main = styled.div`
 const Core = styled.div`
   margin-top: ${props => props.nav ? "50" : "0"}px;
   width: 100%;
-  height: 0px;
   min-height: calc(100vh -  ${props => props.nav ? "50" : "0"}px);
   position: relative;
 `
@@ -24,8 +23,8 @@ const Core = styled.div`
 const Router = () => {
   const location = useLocation()
   const [renderInfo, setRenderInfo] = useState({
-      nav: false,
-      footer: false
+    nav: false,
+    footer: false
   })
   useEffect((element) => {
       let temp = routes.find(element => element.path === location.pathname.split('/')[1])
