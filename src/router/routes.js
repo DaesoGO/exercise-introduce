@@ -1,6 +1,6 @@
 import Main from "../components/main";
 import Test from "../components/test";
-import NotFound from "../common/NotFound";
+import NotFound from "../common/notfound";
 import Record from "../components/record";
 import Introduce from "../components/introduce";
 import Bulletin from "../components/bulletin";
