@@ -65,5 +65,10 @@ export const loginForm = styled.div`
 export const loginText = styled.span`
     color: black;
     font-size: 15px;
+    font-weight: bold;
     white-space: nowrap;
+`
+export const splitter = styled.div`
+    height: 100;
+    border: 0.01rem solid black;
 `

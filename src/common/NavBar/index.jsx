@@ -4,6 +4,9 @@ import GlobalStyle from './index.globalstyle'
 import logo from './navlogo.png'
 import * as S from './index.style'
 const Render = () => {
+    const navToggling = () => {
+        return 0;
+    }
     const contents = [
         { title: '운동 소개', param: '/introduce' },
         { title: '추천', param: '/recommend' },
@@ -22,7 +25,7 @@ const Render = () => {
                     {
                         contents.map((item, idx) => {
                             return (
-                                <S.container key={idx}>
+                                <S.container key={idx} onClick={navToggling}>
                                     <Link to={item.param}>
                                         <S.menu>{item.title}</S.menu>
                                     </Link>
@@ -35,7 +38,7 @@ const Render = () => {
                     <Link to={'/login'}>
                         <S.loginText>로그인</S.loginText>
                     </Link>
-                    &nbsp;
+                    <S.splitter/>
                     <Link to={'/login'}>
                         <S.loginText>회원가입</S.loginText>
                     </Link>
