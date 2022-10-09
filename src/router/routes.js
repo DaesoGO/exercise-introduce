@@ -16,6 +16,6 @@ export default [
   { path: "introduce", component: <Introduce />, nav: true, footer: true },
   { path: "introduce/:id", component: <Bulletin />, nav: true, footer: true },
   { path: "write", component: <Write />, nav: true, footer: true },
-  { path: "recommend", component:<Recommend/>, nav:true, footer:true },
+  { path: "recommend", component:<Recommand/>, nav:true, footer:true },
   { path: "recommand", component: <Recommand/>, nav: true, footer: true}
 ]
