@@ -4,8 +4,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import modal from '../global/modal'
 import { useRecoilState } from 'recoil';
 
-import NavBar from '../common/NavBar'
-import Footer from '../common/Footer'
+import NavBar from '../common/NavBar/index'
+import Footer from '../common/Footer/index'
 
 import routes from './routes'
 
