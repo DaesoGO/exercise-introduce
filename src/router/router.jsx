@@ -27,11 +27,13 @@ const Router = () => {
     footer: false
   })
   useEffect((element) => {
-      let temp = routes.find(element => element.path === location.pathname.split('/')[1])
-      if(temp === undefined) {
-        temp = routes.find(element => element.path === "*")
-      }
-      setRenderInfo(temp)
+    window.scrollTo(window.screenX, 0);
+    console.log("SEX")
+    let temp = routes.find(element => element.path === location.pathname.split('/')[1])
+    if(temp === undefined) {
+      temp = routes.find(element => element.path === "*")
+    }
+    setRenderInfo(temp)
   }, [location])
   return (
     <Main>
