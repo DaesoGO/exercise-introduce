@@ -88,7 +88,7 @@ export const Item = styled.div`
     justify-content:center;
     align-items:center;
     margin:0px 0px 0px 7px;
-    background-color:gray;
+    background-color:silver;
     >img{
       height:14px;
     }
