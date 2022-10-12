@@ -20,24 +20,12 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(png|jpe?g|gif|svg|gltf)$/,
+                test: /\.(png|jpe?g|gif|svg|gltf|svg)$/,
                 use: {
                     loader: 'file-loader',
                 }
-            },
-            // {
-            //     test: /\.(svg)$/,
-            //     use: {
-            //         loader: 'url-loader',
-            //         options: {
-            //             name: '[name].[ext]?[hash]',
-            //             limit: 10000,
-            //             outputPath: webpack_path.build, 
-            //             publicPath: webpack_path.source 
-            //         }
-            //     }
-            // }
-            
+
+            },        
         ]
     },
     output: {

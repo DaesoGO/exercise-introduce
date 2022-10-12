@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useInView } from "react-intersection-observer";
 
-import Modal from "../../common/Modal/Modal";
+import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
 
 const RecordMain = () => {
