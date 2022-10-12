@@ -1,5 +1,7 @@
 import * as S from './userInfo.style'
 import person from './person.png'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const dummy = [
     ["이름", "김건호"],
@@ -12,6 +14,11 @@ const dummy = [
 ]
 
 const Render = () => {
+
+    // useEffect(() => {
+    //     axios.get('')
+    //     .then((result)=>{setName(); setAge(); setHeight(); setWeight(); setBMI(); setBasalMetabolism(); setRecommendedIntake();})
+    // }, [])
 
     // let [name, setName] = useState()
     // let [age, setAge] = useState()
