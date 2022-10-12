@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import AOS from "aos";
 
 export const Login = styled.div`
   width: 100%;
@@ -15,56 +15,75 @@ export const Img = styled.img`
     margin-left: 50px;
   height: 800px;
   width: 720px;
-
 `;
+
 
 export const LoginContainer = styled.div`
   width: 720px;
 
-  font-family: "Arial";
-  font-style: normal;
-  font-weight: 400;
-  color: #000000;
-  margin-left: 100px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+font-family: "Arial";
+font-style: normal;
+font-weight: 400;
+color: #000000;
+margin-left: 100px;
+justify-content: center;
+align-items: center;
+text-align: center;
 
-  h3 {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 46px;
+h3 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
 
-    text-align: left;
-    margin-left: 120px;
-    margin-top: 90px;
-    margin-bottom: 100px;
+  text-align: left;
+  margin-left: 120px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+}
+
+a {
+  font-size: 16px;
+  line-height: 18px;
+
+  color: #0a1e40;
+
+  text-decoration: none;
+
+  font-size: 16px;
+}
+
+p {
+  font-size: 30px;
+  line-height: 34px;
+
+  text-align: left;
+  margin-left: 80px;
+}
+
+  input[id="false"] {
+    border: red solid 2px;
   }
+  input[name="inputText"] {
+    width: 554px;
+    height: 69px;
 
-  a {
-    font-size: 16px;
-    line-height: 18px;
+    background: #ffffff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 
-    color: #0a1e40;
+    outline: none;
 
-    text-decoration: none;
+    font-size: 35px;
 
-    font-size: 16px;
+    padding-left: 20px;
   }
-
-  p {
-    font-size: 30px;
-    line-height: 34px;
-
-    text-align: left;
-    margin-left: 80px;
-  }
-
+  
   .register {
-    text-align: end;
+    margin-top: 30px;
+  }
 
-    margin-top: 26px;
-    margin-right: 80px;
+  .register a {
+    font-size: 20px;
   }
 `;
 
@@ -90,7 +109,7 @@ export const Btn = styled.button`
 
   color: white;
 
-  background: #0a1e40;
+  background: #6798E7;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
 
   border-radius: 10px;
@@ -104,6 +123,6 @@ export const Btn = styled.button`
     cursor: pointer;
 
     transition: 0.5s;
-    background-color: #5077de;
+    background-color: #1F1F1F
   }
 `;
