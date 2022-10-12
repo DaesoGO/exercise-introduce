@@ -48,9 +48,8 @@ const Render = () => {
               onChange={changeSearch}
               value={searchtText}
             ></S.SearchBar>
-            {/* <S.SearchButton image={search} /> */}
           </S.SearchContainer>
-          <S.FunctionButton image={filter} />
+          {/* <S.FunctionButton image={filter} /> */}
           <S.FunctionButton image={edit} onClick={goWrite} />
         </S.Top>
         <S.Questions>
