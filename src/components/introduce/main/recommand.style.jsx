@@ -1,52 +1,74 @@
 import styled, { css } from "styled-components";
 
-export const Thumbnail = styled.div`
-  width: 100%;
-  height: 85%;
-  background-color: purple;
-`;
-
-export const Main = styled.div`
-  width: 90%;
-  height: calc(20% - 11px);
-  background-color: #A2B59F;
-  margin-bottom: 11px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 15px;
-`;
-
-export const Title = styled.h4`
-  margin: 5px auto 10px auto;
-  text-align: center;
-`;
-
-export const RecommandBox = styled.div`
-  width: 100%;
-  height: 100%;
-  background-image: url${({img}) => img};
-
-`;
-
-export const RecommandModalLeft = styled.div`
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transition: 500ms;
-  &:hover {
-    background-color: #444b;
-  }
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+export const MainContainer = styled.div`
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `
-export const RecommandModalRight = styled.div`
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transition: 500ms;
-  &:hover {
-    background-color: #444b;
-  }
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+export const upperContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+export const inputForm = styled.input`
+    width: 40%;
+    height: 40px;
+    border: 1px solid #6797e7;
+    outline: none;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 15px;
+`
+export const buttonContainer = styled.div`
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+`
+export const divButton = styled.button`
+    width: 90px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #6798e7;
+    border: none;
+    font-size: 16px;
+    transition: .15s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        background-color: #5687d6;
+    }
+`
+export const lowerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`
+export const postContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+export const authContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`
+export const writerName = styled.span`
+    color: #a4a4a4;
+    font-size: 16px;
+`
+export const postName = styled.span`
+    color: #1f1f1f;
+    font-size: 18px;
+    font-weight: bold;
+`
+export const commentContainer = styled.div`
+    display: flex;
+    gap: 10px;
+`
+export const commentCount = styled.span`
+    color: #a4a4a4;
+    font-size: 16px;
 `

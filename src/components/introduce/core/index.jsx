@@ -14,7 +14,14 @@ export default () => {
       }
     }, [dom]);
     return (
-      <S.AppContainer ref={dom}>
-      </S.AppContainer>
+        <S.monitorContainer>
+            <S.monitorDisplay>
+                <S.monitorCam/>
+                <S.AppContainer ref={dom}>
+                </S.AppContainer>
+            </S.monitorDisplay>
+            <S.monitorDisplayBottom/>
+            <S.monitorArm></S.monitorArm>
+        </S.monitorContainer>
     )
 }

@@ -22,12 +22,6 @@ const Render = ({ info }) => {
     <S.MainContainer>
       <S.DisplayContainer>
         <Core/>
-        <S.InfoContainer>
-          {info.muscle.map((element, idx) => {
-            return <S.Muscle key={idx}>{element}</S.Muscle>;
-          })}
-          <S.Title>{info.title}</S.Title>
-        </S.InfoContainer>
       </S.DisplayContainer>
       <Info info={info} />
     </S.MainContainer>
