@@ -19,7 +19,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     },
     {
       id: 5,
-      part: ["목","등"],
+      part: ["마음","상처"],
       name: "기뮤띠",
     },
     {

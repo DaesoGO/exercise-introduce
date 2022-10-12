@@ -71,9 +71,10 @@ const Write = ({onClose}) => {
           exercise:formatNameAndValue(exe),
           part:formatNameAndValue(part),
         }
-        console.log("form",form)
-        const {data} = api.post(`/diary/${"codingbot"}`,form)
-        
+        api.post(`/diary/${"codingbot"}`,form).then(
+          (result) => {console.log(result)},
+          (error) => {console.log(error)}
+        )
         onClose();
       }
     } else {
