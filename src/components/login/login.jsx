@@ -1,6 +1,6 @@
 import React, { useState,useRef,useEffect } from "react";
 import * as L from "./login.style";
-import tempImg from "../loginImage/temp.jpg";
+import tempImg from "./loginImage/temp.jpg";
 import axios from "axios";
 import AOS from 'aos';
 import 'aos/dist/aos.css';

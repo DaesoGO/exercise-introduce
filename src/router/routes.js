@@ -7,8 +7,8 @@ import Bulletin from "../components/bulletin";
 import Write from "../components/introduce/write";
 import Recommend from '../components/recommend/Recommend'
 import Recommand from '../components/recommend'
-import Login from '../component/login/login'
-import Register from '../component/register/register'
+import Login from '../components/login/login'
+import Register from '../components/register/register'
 
 export default [
   { path: "", component: <Main />, nav: true, footer: true },
