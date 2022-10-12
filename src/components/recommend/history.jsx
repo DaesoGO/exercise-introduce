@@ -58,7 +58,7 @@ const Render = () => {
             </S.ValueWrapper>
             <h3>
                 {
-                    "어제 먹은 것"
+                    "어제 먹은 음식"
                 }
             </h3>
         </S.Container>

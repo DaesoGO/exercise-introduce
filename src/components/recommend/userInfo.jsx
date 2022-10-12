@@ -1,17 +1,20 @@
 import * as S from './userInfo.style'
+import person from './person.png'
+
 const dummy = [
+    ["이름", "김건호"],
     ["나이", "17"],
+    ["키", "170cm"],
+    ["몸무게", "100kg"],
     ["BMI", "19"],
     ["기초대사량", "1500kcal"],
-    ["권장섭취량", "2000kcal"],
-    ["이태융", "박성한"],
-    ["박종현", "스이세이"],
-    ["박병관", "박성한"]
+    ["권장섭취량", "2000kcal"]
 ]
 const Render = () => {
     return <S.Main>
         <S.Container>
             <S.HumanContainer>
+                <img src={person} width='155px' height='243px'></img>
                 <h5 className='weight'>
                     100kg
                 </h5>
@@ -19,9 +22,6 @@ const Render = () => {
                     170cm
                 </h5>   
             </S.HumanContainer>
-            <S.Name>
-                김건호
-            </S.Name>
         </S.Container>
         <S.Container>
             <S.InfoContainer>

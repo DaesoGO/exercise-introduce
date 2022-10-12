@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     width: 54%;
-    height: 98%;
-    background-color: skyblue;
+    height: 94%;
+    background-color: #A0BAE2;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
 `
 
 export const Container = styled.div`
@@ -24,18 +25,19 @@ export const ValueWrapper = styled.div`
     height: 90%;
     padding: 10px;
     position: relative;
-    background-color: pink;
+    background-color: #F2F6FD;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 10px;
     overflow-y: scroll;
+    border-radius: 10px;
 `
 export const ValueContainer = styled.div`
     width: 100px;
     height: 110px;
     padding: 5px;
-    background-color: green;
+    background-color: #A0BAE2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,4 +48,5 @@ export const ValueContainer = styled.div`
     h5 {
         margin-top: 5px;
     }
+    border-radius: 10px;
 `

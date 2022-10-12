@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     width: 60%;
-    height: 98%;
-    background-color: skyblue;
+    height: 94%;
+    background-color: #A0BAE2;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 `
 export const Plate = styled.div`
-    width: 80%;
+    width: 70%;
     height: 90%;
     background-color: #666;
     border-radius: 20px;

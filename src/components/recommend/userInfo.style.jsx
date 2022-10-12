@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     width: 42%;
-    height: 98%;
-    background-color: skyblue;
+    height: 94%;
+    background-color: #A0BAE2;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
 `
 
 export const Container = styled.div`
@@ -18,9 +19,8 @@ export const Container = styled.div`
 export const HumanContainer = styled.div`
     width: 50%;
     height: 70%;
-    background-color: blue;
     position: relative;
-    top: 20px;
+    top: 50px;
     left: 15%;
     h5 {
         font-size: 13px;
@@ -30,19 +30,21 @@ export const HumanContainer = styled.div`
     .weight {
         position: absolute;
         bottom: -20px;
-        left: 50%;
+        left: 60%;
         transform: translateX(-50%);
+        font-weight: bold;
     }
     .height {
         position: absolute;
-        right: -50px;
+        right: -75px;
         top: 50%;
         transform: translateY(-50%);
+        font-weight: bold;
     }
 `
 export const Name = styled.div`
     position: absolute;
-    left: 50%;
+    left: 60%;
     transform: translateX(-50%);
     bottom: 15px;
     font-size: 16px;
