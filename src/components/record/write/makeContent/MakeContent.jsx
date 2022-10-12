@@ -16,6 +16,7 @@ const MakeContent = ({
 
     return (
         <M.Wrapper>
+            <hr/>
             <DropDownMenu title="글 내용" defaultOpen={true}>
                 <WriteTextArea contents={contents} setContents={setContents} />
             </DropDownMenu>

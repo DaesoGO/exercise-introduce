@@ -9,12 +9,12 @@ module.exports = merge(common, {
     static: {
       directory: webpack_path.build,
     },
-    historyApiFallback: true,
+    historyApiFallback:true,
     port: 3000,
     hot: true,
     proxy: {
         "/api": {
-          target: "http://10.80.161.162:8000",
+          target: "http://10.80.162.42:8000",
           changeOrigin: true,
         },
     },

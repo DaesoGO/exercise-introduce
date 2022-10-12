@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  transition:width 1s;
   width:${(props) => props.width+"vw"};
   max-width:${(props) => props.maxWidth+"px"};
-
 `;
 
 export const Menu = styled.header`
@@ -32,7 +30,6 @@ export const Button = styled.button`
     font-size: 16px;
     margin:0px 17px;
     cursor:pointer;
-
 `
 
 export const ButtonWithSvg = styled(Button)`
@@ -44,22 +41,25 @@ export const ButtonWithSvg = styled(Button)`
 
 export const ContentWrapper = styled.div`
   display:flex;
+  height:60vw;
+  max-height:700px;
 `
 
 export const ImgArea = styled.section`  
   // 정방형을 유지해야 하기 때문에
-  height:55vw;
+  height:60vw;
   max-height:700px;
-  /* width:100%; */
-  width:55vw;
+  box-sizing:border-box;
+  width:60vw;
   max-width: 700px;
-  position:relative;
+  object-fit: cover;
+
 `
 
 export const WriteArea = styled.section`
-  overflow-y:hidden;
-  height:55vw;
+    height:60vw;
   max-height:700px;
+  overflow-y:hidden;
   width:35vw;
   max-width:400px;
   display: flex;
