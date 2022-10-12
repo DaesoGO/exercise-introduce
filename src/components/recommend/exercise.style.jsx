@@ -15,6 +15,6 @@ export const Img = styled.div`
     height: 70%;
     border-radius: 10px;
     background-color: aliceblue;
-    padding-left: 70px;
+    padding-left: 14%;
     padding-top: 40px;
 `

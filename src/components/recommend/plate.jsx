@@ -5,7 +5,8 @@ import Apple from '../../static/recommand/food/apple.png'
 import Avodado from '../../static/recommand/food/avocado.png'
 import Juice from '../../static/recommand/food/juice.png'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Render = () => {
 
@@ -16,7 +17,7 @@ const Render = () => {
 
     // useEffect(()=>{
     //     axios.get('')
-    //     .then((result)=>{})
+    //     .then((result)=>{console.log(result)})
     // })
 
     return (

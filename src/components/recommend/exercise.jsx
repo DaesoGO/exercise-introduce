@@ -3,6 +3,9 @@ import logo from './logo.png'
 
 import Dumbbell from '../../static/recommend/exercise/dumbbell.png'
 
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
 const dummy = [
     {
         src: Dumbbell,
@@ -11,6 +14,14 @@ const dummy = [
 ]
 
 const Render = () => {
+
+    let [name, setName] = useState()
+
+    // useEffect(()=>{
+    //     axios.get('')
+    //     .then((result)=>{console.log(result)})
+    // })
+
     return <S.Main>
         {/* <img src={logo} width='350px' height='350px'></img> */}
         <S.Img>
