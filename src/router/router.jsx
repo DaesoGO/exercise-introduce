@@ -39,6 +39,7 @@ const Router = () => {
       }
       setRenderInfo(temp)
   }, [location.pathname])
+  
   return (
     <>
       { getModal === null ? <></> : 

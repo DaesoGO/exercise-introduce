@@ -6,6 +6,8 @@ import search from "../../../../static/record/write/search.svg";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import removeSvg from "../../../../static/record/write/remove.svg"
+
 const selectPart = ({exe, setExe, part, setPart,  }) => {
   // 서버한테 받아올 운동 목록
   const exeKinds = [
@@ -43,7 +45,6 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
     setPart((prev) => sortValues(prev))
   }
-
   // 선택된 객체형식의 운동이 들어온다
   function addExe(selectedExe){
     // 못 찾았다면 결과값으로 -1이 나온다
@@ -68,16 +69,27 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     })
   }
 
+
+
+  function removeExe(){
+
+  }
+  function removePart(){
+
+  }
+
+
+
+
   /**객체를 받고 객체의 value를 비교해 정렬해서 return*/ 
   function sortValues(obj){
     obj.sort((a,b) => b.value - a.value)
     return obj
   }
-
-
   function searchExe() {
     console.log(searchValue, "를 서버에 검색");
   }
+
 
   return (
     <S.Wrapper>
@@ -100,7 +112,21 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <DropDownMenu title="선택된 운동" defaultOpen="open">
         <S.ItemRowWrapper>
           {exe.map((i) => (
-            <S.rowItem key={i.name}>{i.name}{i.value}</S.rowItem>
+            <S.rowItem 
+            onClick={() => addExe(i)}
+            key={i.name}
+            >
+              <div>
+              {i.name}{i.value}
+              </div>
+              <span 
+              onClick={(e) => {
+                e.stopPropagation(); // 이벤트 버블링 막기
+                removeExe(i)
+              }}>
+                <img src={removeSvg} alt="운동 삭제" />
+              </span>
+            </S.rowItem>
           ))}
         </S.ItemRowWrapper>
       </DropDownMenu>
@@ -108,7 +134,19 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <DropDownMenu title="운동 부위" defaultOpen="open">
         <S.ItemColWrapper>
           {part.map((i) => (
-            <S.Item key={i.name}>{i.name}{i.value}</S.Item>
+            <S.Item 
+            onClick={()=>addPart(i.name)}
+            key={i.name}>
+              <div>
+                {i.name}{i.value}
+              </div>
+              <span onClick={(e) => {
+                e.stopPropagation();
+                removePart(i)
+              }}>
+                <img src={removeSvg} alt="부위 삭제" />
+              </span>
+            </S.Item>
           ))}
         </S.ItemColWrapper>
 

@@ -58,6 +58,7 @@ const Write = ({onClose}) => {
     if (step === createStep.length - 1) {
       if (window.confirm('글을 작성할까요?')){
         console.log(imgFiles,exe,part,content);
+        onClose();
       }
     } else {
       setStep((prev) => prev + 1);

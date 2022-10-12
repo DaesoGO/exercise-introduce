@@ -31,7 +31,7 @@ const Read = () => {
           <R.Content>
             <hr />
 
-            <DropDownMenu title="운동 종류" defaultOpen={false}>
+            <DropDownMenu title="운동 종류" defaultOpen={true}>
               <R.ItemRowWrapper>
                 {post.exe.map((i) => (
                   <R.rowItem key={i}>{i}</R.rowItem>
@@ -39,7 +39,7 @@ const Read = () => {
               </R.ItemRowWrapper>
             </DropDownMenu>
             <hr />
-            <DropDownMenu title="운동 부위" defaultOpen={false}>
+            <DropDownMenu title="운동 부위" defaultOpen={true}>
               <R.ItemRowWrapper>
                 {post.part.map((i) => (
                   <R.rowItem key={i}>{i}</R.rowItem>

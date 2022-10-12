@@ -75,12 +75,28 @@ export const Item = styled.div`
   margin:10px 7px;
   font-size: small;
   max-width: calc(85% - 10px);
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: 15px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  >span{
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0px 0px 0px 7px;
+    background-color:gray;
+    >img{
+      height:14px;
+    }
+  } 
 `;
 export const rowItem = styled(Item)`
-  display:inline-block;
+  /* display:inline-block; */
+  display:inline-flex;
   margin:10px 7px;
   max-width:none;
 `
