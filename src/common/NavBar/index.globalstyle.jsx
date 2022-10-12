@@ -7,5 +7,6 @@ export default createGlobalStyle`
         justify-content: center;
         align-items: center;
         text-decoration: none;
+        color: #eee;
     }
 `

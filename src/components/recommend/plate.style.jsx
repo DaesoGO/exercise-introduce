@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 export const Main = styled.div`
     width: 60%;
-    height: 98%;
-    background-color: skyblue;
+    height: 94%;
+    background-color: #A0BAE2;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 `
 export const Plate = styled.div`
-    width: 80%;
+    width: 70%;
     height: 90%;
-    background-color: #666;
+    background-color: #A4A4A4;
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -22,14 +23,14 @@ export const PlateInner = styled.div`
     height: 45%;
     border-radius: 15px;
     position: relative;
-    background-color: #999;
+    background-color: #BFBFBF;
     background-image: url('${({back}) => back}');
     display: flex;
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 80%;
-    box-shadow: inset 5px 5px 5px 5px #777;
+    box-shadow: inset 5px 5px 5px 5px #888;
 
 `
 export const PlateInnerTop = styled(PlateInner)`
