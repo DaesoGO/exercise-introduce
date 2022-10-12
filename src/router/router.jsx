@@ -26,15 +26,16 @@ const Router = () => {
     nav: false,
     footer: false
   })
-  useEffect((element) => {
-    window.scrollTo(window.screenX, 0);
-    console.log("SEX")
-    let temp = routes.find(element => element.path === location.pathname.split('/')[1])
-    if(temp === undefined) {
-      temp = routes.find(element => element.path === "*")
-    }
-    setRenderInfo(temp)
-  }, [location])
+  
+  const [getModal, setModal] = useRecoilState(modal)
+  useLayoutEffect((element) => {
+      let temp = routes.find(element => element.path === location.pathname.split('/')[1])
+      if(temp === undefined) {
+          temp = routes.find(element => element.path === "*")
+      }
+      setRenderInfo(temp)
+  }, [location.pathname])
+  
   return (
     <Main>
     { renderInfo.nav ? <NavBar/> : null}

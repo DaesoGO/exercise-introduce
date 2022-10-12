@@ -11,7 +11,7 @@ const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
     setModalVisible(true);
   }
@@ -67,7 +67,7 @@ const RecordMain = () => {
           visible="true"
           checkClose={true}
         >
-         <Write/>
+         <Write onClose={closeModal} />
         </Modal>
       )}
 

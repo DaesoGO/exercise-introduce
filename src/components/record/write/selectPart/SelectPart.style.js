@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  > hr {
+  hr {
     height: 1px;
     background-color: #bdbebd;
     border: none;
@@ -31,11 +31,15 @@ export const SearchInput = styled.input`
 
   border-radius:15px;
   outline:none;
-  border:1px solid #e4e4e4;
+  border:1px solid #bdbebd;
   margin:0px 7px;
 
   width:100%;
   height:40px;
+
+  ::placeholder{
+    color:#bdbebd;
+  }
 `
 
 
@@ -67,15 +71,32 @@ export const ItemColWrapper = styled(ItemWrapper)`
 
 
 export const Item = styled.div`
+  cursor:pointer;
   margin:10px 7px;
   font-size: small;
   max-width: calc(85% - 10px);
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: 15px;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  >span{
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0px 0px 0px 7px;
+    background-color:silver;
+    >img{
+      height:14px;
+    }
+  } 
 `;
 export const rowItem = styled(Item)`
-  display:inline-block;
+  /* display:inline-block; */
+  display:inline-flex;
   margin:10px 7px;
   max-width:none;
 `
