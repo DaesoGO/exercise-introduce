@@ -12,6 +12,8 @@ import backArrow from "../../../static/record/write/back.svg";
 import MakeContent from "./makeContent/MakeContent";
 import SelectPart from "./selectPart/SelectPart";
 
+import api from "../../../util/api";
+
 export const ImgContext = createContext();
 
 const Write = ({onClose}) => {
@@ -54,10 +56,24 @@ const Write = ({onClose}) => {
     }
   }, [imgFiles]);
 
+  function formatNameAndValue(data){
+    return data.map((element) => {
+      return (element.name+element.value+'/')
+    }).join('')
+  }
+
   function nextStep() {
     if (step === createStep.length - 1) {
       if (window.confirm('글을 작성할까요?')){
-        console.log(imgFiles,exe,part,content);
+        const form = {
+          content:content,
+          photo:"일단사진",
+          exercise:formatNameAndValue(exe),
+          part:formatNameAndValue(part),
+        }
+        console.log("form",form)
+        const {data} = api.post(`/diary/${"codingbot"}`,form)
+        
         onClose();
       }
     } else {

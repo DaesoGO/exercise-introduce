@@ -8,6 +8,7 @@ import { useEffect } from "react";
 
 import removeSvg from "../../../../static/record/write/remove.svg"
 
+
 const selectPart = ({exe, setExe, part, setPart,  }) => {
   // 서버한테 받아올 운동 목록
   const exeKinds = [
@@ -71,10 +72,25 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
 
 
-  function removeExe(){
+  function removeExe(selectedExe){
+    console.log(
+      exe.map((element) => {
+        if (element.name === selectedExe){
+          element.value -= 1;
+          if (element.value > 0){
 
+          } 
+          // 아닐 땐 삭제
+        }else{
+          return element
+        }
+      })
+    )
+    // setExe((prev) => {
+      
+    // })
   }
-  function removePart(){
+  function removePart(selectedPart){
 
   }
 
