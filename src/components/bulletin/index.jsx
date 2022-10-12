@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import * as B from "./index.style";
 
@@ -78,6 +78,14 @@ const Render = () => {
 
   const [title, setTitle] = useState("asdasdadasdasd");
 
+  const textArea = (e) => {
+    setContent(e.target.value);
+  };
+
+  const sendContent = () => {
+    console.log(content);
+  };
+
   return (
     <B.BulletinContainer>
       <div className="markdown--container">
@@ -88,8 +96,8 @@ const Render = () => {
         </div>
       </div>
       <B.Write>
-        <textarea></textarea>
-        <button>글 작성</button>
+        <textarea onChange={textArea} value={content}></textarea>
+        <button onClick={sendContent}>글 작성</button>
       </B.Write>
       <B.Comment>{makeComment}</B.Comment>
     </B.BulletinContainer>

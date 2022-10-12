@@ -9,8 +9,8 @@ import filter from "../../../static/introduce/icons/filter.svg";
 import edit from "../../../static/introduce/icons/edit.svg";
 import axios from "axios";
 
-const Render = () => {
-  const [getComment, setCommnet] = useState(comment);
+const Render = ({ comments }) => {
+  const [getComment, setCommnet] = useState([]);
   const navigate = useNavigate();
 
   const [searchtText, setSearchtText] = useState("");
@@ -35,6 +35,15 @@ const Render = () => {
   //     console.log("enter");
   //   }
   // };
+
+  // useEffect(() => {
+  //   setCommnet(comments);
+  // });
+
+  useEffect(() => {
+    setCommnet(comments);
+    console.log("comments " + comments);
+  });
 
   return (
     <S.Root>
