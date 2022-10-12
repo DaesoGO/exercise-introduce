@@ -90,7 +90,7 @@ const Render = () => {
         <textarea></textarea>
         <button>글 작성</button>
       </B.Write>
-      <B.Comment>{makeComment}</B.Comment>
+      {/* <B.Comment>{makeComment}</B.Comment> */}
     </B.BulletinContainer>
   );
 };

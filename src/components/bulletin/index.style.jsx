@@ -22,7 +22,7 @@ export const BulletinContainer = styled.div`
   .markdown--container {
     background: rgba(54, 121, 253, 0.05);
     width: 80%;
-    min-height: 100vh;
+    height: auto;
 
     .markdown {
       padding: 50px;
