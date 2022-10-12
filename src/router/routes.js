@@ -7,6 +7,8 @@ import Bulletin from "../components/bulletin";
 import Write from "../components/introduce/write";
 import Recommend from '../components/recommend/Recommend'
 import Recommand from '../components/recommend'
+import Login from '../component/login/login'
+import Register from '../component/register/register'
 
 export default [
   { path: "", component: <Main />, nav: true, footer: true },
@@ -17,5 +19,13 @@ export default [
   { path: "introduce/:id", component: <Bulletin />, nav: true, footer: true },
   { path: "write", component: <Write />, nav: true, footer: true },
   { path: "recommend", component:<Recommand/>, nav:true, footer:true },
-  { path: "recommand", component: <Recommand/>, nav: true, footer: true}
+  { path: "recommand", component: <Recommand/>, nav: true, footer: true},
+  { path: "login", component:<Login/>, nav:false, footer:false },
+  { path: "register", component:<Register/>, nav:false, footer:false },
+
 ]
+// 이곳에 컴포넌트를 등록하면 됩니다
+// path: 컴포넌트가 나올 url
+// component: 띄워줄 컴포넌트
+// nav: 네브바를 띄워줄지
+// footer: 푸터를 띄워줄지
