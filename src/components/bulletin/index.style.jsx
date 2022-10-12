@@ -93,12 +93,15 @@ export const Bulletin = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   border-bottom: 1px solid black;
   background-color: white;
   //작성자
   a {
     margin-left: 20px;
+    min-width: 10%;
+    display: flex;
+    justify-content: center;
     /* color: #a4a4a4; */
     color: black;
   }
