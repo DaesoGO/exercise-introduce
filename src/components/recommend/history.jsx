@@ -3,30 +3,32 @@ import dummyImage from '../../static/main/logo.png'
 const dummys = [
     {
         src: dummyImage,
-        name: "김건호"
+        name: "팔굽혀펴기"
     },
     {
         src: dummyImage,
-        name: "박병관"
+        name: "줄넘기"
     },
     {
         src: dummyImage,
-        name: "박종현"
+        name: "윗몸일으키기"
     },
     {
         src: dummyImage,
-        name: "오은지"
+        name: "훌라후프"
     },
     {
         src: dummyImage,
-        name: "박지건"
+        name: "요가"
     },
     {
         src: dummyImage,
-        name: "손민"
-    },
+        name: "수영"
+    }
 ]
+
 const Render = () => {
+
     return <S.Main>
         <S.Container>
             <S.ValueWrapper>

@@ -3,7 +3,7 @@ import logo from './logo.png'
 
 const Render = () => {
     return <S.Main>
-        <img src={logo} width='300px' height='300px'></img>
+        <img src={logo} width='350px' height='350px'></img>
     </S.Main>
 }
 export default Render

@@ -53,12 +53,14 @@ export const Name = styled.div`
     text-decoration : underline;
 `
 export const InfoContainer = styled.div`
+    background-color: white;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 `
 export const InfoMain = styled.div`
     width: 80%;
