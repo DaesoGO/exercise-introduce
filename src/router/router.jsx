@@ -14,7 +14,7 @@ const Main = styled.div`
 `
 
 const Core = styled.div`
-  margin-top: ${props => props.nav ? "50" : "0"}px;
+  margin-top: ${props => props.nav ? "0" : "0"}px;
   width: 100%;
   min-height: calc(100vh -  ${props => props.nav ? "50" : "0"}px);
   position: relative;
