@@ -1,7 +1,9 @@
-import { useState } from "react";
-import * as S from "./recommand.style";
+import { useState } from "react"
+import * as S from "./recommand.style"
+import search from '../../../static/introduce/icons/search.svg'
+import filter from "../../../static/introduce/icons/filter.svg"
 
-const Render = () => {
+const Render = ({ comment }) => {
     const [similar, setSimilar] = useState(["딥스", "턱걸이"]);
     const [easy, setEasy] = useState(["스쿼트", "런지"]);
     return (
@@ -9,20 +11,19 @@ const Render = () => {
             <S.upperContainer>
                 <S.inputForm placeholder="Search"/>
                 <S.buttonContainer>
-                    <S.divButton>button</S.divButton>
-                    <S.divButton>button</S.divButton>
+                    <S.divButton><img src={search}/></S.divButton>
+                    <S.divButton><img src={filter}/></S.divButton>
                 </S.buttonContainer>
             </S.upperContainer>
             <S.lowerContainer>
-                {[0, 0, 0].map((element, idx) => {
+                {comment.map((element, idx) => {
                     return (
-                        <S.postContainer>
+                        <S.postContainer key={idx}>
                             <S.authContainer>
-                                <S.writerName>박종현</S.writerName>
-                                <S.postName>종박이는 스이세이를 사랑해</S.postName>
+                                <S.writerName>{element.user.nickname}</S.writerName>
+                                <S.postName>{element.title}</S.postName>
                             </S.authContainer>
                             <S.commentContainer>
-                                <S.commentCount>123</S.commentCount>
                             </S.commentContainer>
                         </S.postContainer>
                     )

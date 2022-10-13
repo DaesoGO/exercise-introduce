@@ -33,6 +33,7 @@ export const divButton = styled.button`
     color: #ffffff;
     background-color: #6798e7;
     border: none;
+    border-radius: 5px;
     font-size: 16px;
     transition: .15s ease-in-out;
     cursor: pointer;

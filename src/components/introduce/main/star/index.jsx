@@ -6,17 +6,16 @@ import readinessIcon from "../../../../static/introduce/icons/readiness.svg";
 import difficultyIcon from "../../../../static/introduce/icons/difficulty.svg";
 import riskIcon from "../../../../static/introduce/icons/risk.svg";
 
-const Render = ({ readiness, difficulty, risk }) => {
-    const exerciseList = ['광배근', '전거근', '복근', '삼각근', '삼두근', '대흉근']
+const Render = ({ info }) => {
     return (
     <S.MainContainer>
-        <S.exerciseTitle>팔굽혀펴기</S.exerciseTitle>
+        <S.exerciseTitle>{info.title}</S.exerciseTitle>
         <S.exercisePartContainer>
-            {exerciseList.map((element, idx) => {
+            {info.muscle.map((element, idx) => {
                 return <span key={idx}>{element}</span>
             })}
         </S.exercisePartContainer>
-        <S.exerciseInfoContainer>머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기</S.exerciseInfoContainer>
+        <S.exerciseInfoContainer>{info.explanation}</S.exerciseInfoContainer>
     </S.MainContainer>
     )
 }
