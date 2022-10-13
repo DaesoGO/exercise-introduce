@@ -7,27 +7,45 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import removeSvg from "../../../../static/record/write/remove.svg"
+import api from "../../../../util/api";
 
 
 const selectPart = ({exe, setExe, part, setPart,  }) => {
   // 서버한테 받아올 운동 목록
-  const exeKinds = [
-    {
-      id: 4,
-      part: ["등", "광배"],
-      name: "턱걸이",
-    },
-    {
-      id: 5,
-      part: ["마음","상처"],
-      name: "기뮤띠",
-    },
-    {
-      id: 6,
-      part: ["손가락", "전완근"],
-      name: "코딩하기",
-    },
-  ];
+  // const exeKinds = [
+  //   {
+  //     id: 4,
+  //     part: ["등", "광배"],
+  //     name: "턱걸이",
+  //   },
+  //   {
+  //     id: 5,
+  //     part: ["마음","상처"],
+  //     name: "기뮤띠",
+  //   },
+  //   {
+  //     id: 6,
+  //     part: ["손가락", "전완근"],
+  //     name: "코딩하기",
+  //   },
+  // ];
+
+  const [exeKinds,setExeKinds] = useState([]);
+  useEffect(()=>{
+    api.get(`/diary/exercise`).then(
+      (result) => {
+        setExeKinds(result.data.data.map((i,idx) => {
+          return {
+            id:idx,
+            part:i.muscle.split('/'),
+            name:i.title,
+          }
+        }))
+      },(error) => {
+
+      }
+    )
+  },[])
 
   
 
@@ -73,24 +91,33 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
 
   function removeExe(selectedExe){
-    console.log(
-      exe.map((element) => {
-        if (element.name === selectedExe){
-          element.value -= 1;
-          if (element.value > 0){
+    // // console.log(
+    // //   exe.map((element) => {
+    // //     if (element.name === selectedExe){
+    // //       element.value -= 1;
+    // //       if (element.value > 0){
 
-          } 
-          // 아닐 땐 삭제
-        }else{
-          return element
-        }
-      })
-    )
+    // //       } 
+    // //       // 아닐 땐 삭제
+    // //     }else{
+    // //       return element
+    // //     }
+    // //   })
+    // // )
     // setExe((prev) => {
-      
+    //   const index = exe.findIndex((element) => element.name === selectedExe.name)
+    //   console.log("prev",prev)
+    //   prev[index].value -= 1
+    //   if (prev[index].value > 0){
+    //     return prev
+    //   } else {
+    //     prev.splice(index,1);
+    //     return prev
+    //   }
     // })
   }
   function removePart(selectedPart){
+    // const index = exe.findIndex((element) => element.name === selectedPart.name)
 
   }
 

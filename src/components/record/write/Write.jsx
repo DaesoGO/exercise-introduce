@@ -65,6 +65,7 @@ const Write = ({onClose}) => {
   function nextStep() {
     if (step === createStep.length - 1) {
       if (window.confirm('글을 작성할까요?')){
+        // -----------
         const form = {
           content:content,
           photo:"일단사진",
@@ -75,6 +76,7 @@ const Write = ({onClose}) => {
           (result) => {console.log(result)},
           (error) => {console.log(error)}
         )
+        // -----------
         onClose();
       }
     } else {
