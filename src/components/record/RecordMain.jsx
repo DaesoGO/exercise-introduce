@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import { useInView } from "react-intersection-observer";
 
-import Modal from "../../common/Modal/Modal";
+import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
 
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
     setModalVisible(true);
   }
@@ -67,7 +67,7 @@ const RecordMain = () => {
           visible="true"
           checkClose={true}
         >
-         <Write/>
+         <Write onClose={closeModal} />
         </Modal>
       )}
 

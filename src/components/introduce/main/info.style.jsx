@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  width: 30%;
+  width: 50%;
   height: 80vh;
   display: flex;
-  background-color: #233c68;;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  justify-content: space-evenly;
 `;
 
 export const ContentContainer = styled.div`

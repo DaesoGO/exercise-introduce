@@ -27,7 +27,7 @@ import Cropper from "react-easy-crop";
  * @param mode 기본모드는 view, edit을 줄 수 있다
  */
 const ImgHolder = ({ mode = "view" }) => {
-  const step = useRecoilValue(creatingStep)
+  const step = useRecoilValue(creatingStep);
 
   const [imgFiles, setImgFiles] = useContext(ImgContext);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -81,8 +81,8 @@ const ImgHolder = ({ mode = "view" }) => {
 
   return (
     <E.Wrapper>
-      <E.ImgContainer >
-        {mode === "view" ? (
+      <E.ImgContainer pointerEvent={mode === "edit"} >
+        {/* {mode === "view" ? (
           <E.Img step={step} src={imgURL[currentIndex]} />
         ) : (
           <>
@@ -100,7 +100,20 @@ const ImgHolder = ({ mode = "view" }) => {
               <div />
             </E.ContainerSupporter>
           </>
-        )}
+        )} */}
+        <Cropper
+          image={imgURL[currentIndex]}
+          crop={crop}
+          zoom={zoom}
+          aspect={aspect}
+          onCropChange={setCrop}
+          onCropComplete={onCropComplete}
+          onZoomChange={setZoom}
+        />
+        <E.ContainerSupporter aspect={aspect}>
+          <div />
+          <div />
+        </E.ContainerSupporter>
       </E.ImgContainer>
 
       {currentIndex !== 0 && (
@@ -151,7 +164,6 @@ const ImgHolder = ({ mode = "view" }) => {
       )}
 
       <label></label>
-
     </E.Wrapper>
   );
 };

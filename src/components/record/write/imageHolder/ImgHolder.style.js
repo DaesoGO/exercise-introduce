@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   max-width:700px;
   max-height:700px;
   height: 100%; */
-
   width:100%;
   height:100%;
   position: relative;
@@ -15,13 +14,18 @@ export const Wrapper = styled.div`
 `;
 
 export const ImgContainer = styled.div`
+  pointer-events:${(props) => props.pointerEvent ? "all" : "none"};
+
   width: 100%;
   height: 100%;
   position: relative;
   box-sizing: border-box;
 
   .reactEasyCrop_Container{
-    border-radius:0px 0px 10px 10px !important;
+    /* border-radius:0px 0px 10px 10px !important; */
+    // 이미지 편집에서는 radius가 좌우, 아닐 땐 왼쪽만
+    border-radius:${(props) => props.pointerEvent ?
+     "0px 0px 10px 10px" : "0px 0px 0px 10px"};
     .reactEasyCrop_CropAreaGrid{
       visibility:hidden;
     }

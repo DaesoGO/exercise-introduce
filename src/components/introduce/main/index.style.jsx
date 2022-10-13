@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 5vw;
 `;
 
 export const DisplayContainer = styled.div`
-  width: 70%;
+  width: 50%;
   display: flex;
   flex-direction: column;
 `;
@@ -20,26 +20,3 @@ export const AppContainer = styled.div`
   position: relative;
 `;
 
-export const InfoContainer = styled.div`
-  width: 100%;
-  position: relative;
-  height: 30px;
-  align-items: center;
-  gap: 5px;
-  display: flex;
-  flex-direction: row-reverse;
-`;
-
-export const Title = styled.h1`
-  position: absolute;
-  font-size: 20px;
-  margin-top: 5px;
-  left: 0;
-  color: #222;
-`;
-
-export const Muscle = styled.h3`
-  float: right;
-  color: #888;
-  font-size: 13px;
-`;
