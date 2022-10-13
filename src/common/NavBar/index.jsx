@@ -4,7 +4,10 @@ import GlobalStyle from './index.globalstyle'
 import logo from './navlogo.png'
 import profileImage from './profileImage.png'
 import * as S from './index.style'
+import { useRecoilValue } from 'recoil'
+import userInfoAtom from '../../global/user'
 const Render = () => {
+    const userInfo = useRecoilValue(userInfoAtom)
     const navToggling = () => {
         return 0;
     }
@@ -37,19 +40,23 @@ const Render = () => {
                         }
                     </S.navigator>
                 </S.leftContainer>
-                {/* <S.loginForm>
-                    <Link to={'/login'}>
-                        <S.loginText>로그인</S.loginText>
-                    </Link>
-                    <S.splitter/>
-                    <Link to={'/login'}>
-                        <S.loginText>회원가입</S.loginText>
-                    </Link>
-                </S.loginForm> */}
-                <S.profileForm>
-                    <S.profileName>스이쨩</S.profileName>
-                    <S.profileImage src={profileImage}/>
-                </S.profileForm>
+                {
+                    userInfo === null ?
+                        <S.loginForm>
+                            <Link to={'/login'}>
+                                <S.loginText>로그인</S.loginText>
+                            </Link>
+                            <S.splitter/>
+                            <Link to={'/login'}>
+                                <S.loginText>회원가입</S.loginText>
+                            </Link>
+                        </S.loginForm> :
+                        <S.profileForm>
+                            <S.profileName>{userInfo.user.nickname}</S.profileName>
+                            <S.profileImage src={profileImage}/>
+                        </S.profileForm>
+
+                }
             </S.background>
         </>
     )
