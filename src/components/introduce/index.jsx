@@ -35,7 +35,6 @@ const Render = () => {
     <S.Root>
       <S.Container>
         <Main info={getInfo} />
-        <QnA />
       </S.Container>
     </S.Root>
   );
