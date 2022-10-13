@@ -25,23 +25,26 @@ const Render = () => {
     return (
         <I.Main>
 
-            <I.Linked>
-                <I.FooterImgPart src={footerImg}></I.FooterImgPart>
-                {
-                    footerLink.map((a, i)=>{
-                        return(
-                            <I.A to={a.link} key={i}>{a.name}</I.A>
-                        )
-                    })
-                }
-            </I.Linked>
+            <I.SubMain>
+                <I.Linked>
+                    <I.FooterImgPart src={footerImg}></I.FooterImgPart>
+                    {
+                        footerLink.map((a, i)=>{
+                            return(
+                                <I.A to={a.link} key={i}>{a.name}</I.A>
+                            )
+                        })
+                    }
+                </I.Linked>
 
-            <I.IntroduceBy>
-                <img src={schoolImg} width="23px" height="20px"></img>
-                <I.SchoolText>대구소프트웨어마이스터고등학교</I.SchoolText>
-                {/* <img src={DUCAMIImg} width="17px" height="20px"></img> */}
-                <I.DucamiText>DUCAMI</I.DucamiText>
-            </I.IntroduceBy>
+            </I.SubMain>
+
+                <I.IntroduceBy>
+                    <img src={schoolImg} width="23px" height="20px"></img>
+                    <I.SchoolText>대구소프트웨어마이스터고등학교</I.SchoolText>
+                    {/* <img src={DUCAMIImg} width="17px" height="20px"></img> */}
+                    <I.DucamiText>DUCAMI</I.DucamiText>
+                </I.IntroduceBy>
             
         </I.Main>
     )
