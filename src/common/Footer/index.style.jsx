@@ -8,8 +8,17 @@ export const Main = styled.div`
   //border-top: solid 2px black;
 `
 
-export const Linked = styled.div`
+export const SubMain = styled.div`
   width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 1px #D9D9D9;
+`
+
+export const Linked = styled.div`
+  width: 50%;
   height: 90px;
   display: flex;
   align-items: center;
@@ -31,7 +40,8 @@ export const A = styled(Link)`
 export const FooterImgPart = styled.img`
   width: 40px;
   height: 40px;
-  margin-right: 25px;
+  margin-right: 56px;
+  margin-left: 30px;
 `
 
 export const IntroduceBy = styled.div`

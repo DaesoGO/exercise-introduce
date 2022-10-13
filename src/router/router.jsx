@@ -3,12 +3,13 @@ import { useState, useLayoutEffect, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import modal from '../global/modal'
 import { useRecoilState } from 'recoil';
+import userInfoAtom from '../global/user'
 
 import NavBar from '../common/NavBar'
 import Footer from '../common/footer'
 
 import routes from './routes'
-
+import api from "../util/api";
 const Main = styled.div`
   position: relative;
 `
@@ -26,7 +27,7 @@ const Router = () => {
     nav: false,
     footer: false
   })
-  
+  const [getUserInfo, setUserInfo] = useRecoilState(userInfoAtom)
   const [getModal, setModal] = useRecoilState(modal)
   useLayoutEffect((element) => {
       let temp = routes.find(element => element.path === location.pathname.split('/')[1])
@@ -35,6 +36,21 @@ const Router = () => {
       }
       setRenderInfo(temp)
   }, [location.pathname])
+  useEffect(() => {
+    if(getUserInfo === null && localStorage.getItem("access_token")) {
+      api.get("user/Decode").
+      then((result) => {
+        console.log(result.data)
+        setUserInfo({
+          user: result.data,
+          token: localStorage.getItem("access_token")
+        })
+        // localStorage.setItem("access_token", result.data.data.token)
+        // console.log(result.data)
+      })
+      .catch(console.log)
+    }
+  }, [])
   
   return (
     <Main>
