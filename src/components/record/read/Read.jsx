@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import * as R from "./Read.style";
-import dumImg from "../testimgs/220804.jpg";
+import dumImg from "../testimgs/221015.jpg";
 // import dumImg from "../testimgs/220803.jpg";
 import DropDownMenu from "../../../common/dropDownMenu/DropDownMenu";
+import { useEffect } from "react";
+import api from "../../../util/api";
 
 const Read = () => {
-  // 이미지, 운동 종류, 운동 부위, 글
+  //이미지, 운동 종류, 운동 부위, 글
   const post = {
     username: "김병관",
     date: "221004",
@@ -14,6 +16,13 @@ const Read = () => {
     part: ["팔", "입"],
     content: "밥먹기 운동을 했따",
   };
+
+  useEffect(() => {
+    api.get('/diary/tomato4116/20220904').then(
+      (result) => console.log(result),
+      (error) => console.log(error)
+    )
+  },[])
 
   return (
     <R.Wrapper>

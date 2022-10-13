@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 
 import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
+import api from "../../util/api";
 
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,19 +20,40 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
+
+  const [post,setPost] = useState([]);
+
+  useEffect(() => {
+    api.get(`/diary/tomato4116`).then(
+       (result) => {
+        
+          setPost(
+            // result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
+            result.data.data.map((i) => i.substring(2))
+          )
+          console.log(result)
+
+       }, (error) => {
+        console.log(error)
+       }
+    )
+  },[])
+
+  
+
+  
+
   // 정방형 사진이여야만 한다
   const dum = [
-    "220805",
-    "220806",
-    "220807",
-    "220808",
-    "220809",
-    "220810",
-    "220811",
-    "220812",
-    "220813",
-    "220814",
-    "220815",
+    "221010",
+    "221011",
+    "221012",
+    "221013",
+    "221014",
+    "221015",
+    "221016",
+    "221017",
+    "221018",
   ];
   const username = "codingbotPark";
 
