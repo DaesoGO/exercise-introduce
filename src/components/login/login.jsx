@@ -34,7 +34,7 @@ const Login = () => {
         password: passwordRef.current[0].value
       })
       .then((result) => {
-        console.log(result)
+        console.log(result.data.data)
       })
       .catch((err) => {
         console.log(err)
