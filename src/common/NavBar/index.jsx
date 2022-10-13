@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import GlobalStyle from './index.globalstyle'
 import logo from './navlogo.png'
+import profileImage from './profileImage.png'
 import * as S from './index.style'
 const Render = () => {
     const navToggling = () => {
@@ -36,7 +37,7 @@ const Render = () => {
                         }
                     </S.navigator>
                 </S.leftContainer>
-                <S.loginForm>
+                {/* <S.loginForm>
                     <Link to={'/login'}>
                         <S.loginText>로그인</S.loginText>
                     </Link>
@@ -44,7 +45,11 @@ const Render = () => {
                     <Link to={'/login'}>
                         <S.loginText>회원가입</S.loginText>
                     </Link>
-                </S.loginForm>
+                </S.loginForm> */}
+                <S.profileForm>
+                    <S.profileName>스이쨩</S.profileName>
+                    <S.profileImage src={profileImage}/>
+                </S.profileForm>
             </S.background>
         </>
     )

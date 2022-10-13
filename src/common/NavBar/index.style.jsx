@@ -95,3 +95,25 @@ export const leftContainer = styled.div`
     display: flex;
     margin-left: 20px;
 `
+
+export const profileForm = styled.div`
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    gap: 20px;
+`
+export const profileName = styled.span`
+    color: #eee;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+    display: flex;
+    font-size: 14px;
+`
+export const profileImage = styled.img`
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+`
