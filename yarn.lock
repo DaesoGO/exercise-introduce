@@ -5217,10 +5217,10 @@
   dependencies:
     "is-arrayish" "^0.3.1"
 
-"skeletalmuscle-drawer@^0.4.3":
-  "integrity" "sha512-gN949XcsZoJWYsyTn6EZ5B0oOHnOEP4CrPy/XY436zkfQsBuMMR3zvVKaa8re6E9pfEwDVXPO0e1qHsJ1ZxZRA=="
-  "resolved" "https://registry.npmjs.org/skeletalmuscle-drawer/-/skeletalmuscle-drawer-0.4.3.tgz"
-  "version" "0.4.3"
+"skeletalmuscle-drawer@^0.4.4":
+  "integrity" "sha512-nEAL4ILlnjd2nomAiQ96Q/p0y4hT4GqUMkcEodH36sbso3sVcxzpfIU4QA/93tnYWqIlNsjYqDpCTdUc175Wmw=="
+  "resolved" "https://registry.npmjs.org/skeletalmuscle-drawer/-/skeletalmuscle-drawer-0.4.5.tgz"
+  "version" "0.4.5"
   dependencies:
     "@mediapipe/pose" "^0.5.1635988162"
     "axios" "^1.1.2"
