@@ -87,9 +87,10 @@ const App = () => {
       diary_pu_yn: false
     })
     .then((res) => {
-      console.log(res)
+      window.location.href = "/"
     })
     .catch((err) => {
+      alert("회원가입 오류")
       console.log(err)
     })
     // console.log()

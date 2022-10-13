@@ -2,19 +2,20 @@ import React, { useState,useRef,useEffect } from "react";
 import * as L from "./login.style";
 import tempImg from "./loginImage/temp.jpg";
 import axios from "axios";
+import userInfoAtom from '../../global/user'
+import { useNavigate } from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useSetRecoilState } from "recoil";
 
 
 const Login = () => {
-  const [loginInfo, setLoginInfo ] = useState("")
-  const idRef = useRef([]);   // id
-  const [id, setId] = useState('')
-  const passwordRef = useRef([]);   //password
-  const [password,setPassword] = useState('')
+  const idRef = useRef([]);
+  const passwordRef = useRef([]);
   const [ChageCss1, setChangeCss1] = useState("true");
   const [ChageCss2, setChangeCss2] = useState("true");
-
+  const navigate = useNavigate()
+  const setUserInfo = useSetRecoilState(userInfoAtom);
 
   useEffect(() => {
     AOS.init();
@@ -28,13 +29,13 @@ const Login = () => {
     }else setChangeCss2("true");
     
     if(idd != "" && passwordd != "") {
-      console.log("SEX")
       axios.post('/user/login', {
         id: idRef.current[0].value,
         password: passwordRef.current[0].value
       })
       .then((result) => {
-        console.log(result.data.data)
+        navigate("/")
+        setUserInfo(result.data.data)
       })
       .catch((err) => {
         console.log(err)
