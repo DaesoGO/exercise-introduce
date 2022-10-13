@@ -10,4 +10,6 @@ export const Root = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #F2F6FD;
+  margin-right: 0px;
 `;

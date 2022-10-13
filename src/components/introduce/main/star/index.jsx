@@ -7,38 +7,17 @@ import difficultyIcon from "../../../../static/introduce/icons/difficulty.svg";
 import riskIcon from "../../../../static/introduce/icons/risk.svg";
 
 const Render = ({ readiness, difficulty, risk }) => {
-  const [getData, setData] = useState([
-    {
-      icon: readinessIcon,
-      explanation: "준비도",
-      count: null,
-    },
-    {
-      icon: difficultyIcon,
-      explanation: "난이도",
-      count: null,
-    },
-    {
-      icon: riskIcon,
-      explanation: "위험도",
-      count: null,
-    },
-  ]);
-
-  useEffect(() => {
-    const temp = [...getData];
-    temp[0].count = readiness;
-    temp[1].count = difficulty;
-    temp[2].count = risk;
-    setData(temp);
-  }, []);
-
-  return (
+    const exerciseList = ['광배근', '전거근', '복근', '삼각근', '삼두근', '대흉근']
+    return (
     <S.MainContainer>
-      {getData.map((element, idx) => {
-        return <Member icon={element.icon} count={element.count} key={idx} />;
-      })}
+        <S.exerciseTitle>팔굽혀펴기</S.exerciseTitle>
+        <S.exercisePartContainer>
+            {exerciseList.map((element, idx) => {
+                return <span key={idx}>{element}</span>
+            })}
+        </S.exercisePartContainer>
+        <S.exerciseInfoContainer>머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기머시기</S.exerciseInfoContainer>
     </S.MainContainer>
-  );
-};
+    )
+}
 export default Render;

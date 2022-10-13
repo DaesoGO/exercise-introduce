@@ -1,6 +1,6 @@
-import Recommand from "./recommand";
 import Star from "./star/index";
 import Explanation from "./explanation";
+import Recommand from "./recommand";
 import * as S from "./info.style";
 
 const Render = ({ info }) => {

@@ -29,11 +29,12 @@ export const SearchContainer = styled.div`
 `;
 
 export const SearchBar = styled.input`
-  width: 80%;
+  width: 100%;
   height: 100%;
 
   border: none;
-  border-bottom: 2px solid #0a1e40;
+  border: 2px solid #0a1e40;
+  border-radius: 5px;
   padding-left: 10px;
   box-sizing: border-box;
   outline: none;

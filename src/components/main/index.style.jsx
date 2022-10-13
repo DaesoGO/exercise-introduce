@@ -31,7 +31,7 @@ export const Explanation = styled.div`
     gap: 70px;
 `
 export const LogoImage = styled.img`
-    margin-top: 100px;
+    margin-top: 22vh;
     opacity: 0.8;
     width: 60%;
 `
@@ -41,6 +41,6 @@ export const Name = styled.h1`
     color: #222;
 `
 export const Content = styled.div`
-    width: 40%;
+    width: 65%;
     color: #555;
 `

@@ -1,36 +1,88 @@
 import * as S from './plate.style'
 import Banana from '../../static/recommand/food/banana.png'
 import Chicken from '../../static/recommand/food/chicken.png'
-import { useState } from 'react'
-const Render = () => {
-    return <S.Main>
-        <S.Plate>
-            <S.PlateInnerTop>
-                <PlateContent 
-                    img={Banana} 
-                    amount={"1개"}
-                    name={"바나나"}
-                    info={"바나나는 맛있어"}/>
-            </S.PlateInnerTop>
-            <S.PlateInnerTop>
-                <PlateContent/>
-            </S.PlateInnerTop>
-            <S.PlateInnerTop>
-                <PlateContent/>
-            </S.PlateInnerTop>
-            <S.PlateInnerBottom>
-                <PlateContent/>
-            </S.PlateInnerBottom>
-            <S.PlateInnerBottom>
-                <PlateContent 
-                    img={Chicken} 
-                    amount={"200g"}
-                    name={"닭가슴살"}
-                    info={"닭찌찌 먹기 시러잉... 다리만 먹구 싶어"}/>
-            </S.PlateInnerBottom>
-        </S.Plate>
-    </S.Main>
+import Apple from '../../static/recommand/food/apple.png'
+import Avodado from '../../static/recommand/food/avocado.png'
+import Juice from '../../static/recommand/food/juice.png'
+
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
+const Render = ({
+    foods
+}) => {
+
+    let [img, setImg] = useState()
+    let [amount, setAmount] = useState()
+    let [name, setName] = useState()
+    let [info, setInfo] = useState()
+
+    // console.log(foods.length)
+    return (
+        <S.Main>
+            <S.Plate>
+                <S.PlateInnerTop>
+                    <PlateContent 
+                        // img={Banana} 
+                        // amount={"1개"}
+                        // name={"바나나"}
+                        // info={"바나나는 칼륨, 마그네슘 등의 무기질이 풍부하므로 근육경련을 예방할 수 있습니다."}
+                    />
+                </S.PlateInnerTop>
+
+                <S.PlateInnerTop>
+                    <PlateContent
+                        // img={Chicken} 
+                        // amount={"200g"}
+                        // name={"닭가슴살"}
+                        // info={"닭가슴살은 고단백 음식이라 근육을 재합성하는 데 도움을 줍니다."}
+                    />
+                </S.PlateInnerTop>
+
+                <S.PlateInnerTop>
+                    {
+                        foods.length >= 3 ?
+                        <PlateContent
+                            img={foods[0].img} 
+                            amount={""}
+                            name={foods[0].name}
+                            info={foods[0].content}
+                        /> : 
+                        <PlateContent/>
+                    }
+                </S.PlateInnerTop>
+
+                <S.PlateInnerBottom>
+                    {
+                        foods.length >= 3 ?
+                        <PlateContent
+                            img={foods[1].img} 
+                            amount={""}
+                            name={foods[1].name}
+                            info={foods[1].content}
+                        /> : 
+                        <PlateContent/>
+                    }
+                </S.PlateInnerBottom>
+
+                <S.PlateInnerBottom>
+                        {
+                            foods.length >= 3 ?
+                            <PlateContent
+                                img={foods[2].img} 
+                                amount={""}
+                                name={foods[2].name}
+                                info={foods[2].content}
+                            /> : 
+                            <PlateContent/>
+                        }
+                </S.PlateInnerBottom>
+
+            </S.Plate>
+        </S.Main>
+    )
 }
+
 const PlateContent = ({
     img,
     amount,

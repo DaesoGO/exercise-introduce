@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
+    background-color: #F2F6FD;
 `
 export const Main = styled.div`
     width: 70%;
@@ -28,6 +29,7 @@ export const UpperContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -60px;
 `
 export const LowerContainer = styled.div`
     display: flex;
@@ -36,4 +38,5 @@ export const LowerContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -80px;
 `

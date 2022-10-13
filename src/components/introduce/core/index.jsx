@@ -1,8 +1,9 @@
 import * as S from './index.style'
-import { App, Performance } from "skeletalmuscle-drawer";
+import App from "skeletalmuscle-drawer";
 import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import human from '../../../static/introduce/asset/man.gltf'
-import animation from '../../../static/introduce/animation/test.json'
+import animation from '../../../static/introduce/animation/squart.json'
+// import gym from '../../../static/introduce/asset/gym.glb'
 import Ui from './ui'
 
 export default () => {
@@ -10,11 +11,18 @@ export default () => {
     let app
     useEffect(() => {
       if (app == undefined) {
-        app = new App(dom.current, human, animation)
+        app = new App(dom.current, human, animation, human)
       }
     }, [dom]);
     return (
-      <S.AppContainer ref={dom}>
-      </S.AppContainer>
+        <S.monitorContainer>
+            <S.monitorDisplay>
+                <S.monitorCam/>
+                <S.AppContainer ref={dom}>
+                </S.AppContainer>
+            </S.monitorDisplay>
+            <S.monitorDisplayBottom/>
+            <S.monitorArm></S.monitorArm>
+        </S.monitorContainer>
     )
 }
