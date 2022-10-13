@@ -3,6 +3,7 @@ import App from "skeletalmuscle-drawer";
 import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import human from '../../../static/introduce/asset/man.gltf'
 import animation from '../../../static/introduce/animation/test.json'
+// import gym from '../../../static/introduce/asset/gym.glb'
 import Ui from './ui'
 
 export default () => {
