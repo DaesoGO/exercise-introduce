@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as R from "./Read.style";
-import dumImg from "../testimgs/221015.jpg";
+import dumImg from "../testimgs/dum.jpeg";
 // import dumImg from "../testimgs/220803.jpg";
 import DropDownMenu from "../../../common/dropDownMenu/DropDownMenu";
 import { useEffect } from "react";
