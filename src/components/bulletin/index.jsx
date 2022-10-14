@@ -61,22 +61,34 @@ const Render = () => {
     },
   ]);
 
-  const [content, setContent] = useState("");
-
-  let makeComment = comment.map((comment, i) => {
-    return (
-      <B.Bulletin key={i}>
-        <a>{comment.writer}</a>
-        <p>{comment.comment}</p>
-      </B.Bulletin>
-    );
-  });
-
   const [paper, setPaper] = useState(
     "dfas&nbsp;&nbsp;&nbsp;dfsafdasdfsafsafsadf\n ## fsadf\n### fsadfsadf\n#### fsadfasd\n# adfsadfasdfsdfadfsad"
   );
 
+  // useEffect(() => {
+  //   //execrcise/id 운동/comment/boardid 댓글 번째
+  //   api.get(`exercise/${test2}/comment/${1}`).then(
+  //     (res) => {
+  //       const d = res.data.data;
+  //       console.log(d);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }, []);
+
+  const [content, setContent] = useState("");
   const [title, setTitle] = useState("asdasdadasdasd");
+
+  let makeComment = comment.map((comment, i) => {
+    return (
+      <B.Bulletin key={i}>
+        <h4>{comment.writer}</h4>
+        <p>{comment.comment}</p>
+      </B.Bulletin>
+    );
+  });
 
   const textArea = (e) => {
     setContent(e.target.value);
@@ -95,11 +107,11 @@ const Render = () => {
           <ReactMarkdown>{paper}</ReactMarkdown>
         </div>
       </div>
-      <B.Write>
+      {/* <B.Write>
         <textarea onChange={textArea} value={content}></textarea>
         <button onClick={sendContent}>글 작성</button>
-      </B.Write>
-      <B.Comment>{makeComment}</B.Comment>
+      </B.Write> */}
+      {/* <B.Comment>{makeComment}</B.Comment> */}
     </B.BulletinContainer>
   );
 };

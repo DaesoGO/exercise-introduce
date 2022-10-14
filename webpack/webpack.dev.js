@@ -10,11 +10,11 @@ module.exports = merge(common, {
       directory: webpack_path.build,
     },
     historyApiFallback:true,
-    port: 3000,
+    port: 3001,
     hot: true,
     proxy: {
       "/api": {
-        target: "http://10.80.161.189:8000",
+        target: "http://172.16.7.1:8000",
         changeOrigin: true,
       },
     },

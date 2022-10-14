@@ -42,7 +42,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
           }
         }))
       },(error) => {
-
+        console.log(error)
       }
     )
   },[])
@@ -120,6 +120,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     // const index = exe.findIndex((element) => element.name === selectedPart.name)
 
   }
+
 
 
 
