@@ -4,7 +4,6 @@ import Chicken from '../../static/recommand/food/chicken.png'
 import Apple from '../../static/recommand/food/apple.png'
 import Avodado from '../../static/recommand/food/avocado.png'
 import Juice from '../../static/recommand/food/juice.png'
-
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -43,7 +42,7 @@ const Render = ({
                     {
                         foods.length >= 3 ?
                         <PlateContent
-                            img={foods[0].img} 
+                            img={Juice} 
                             amount={""}
                             name={foods[0].name}
                             info={foods[0].content}
@@ -56,7 +55,7 @@ const Render = ({
                     {
                         foods.length >= 3 ?
                         <PlateContent
-                            img={foods[1].img} 
+                            img={Chicken} 
                             amount={""}
                             name={foods[1].name}
                             info={foods[1].content}
@@ -69,7 +68,7 @@ const Render = ({
                         {
                             foods.length >= 3 ?
                             <PlateContent
-                                img={foods[2].img} 
+                                img={Avodado} 
                                 amount={""}
                                 name={foods[2].name}
                                 info={foods[2].content}

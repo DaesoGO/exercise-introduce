@@ -1,6 +1,6 @@
 import React from "react";
 import * as R from "./Read.style";
-import dumImg from "../testimgs/220804.jpg";
+import dumImg from "../testimgs/220806.jpg";
 // import dumImg from "../testimgs/220803.jpg";
 import DropDownMenu from "../../../common/dropDownMenu/DropDownMenu";
 

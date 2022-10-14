@@ -25,7 +25,7 @@ const Render = ({ comments }) => {
   const searched = getComment.filter((data) => {
     return data.title.toLowerCase().includes(searchtText.toLowerCase());
   });
-
+e
   const goWrite = () => {
     navigate("/write");
   };

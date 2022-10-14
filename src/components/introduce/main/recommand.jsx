@@ -4,6 +4,7 @@ import search from '../../../static/introduce/icons/search.svg'
 import filter from "../../../static/introduce/icons/filter.svg"
 
 const Render = ({ comment }) => {
+    console.log(comment)
     const [similar, setSimilar] = useState(["딥스", "턱걸이"]);
     const [easy, setEasy] = useState(["스쿼트", "런지"]);
     return (
@@ -24,6 +25,7 @@ const Render = ({ comment }) => {
                                 <S.postName>{element.title}</S.postName>
                             </S.authContainer>
                             <S.commentContainer>
+                                <S.commentCount>{element.comment}</S.commentCount>
                             </S.commentContainer>
                         </S.postContainer>
                     )
