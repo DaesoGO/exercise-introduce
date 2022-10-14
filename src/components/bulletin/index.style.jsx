@@ -22,7 +22,7 @@ export const BulletinContainer = styled.div`
   .markdown--container {
     background: rgba(54, 121, 253, 0.05);
     width: 80%;
-    height: auto;
+    min-height: 90vh;
 
     .markdown {
       padding: 50px;
@@ -97,19 +97,17 @@ export const Bulletin = styled.div`
   border-bottom: 1px solid black;
   background-color: white;
   //작성자
-  a {
+  h4 {
     margin-left: 20px;
     min-width: 10%;
     display: flex;
     justify-content: center;
-    /* color: #a4a4a4; */
     color: black;
   }
 
   //댓글내용
   p {
     margin-left: 30px;
-    /* color: #f1f1f1; */
-    color: blue;
+    color: #0a1e40;
   }
 `;
