@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Main = styled.div`
     width: 42%;
     height: 94%;
-    background-color: #A0BAE2;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-around;
     align-items: center;
