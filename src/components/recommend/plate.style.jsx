@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+
 export const Main = styled.div`
     width: 60%;
     height: 94%;
-    background-color: #A0BAE2;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +26,7 @@ export const PlateInner = styled.div`
     border-radius: 15px;
     position: relative;
     background-color: #BFBFBF;
+    
     background-image: url('${({back}) => back}');
     display: flex;
     align-items: center;
