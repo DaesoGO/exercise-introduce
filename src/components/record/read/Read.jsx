@@ -10,6 +10,10 @@ import {useLocation } from "react-router-dom"
 const Read = () => {
   //이미지, 운동 종류, 운동 부위, 글
 
+  const location = useLocation()
+  const splitedPath = location.pathname.split("/")
+  console.log(`/diary/${splitedPath[splitedPath.length - 2]}/${splitedPath[splitedPath.length - 1]}`)
+
   const [content,setContent] = useState({
     username: "불러오는중입니다",
     date: "불러오는중입니다",
@@ -19,13 +23,9 @@ const Read = () => {
     content: "불러오는중입니다",
   })
 
-  const location = useLocation()
-  console.log(location.pathname);
-  console.log((location.pathname.split("/").pop()));
   
-
   useEffect(() => {
-    api.get(`/diary/tomato4116/${"20220904"}`).then(
+    api.get(`/diary/${splitedPath[splitedPath.length - 2]}/${splitedPath[splitedPath.length - 1]}`).then(
       (result) => {
         const resultData = result.data.data
         console.log(resultData);

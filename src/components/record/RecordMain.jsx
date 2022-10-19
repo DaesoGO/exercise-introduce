@@ -22,6 +22,9 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
+  useEffect(() => {
+    console.log(inView);
+  },[inView])
 
   const [post,setPost] = useState([]);
 
@@ -32,7 +35,6 @@ const RecordMain = () => {
           setPost(
             result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
           )
-          console.log(result)
 
        }, (error) => {
         console.log(error)
@@ -42,20 +44,6 @@ const RecordMain = () => {
 
   
 
-  
-
-  // 정방형 사진이여야만 한다
-  const dum = [
-    "20220904",
-    "20220905",
-    "20220906",
-    "20220907",
-    "20220908",
-    "20220909",
-    "20220910",
-    "20220911",
-    "20220912",
-  ];
   const username = "codingbotPark";
 
   // 오늘 일기를 썻는가
@@ -65,7 +53,7 @@ const RecordMain = () => {
 
   /** 날짜를 문자열로 받아서 년.월.일 의 형태로 반환하는 함수 */
   function makeDateForm(key) {
-    return [Number(key.slice(0, 2)), Number(key.slice(2, 4)), Number(key.slice(4, 6))].join(" . ");
+    return [Number(key.slice(0, 4)), Number(key.slice(4, 6)), Number(key.slice(6, 8))].join(" . ");
   }
 
   useEffect(() => {
@@ -104,7 +92,7 @@ const RecordMain = () => {
             (정방형 사진을 추천합니다)
           </R.WriteBSubComment>
         </R.WriteB>
-        {dum.map((i, idx) => (
+        {post.map((i, idx) => (
           <Link key={i} to={`${username}/${i}`}>
             <R.PostWrapper
               onMouseOver={() => setShowInfo(idx)}

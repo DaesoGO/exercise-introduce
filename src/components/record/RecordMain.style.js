@@ -79,7 +79,8 @@ export const WriteBSubComment = styled(WriteBCommentFont)`
 
 export const PostWrapper = styled.div`
     position:relative;
-    height:100%;
+    height:300px;
+    width:300px;
     display:flex;
     justify-content:center;
     align-items:center;
