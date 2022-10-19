@@ -8,9 +8,18 @@ import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
 import api from "../../util/api";
 
+import mainDum from "./testimgs/mainDum.jpg"
+import { useRecoilValue } from "recoil";
+import userInfoAtom from "../../global/user"
+
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
+
+  const userInfo = useRecoilValue(userInfoAtom)
+  const [userName,setUserName] = useState()
+  // const username = "tomato4116"
+
 
   const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
@@ -20,62 +29,46 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
-
   const [post,setPost] = useState([]);
 
-  useEffect(() => {
-    api.get(`/diary/tomato4116`).then(
-       (result) => {
-        
-          setPost(
-            // result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
-            result.data.data.map((i) => i.substring(2))
-          )
-          console.log(result)
+  function requestPost(reqUserName){
+    api.get(`/diary/${reqUserName}`).then(
+      (result) => {
+         setPost(
+           result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-',''))
+         )
 
-       }, (error) => {
-        console.log(error)
-       }
-    )
-  },[])
+      }, (error) => {
+       console.log(error)
+      }
+   )
+  }
 
-  
-
-  
-
-  // 정방형 사진이여야만 한다
-  const dum = [
-    "221010",
-    "221011",
-    "221012",
-    "221013",
-    "221014",
-    "221015",
-    "221016",
-    "221017",
-    "221018",
-  ];
-  const username = "codingbotPark";
 
   // 오늘 일기를 썻는가
   const [writed, setWrited] = useState(false);
-
   const [showInfo, setShowInfo] = useState(-1);
 
   /** 날짜를 문자열로 받아서 년.월.일 의 형태로 반환하는 함수 */
   function makeDateForm(key) {
-    return [Number(key.slice(0, 2)), Number(key.slice(2, 4)), Number(key.slice(4, 6))].join(" . ");
+    return [Number(key.slice(0, 4)), Number(key.slice(4, 6)), Number(key.slice(6, 8))].join(" . ");
   }
 
   useEffect(() => {
-    if (inView) {
+    if (userInfo) {
+      setUserName(userInfo.user.id)
+    }
+  },[userInfo])
+  // 무한 스크롤
+  useEffect(() => {
+    if (inView && userName) {
       setIsLoading(true);
-      console.log("서버 요청");
+      requestPost(userName);
       setTimeout(() => {
         setIsLoading(false);
       }, 2000);
     }
-  }, [inView]);
+  }, [inView,userName]);
   /**
    * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
    */
@@ -103,13 +96,13 @@ const RecordMain = () => {
             (정방형 사진을 추천합니다)
           </R.WriteBSubComment>
         </R.WriteB>
-        {dum.map((i, idx) => (
-          <Link key={i} to={`${username}/${i}`}>
+        {post.map((i, idx) => (
+          <Link key={i} to={`${userName}/${i}`}>
             <R.PostWrapper
               onMouseOver={() => setShowInfo(idx)}
               onMouseLeave={() => setShowInfo(-1)}
             >
-              <R.PostImg src={require(`./testimgs/${i}.jpg`).default} />
+              <R.PostImg src={mainDum} />
               {showInfo === idx && <R.PostInfo>{makeDateForm(i)}</R.PostInfo>}
             </R.PostWrapper>
           </Link>

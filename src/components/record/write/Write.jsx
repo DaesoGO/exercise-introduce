@@ -59,7 +59,7 @@ const Write = ({onClose}) => {
   function formatNameAndValue(data){
     return data.map((element) => {
       return (element.name+element.value+'/')
-    }).join('')
+    }).slice(0,-1).join('')
   }
 
   function nextStep() {
@@ -72,6 +72,7 @@ const Write = ({onClose}) => {
           exercise:formatNameAndValue(exe),
           part:formatNameAndValue(part),
         }
+        console.log(form.exercise);
         api.post(`/diary/${"codingbot"}`,form).then(
           (result) => {console.log(result)},
           (error) => {console.log(error)}

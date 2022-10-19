@@ -40,7 +40,7 @@ const Router = () => {
     if(getUserInfo === null && localStorage.getItem("access_token")) {
       api.get("user/Decode").
       then((result) => {
-        console.log(result.data)
+        // console.log(result.data)
         setUserInfo({
           user: result.data,
           token: localStorage.getItem("access_token")
