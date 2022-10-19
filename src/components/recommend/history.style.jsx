@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Main = styled.div`
     width: 54%;
     height: 94%;
-    background-color: #A0BAE2;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -25,7 +27,7 @@ export const ValueWrapper = styled.div`
     height: 90%;
     padding: 10px;
     position: relative;
-    background-color: #F2F6FD;
+    /* background-color: #eeeeee; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -37,7 +39,9 @@ export const ValueContainer = styled.div`
     width: 100px;
     height: 110px;
     padding: 5px;
-    background-color: #A0BAE2;
+    background-color: white;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+
     display: flex;
     flex-direction: column;
     align-items: center;

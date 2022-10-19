@@ -6,7 +6,7 @@ import animation from "../../../static/introduce/animation/test.json";
 import * as S from "./index.style";
 import Info from "./info";
 
-const Render = ({ info }) => {
+const Render = ({ info, comment }) => {
   const dom = useRef();
   let isApp;
   const [app, setApp] = useState();
@@ -22,7 +22,7 @@ const Render = ({ info }) => {
       <S.DisplayContainer>
         <Core/>
       </S.DisplayContainer>
-      <Info info={info} />
+      <Info info={info} comment={comment}/>
     </S.MainContainer>
   );
 };

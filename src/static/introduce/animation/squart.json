@@ -25,7 +25,6 @@
         "hello",
         "pointing",
         "idle",
-        "idle",
         "squart",
         "squart",
         "squart",
@@ -42,23 +41,22 @@
     "subtitle": [
         {
             "start": 0,
-            "end": 3000,
-            "content": "자막 실험 중입니다"
+            "content": "안녕하세요, 박병관입니다"
         },
         {
-            "start": 3000,
+            "start": 2300,
             "end": 6000,
-            "content": "자막 실험 중입니다2"
+            "content": "이제부터 제가 운동하는 모습을 보여드리겠습니다"
         },
         {
             "start": 6000,
-            "end": 9000,
-            "content": "자막 실험 중입니다3"
+            "end":16000,
+            "content": ""
         },
         {
-            "start": 9000,
-            "end": 12000,
-            "content": "자막 실험 중입니다4"
+            "start": 16000,
+            "end": 20000,
+            "content": "지금은 스쿼트를 하고있습니다"
         }
     ]
 }
