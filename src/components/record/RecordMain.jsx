@@ -9,10 +9,17 @@ import Write from "./write/Write";
 import api from "../../util/api";
 
 import mainDum from "./testimgs/mainDum.jpg"
+import { useRecoilValue } from "recoil";
+import userInfoAtom from "../../global/user"
 
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
+
+  const userInfo = useRecoilValue(userInfoAtom)
+  const [userName,setUserName] = useState()
+  // const username = "tomato4116"
+
 
   const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
@@ -22,33 +29,24 @@ const RecordMain = () => {
     setModalVisible(false);
   }
 
-  useEffect(() => {
-    console.log(inView);
-  },[inView])
-
   const [post,setPost] = useState([]);
 
-  useEffect(() => {
-    api.get(`/diary/tomato4116`).then(
-       (result) => {
-         
-          setPost(
-            result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
-          )
+  function requestPost(reqUserName){
+    api.get(`/diary/${reqUserName}`).then(
+      (result) => {
+         setPost(
+           result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-',''))
+         )
 
-       }, (error) => {
-        console.log(error)
-       }
-    )
-  },[])
+      }, (error) => {
+       console.log(error)
+      }
+   )
+  }
 
-  
-
-  const username = "codingbotPark";
 
   // 오늘 일기를 썻는가
   const [writed, setWrited] = useState(false);
-
   const [showInfo, setShowInfo] = useState(-1);
 
   /** 날짜를 문자열로 받아서 년.월.일 의 형태로 반환하는 함수 */
@@ -57,14 +55,20 @@ const RecordMain = () => {
   }
 
   useEffect(() => {
-    if (inView) {
+    if (userInfo) {
+      setUserName(userInfo.user.id)
+    }
+  },[userInfo])
+  // 무한 스크롤
+  useEffect(() => {
+    if (inView && userName) {
       setIsLoading(true);
-      console.log("서버 요청");
+      requestPost(userName);
       setTimeout(() => {
         setIsLoading(false);
       }, 2000);
     }
-  }, [inView]);
+  }, [inView,userName]);
   /**
    * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
    */
@@ -93,7 +97,7 @@ const RecordMain = () => {
           </R.WriteBSubComment>
         </R.WriteB>
         {post.map((i, idx) => (
-          <Link key={i} to={`${username}/${i}`}>
+          <Link key={i} to={`${userName}/${i}`}>
             <R.PostWrapper
               onMouseOver={() => setShowInfo(idx)}
               onMouseLeave={() => setShowInfo(-1)}
