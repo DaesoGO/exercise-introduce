@@ -13,8 +13,12 @@ export const Content = styled.section`
     margin:100px 50px 20px 50px;
     max-width:1100px; 
     display:grid;
+    
+    /* grid-template-rows:repeat(auto,minmax(300px,1fr)); */
     grid-template-rows:repeat(3,1fr);
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fill,minmax(100px,300px));
+    justify-content:center;
+    /* grid-template-columns:repeat(3,1fr); */
     
     row-gap:30px;
     column-gap:30px;
@@ -26,6 +30,9 @@ export const Content = styled.section`
 
     > a {
         text-decoration:none;
+    }
+    >div{
+        /* min-width:300px; */
     }
 
 `
