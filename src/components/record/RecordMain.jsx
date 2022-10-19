@@ -26,10 +26,9 @@ const RecordMain = () => {
   useEffect(() => {
     api.get(`/diary/tomato4116`).then(
        (result) => {
-        
+         
           setPost(
-            // result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
-            result.data.data.map((i) => i.substring(2))
+            result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-','').substring(2))
           )
           console.log(result)
 
