@@ -10,29 +10,7 @@ const Render = ({ comment }) => {
   const [similar, setSimilar] = useState(["딥스", "턱걸이"]);
   const [easy, setEasy] = useState(["스쿼트", "런지"]);
 
-  const [searchtText, setSearchtText] = useState("");
-  const [getComment, setCommnet] = useState([]);
-
-  useEffect(() => {
-    setCommnet(comment);
-    console.log(comment);
-  });
-
-  const searched = getComment.filter((data) => {
-    return data.title.toLowerCase().includes(searchtText.toLowerCase());
-  });
-
-  const changeSearch = useCallback(
-    (e) => {
-      setSearchtText(e.target.value);
-      console.log(searchtText);
-      setCommnet(searched);
-      makeComment();
-    },
-    [searchtText]
-  );
-
-  const makeComment = getComment.map((element, idx) => {
+  const makeComment = comment.map((element, idx) => {
     const id = element.id.split("_")[0];
     const boardid = element.id.split("_")[1];
     return (
@@ -51,7 +29,7 @@ const Render = ({ comment }) => {
   return (
     <S.MainContainer>
       <S.upperContainer>
-        <S.inputForm placeholder="Search" value={searchtText} onChange={changeSearch} />
+        <S.inputForm placeholder="Search" />
         <S.buttonContainer>
           <S.divButton>
             <img src={search} />
