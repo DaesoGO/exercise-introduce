@@ -8,6 +8,8 @@ import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
 import api from "../../util/api";
 
+import mainDum from "./testimgs/mainDum.jpg"
+
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
@@ -44,15 +46,15 @@ const RecordMain = () => {
 
   // 정방형 사진이여야만 한다
   const dum = [
-    "220904",
-    "2220905",
-    "220906",
-    "220907",
-    "220908",
-    "220909",
-    "220910",
-    "220911",
-    "220912",
+    "20220904",
+    "20220905",
+    "20220906",
+    "20220907",
+    "20220908",
+    "20220909",
+    "20220910",
+    "20220911",
+    "20220912",
   ];
   const username = "codingbotPark";
 
@@ -108,7 +110,7 @@ const RecordMain = () => {
               onMouseOver={() => setShowInfo(idx)}
               onMouseLeave={() => setShowInfo(-1)}
             >
-              <R.PostImg src={require(`./testimgs/${i}.jpg`).default} />
+              <R.PostImg src={mainDum} />
               {showInfo === idx && <R.PostInfo>{makeDateForm(i)}</R.PostInfo>}
             </R.PostWrapper>
           </Link>

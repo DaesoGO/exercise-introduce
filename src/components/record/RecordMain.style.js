@@ -43,6 +43,7 @@ export const Content = styled.section`
 export const WriteB = styled.div`
     box-sizing:border-box;
     width:100%; 
+    height:300px;
     background-color:#ebebeb;
     display:flex;
     flex-direction:column;
