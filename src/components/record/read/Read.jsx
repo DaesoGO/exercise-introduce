@@ -5,21 +5,39 @@ import dumImg from "../testimgs/dum.jpeg";
 import DropDownMenu from "../../../common/dropDownMenu/DropDownMenu";
 import { useEffect } from "react";
 import api from "../../../util/api";
+import {useLocation } from "react-router-dom"
 
 const Read = () => {
   //이미지, 운동 종류, 운동 부위, 글
-  const post = {
-    username: "김병관",
-    date: "221004",
+
+  const [content,setContent] = useState({
+    username: "불러오는중입니다",
+    date: "불러오는중입니다",
     img: dumImg,
-    exe: ["밥", "먹기"],
-    part: ["팔", "입"],
-    content: "밥먹기 운동을 했따",
-  };
+    exe: ["불러오는중입니다"],
+    part: ["불러오는중입니다"],
+    content: "불러오는중입니다",
+  })
+
+  const location = useLocation()
+  console.log(location.pathname);
+  console.log((location.pathname.split("/").pop()));
+  
 
   useEffect(() => {
-    api.get('/diary/tomato4116/20220904').then(
-      (result) => console.log(result),
+    api.get(`/diary/tomato4116/${"20220904"}`).then(
+      (result) => {
+        const resultData = result.data.data
+        console.log(resultData);
+        setContent({
+          username:resultData.user.nickname,
+          date:resultData.createdAt,
+          img:dumImg,
+          exe:resultData.exercise.split("/"),
+          part:resultData.part.split("/"),
+          content:resultData.content
+        })
+      },
       (error) => console.log(error)
     )
   },[])
@@ -28,21 +46,21 @@ const Read = () => {
     <R.Wrapper>
       <R.Section>
         <R.ImgWrapper>
-          <R.Img src={post.img} />
+          <R.Img src={content.img} />
         </R.ImgWrapper>
         <R.Article>
           <R.Header>
-            <R.UserName>{post.username}</R.UserName>
-            <R.Date>{post.date}</R.Date>
+            <R.UserName>{content.username}</R.UserName>
+            <R.Date>{content.date}</R.Date>
           </R.Header>
-          <R.Comment>{post.content}</R.Comment>
+          <R.Comment>{content.content}</R.Comment>
 
           <R.Content>
             <hr />
 
             <DropDownMenu title="운동 종류" defaultOpen={true}>
               <R.ItemRowWrapper>
-                {post.exe.map((i) => (
+                {content.exe.map((i) => (
                   <R.rowItem key={i}>{i}</R.rowItem>
                 ))}
               </R.ItemRowWrapper>
@@ -50,7 +68,7 @@ const Read = () => {
             <hr />
             <DropDownMenu title="운동 부위" defaultOpen={true}>
               <R.ItemRowWrapper>
-                {post.part.map((i) => (
+                {content.part.map((i) => (
                   <R.rowItem key={i}>{i}</R.rowItem>
                 ))}
               </R.ItemRowWrapper>
