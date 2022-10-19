@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./recommand.style";
-import search from "../../../static/introduce/icons/search.svg";
+import searchImg from "../../../static/introduce/icons/search.svg";
 import filter from "../../../static/introduce/icons/filter.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -9,11 +9,12 @@ const Render = ({ comment }) => {
 
   const [similar, setSimilar] = useState(["딥스", "턱걸이"]);
   const [easy, setEasy] = useState(["스쿼트", "런지"]);
+  const [search, setSearch] = useState('');
 
   const makeComment = comment.map((element, idx) => {
     const id = element.id.split("_")[0];
     const boardid = element.id.split("_")[1];
-    return (
+    return (element.title).includes(search) ? (
       <S.postContainer key={idx} onClick={() => navigate(`/introduce/${id}/${boardid}`)}>
         <S.authContainer>
           <S.writerName>{element.user.nickname}</S.writerName>
@@ -23,16 +24,16 @@ const Render = ({ comment }) => {
           <S.commentCount>{element.comment}</S.commentCount>
         </S.commentContainer> */}
       </S.postContainer>
-    );
+    ) : null;
   });
 
   return (
     <S.MainContainer>
       <S.upperContainer>
-        <S.inputForm placeholder="Search" />
+        <S.inputForm placeholder='Search' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
         <S.buttonContainer>
           <S.divButton>
-            <img src={search} />
+            <img src={searchImg} />
           </S.divButton>
           {/* <S.divButton><img src={filter}/></S.divButton> */}
         </S.buttonContainer>
