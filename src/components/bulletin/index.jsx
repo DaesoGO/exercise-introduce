@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { useLocation, useParams } from "react-router-dom";
 import * as B from "./index.style";
+import api from "../../util/api";
 
 const Render = () => {
   window.scrollTo(0, 0);
@@ -65,21 +67,30 @@ const Render = () => {
     "dfas&nbsp;&nbsp;&nbsp;dfsafdasdfsafsafsadf\n ## fsadf\n### fsadfsadf\n#### fsadfasd\n# adfsadfasdfsdfadfsad"
   );
 
-  // useEffect(() => {
-  //   //execrcise/id 운동/comment/boardid 댓글 번째
-  //   api.get(`exercise/${test2}/comment/${1}`).then(
-  //     (res) => {
-  //       const d = res.data.data;
-  //       console.log(d);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }, []);
+  const location = useLocation();
+
+  useEffect(() => {
+    var decodeStr = decodeURI(window.location.href);
+    let boardid = decodeStr.split("/")[5];
+    let id = decodeStr.split("/")[4];
+    console.log(id, boardid);
+    //execrcise/id 운동/comment/boardid 댓글 번째 `exercise/${스쿼트}/comment/${1}`
+    api.get(`exercise/${id}/comment/${boardid}`).then(
+      (res) => {
+        const d = res.data.data;
+        console.log(d);
+        console.log(d[boardid - 1]);
+
+        setPaper(d[boardid - 1].content);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, []);
 
   const [content, setContent] = useState("");
-  const [title, setTitle] = useState("asdasdadasdasd");
+  // const [title, setTitle] = useState("asdasdadasdasd");
 
   let makeComment = comment.map((comment, i) => {
     return (
@@ -102,7 +113,7 @@ const Render = () => {
     <B.BulletinContainer>
       <div className="markdown--container">
         <div className="markdown">
-          <h1>{title}</h1>
+          {/* <h1>{title}</h1> */}
           <br />
           <ReactMarkdown>{paper}</ReactMarkdown>
         </div>

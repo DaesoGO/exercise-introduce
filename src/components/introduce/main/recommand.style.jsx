@@ -52,6 +52,12 @@ export const postContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  cursor: pointer;
+  :hover {
+    transition: 0.5s;
+    background-color: #5687d6;
+  }
 `;
 export const authContainer = styled.div`
   display: flex;
