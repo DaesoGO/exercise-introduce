@@ -62,21 +62,45 @@ const Write = ({onClose}) => {
     }).slice(0,-1).join('')
   }
 
+
+  function resetValues(){
+    setContent("");
+    setImgFiles([]);
+    setExe([]);
+    setPart([]);
+  }
+
+
   function nextStep() {
     if (step === createStep.length - 1) {
+      setStep(0)
       if (window.confirm('글을 작성할까요?')){
         // -----------
-        const form = {
-          content:content,
-          photo:"일단사진",
-          exercise:formatNameAndValue(exe),
-          part:formatNameAndValue(part),
-        }
-        console.log(form.exercise);
-        api.post(`/diary/${"codingbot"}`,form).then(
-          (result) => {console.log(result)},
-          (error) => {console.log(error)}
-        )
+        const formData = new FormData();
+        formData.append("file",imgFiles)
+        formData.append('content',content)
+        formData.append('exercise',formatNameAndValue(exe))
+        formData.append('part',formatNameAndValue(part))
+        // const form = {
+        //   content:content,
+        //   file:formData,
+        //   exercise:formatNameAndValue(exe),
+        //   part:formatNameAndValue(part),
+        // }
+
+        console.log(formData);
+        api(`/diary/${"codingbot"}`,{
+          method:'post',
+          headers:{
+            // 'Content-Type': 'multipart/form-data'
+          },
+          body:formData 
+        })
+
+        // api.post(`/diary/${"codingbot"}`,form).then(
+        //   (result) => {console.log(result)},
+        //   (error) => {console.log(error)}
+        // )
         // -----------
         onClose();
       }

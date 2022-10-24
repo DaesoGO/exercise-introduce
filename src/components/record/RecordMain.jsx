@@ -9,7 +9,8 @@ import Write from "./write/Write";
 import api from "../../util/api";
 
 import mainDum from "./testimgs/mainDum.jpg"
-import { useRecoilValue } from "recoil";
+import { useRecoilValue,useRecoilState } from "recoil";
+import { creatingStep } from "../../stores/write/writeData";
 import userInfoAtom from "../../global/user"
 
 const RecordMain = () => {
@@ -20,12 +21,17 @@ const RecordMain = () => {
   const [userName,setUserName] = useState()
   // const username = "tomato4116"
 
+  const [step, setStep] = useRecoilState(creatingStep);
+
 
   const [modalVisible, setModalVisible] = useState(false);
   function openModal() {
     setModalVisible(true);
   }
+
+  
   function closeModal() {
+    setStep(0)
     setModalVisible(false);
   }
 
