@@ -1,8 +1,8 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: 'http://10.80.161.196:8000/api',
-  timeout: 1000
-})
+  baseURL: "http://10.80.161.169:8000/api",
+  timeout: 1000,
+});
 
 api.interceptors.request.use(
   function (config) {

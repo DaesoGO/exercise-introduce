@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import * as S from "./recommand.style";
-import searchImg from "../../../static/introduce/icons/search.svg";
+import EditImg from "../../../static/introduce/icons/edit.svg";
 import filter from "../../../static/introduce/icons/filter.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -9,20 +9,33 @@ const Render = ({ comment }) => {
 
   const [similar, setSimilar] = useState(["딥스", "턱걸이"]);
   const [easy, setEasy] = useState(["스쿼트", "런지"]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
+  const [boardid, setBoardid] = useState("");
 
-  const makeComment = comment.map((element, idx) => {
-    const id = element.id.split("_")[0];
-    const boardid = element.id.split("_")[1];
-    return (element.title).includes(search) ? (
-      <S.postContainer key={idx} onClick={() => navigate(`/introduce/${id}/${boardid}`)}>
+  useEffect(() => {
+    setBoardid(comment.config?.url);
+    console.log(comment.config?.url);
+  }, []);
+
+  const makeComment = comment.data?.data.map((element, idx) => {
+    // const name = boardid?.split("/")[1];
+    const name = "boardid";
+
+    return element.content.includes(search) ? (
+      // <S.postContainer key={idx} onClick={() => navigate(`/introduce/${id}/${boardid}`)}>
+      //   <S.authContainer>
+      //     <S.writerName>{element.user.nickname}</S.writerName>
+      //     <S.postName>{element.title}</S.postName>
+      //   </S.authContainer>
+      //   {/* <S.commentContainer>
+      //     <S.commentCount>{element.comment}</S.commentCount>
+      //   </S.commentContainer> */}
+      // </S.postContainer>
+      <S.postContainer key={idx} onClick={() => navigate(`/introduce/${element.id}/${name}`)}>
         <S.authContainer>
-          <S.writerName>{element.user.nickname}</S.writerName>
-          <S.postName>{element.title}</S.postName>
+          <S.writerName>{element.user.id}</S.writerName>
+          <S.postName>{element.content}</S.postName>
         </S.authContainer>
-        {/* <S.commentContainer>
-          <S.commentCount>{element.comment}</S.commentCount>
-        </S.commentContainer> */}
       </S.postContainer>
     ) : null;
   });
@@ -30,10 +43,16 @@ const Render = ({ comment }) => {
   return (
     <S.MainContainer>
       <S.upperContainer>
-        <S.inputForm placeholder='Search' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
+        <S.inputForm
+          placeholder="Search"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
         <S.buttonContainer>
-          <S.divButton>
-            <img src={searchImg} />
+          <S.divButton onClick={() => navigate("/write")}>
+            <img src={EditImg} />
           </S.divButton>
           {/* <S.divButton><img src={filter}/></S.divButton> */}
         </S.buttonContainer>

@@ -82,6 +82,7 @@ const Render = () => {
         console.log(d[boardid - 1]);
 
         setPaper(d[boardid - 1].content);
+        console.log("end");
       },
       (err) => {
         console.log(err);
