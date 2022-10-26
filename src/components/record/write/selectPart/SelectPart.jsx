@@ -91,19 +91,22 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
 
   function removeExe(selectedExe){
-    // // console.log(
-    // //   exe.map((element) => {
-    // //     if (element.name === selectedExe){
-    // //       element.value -= 1;
-    // //       if (element.value > 0){
+    
 
-    // //       } 
-    // //       // 아닐 땐 삭제
-    // //     }else{
-    // //       return element
-    // //     }
-    // //   })
-    // // )
+    // console.log(
+    //   exe.map((element) => {
+    //     if (element.name === selectedExe){
+    //       element.value -= 1;
+    //       if (element.value > 0){
+
+    //       } 
+    //       // 아닐 땐 삭제
+    //     }else{
+    //       return element
+    //     }
+    //   })
+    // )
+
     // setExe((prev) => {
     //   const index = exe.findIndex((element) => element.name === selectedExe.name)
     //   console.log("prev",prev)
@@ -120,8 +123,6 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     // const index = exe.findIndex((element) => element.name === selectedPart.name)
 
   }
-
-
 
 
 

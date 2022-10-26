@@ -31,10 +31,11 @@ const Read = () => {
       (result) => {
         const resultData = result.data.data
         console.log(resultData);
+        console.log(`http://10.80.161.250:8000/upload/${resultData.photo}`);
         setContent({
           username:resultData.user.nickname,
           date:resultData.createdAt,
-          img:dumImg,
+          img:`http://10.80.161.250:8000/upload/${resultData.photo}`,
           exe:resultData.exercise.split("/"),
           part:resultData.part.split("/"),
           content:resultData.content

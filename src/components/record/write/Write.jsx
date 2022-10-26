@@ -57,18 +57,17 @@ const Write = ({onClose}) => {
   }, [imgFiles]);
 
   function formatNameAndValue(data){
-    return data.map((element) => {
+    const value = data.map((element) => {
       return (element.name+element.value+'/')
-    }).slice(0,-1).join('')
+    }).join('').slice(0,-1)
+    console.log(value);
+    return value
+
+    // return data.map((element) => {
+    //   return (element.name+element.value+'/')
+    // }).slice(0,-1).join('')
   }
 
-
-  function resetValues(){
-    setContent("");
-    setImgFiles([]);
-    setExe([]);
-    setPart([]);
-  }
 
 
   function nextStep() {
@@ -77,31 +76,13 @@ const Write = ({onClose}) => {
       if (window.confirm('글을 작성할까요?')){
         // -----------
         const formData = new FormData();
-        formData.append("file",imgFiles)
+        formData.append("file",...imgFiles)
         formData.append('content',content)
         formData.append('exercise',formatNameAndValue(exe))
         formData.append('part',formatNameAndValue(part))
-        // const form = {
-        //   content:content,
-        //   file:formData,
-        //   exercise:formatNameAndValue(exe),
-        //   part:formatNameAndValue(part),
-        // }
+          
+        api.post(`/diary/${"codingbot"}`,formData).then(res => console.log(res)).catch(err => console.log(err))
 
-        console.log(formData);
-        api(`/diary/${"codingbot"}`,{
-          method:'post',
-          headers:{
-            // 'Content-Type': 'multipart/form-data'
-          },
-          body:formData 
-        })
-
-        // api.post(`/diary/${"codingbot"}`,form).then(
-        //   (result) => {console.log(result)},
-        //   (error) => {console.log(error)}
-        // )
-        // -----------
         onClose();
       }
     } else {
