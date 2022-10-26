@@ -72,7 +72,6 @@ const Write = ({onClose}) => {
 
   function nextStep() {
     if (step === createStep.length - 1) {
-      setStep(0)
       if (window.confirm('글을 작성할까요?')){
         // -----------
         const formData = new FormData();
@@ -82,7 +81,7 @@ const Write = ({onClose}) => {
         formData.append('part',formatNameAndValue(part))
           
         api.post(`/diary/${"codingbot"}`,formData).then(res => console.log(res)).catch(err => console.log(err))
-
+        setStep(0)
         onClose();
       }
     } else {

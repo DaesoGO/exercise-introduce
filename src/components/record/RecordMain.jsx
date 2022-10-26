@@ -40,8 +40,17 @@ const RecordMain = () => {
   function requestPost(reqUserName){
     api.get(`/diary/${reqUserName}`).then(
       (result) => {
+         console.log(result)
+
          setPost(
-           result.data.data.map((i) => i.createdAt.split('T')[0].replaceAll('-',''))
+           result.data.data.map(
+            (i) => {
+              return {
+                photo:`http://10.80.161.250:8000/upload/${i.photo}`,
+                date:i.createdAt.split('T')[0].replaceAll('-','')
+              }
+            }
+           )
          )
 
       }, (error) => {
@@ -65,6 +74,7 @@ const RecordMain = () => {
       setUserName(userInfo.user.id)
     }
   },[userInfo])
+
   // 무한 스크롤
   useEffect(() => {
     if (inView && userName) {
@@ -103,13 +113,13 @@ const RecordMain = () => {
           </R.WriteBSubComment>
         </R.WriteB>
         {post.map((i, idx) => (
-          <Link key={i} to={`${userName}/${i}`}>
+          <Link key={i.date} to={`${userName}/${i}`}>
             <R.PostWrapper
               onMouseOver={() => setShowInfo(idx)}
               onMouseLeave={() => setShowInfo(-1)}
             >
-              <R.PostImg src={mainDum} />
-              {showInfo === idx && <R.PostInfo>{makeDateForm(i)}</R.PostInfo>}
+              <R.PostImg src={i.photo} />
+              {showInfo === idx && <R.PostInfo>{makeDateForm(i.date)}</R.PostInfo>}
             </R.PostWrapper>
           </Link>
         ))}
