@@ -113,7 +113,7 @@ const RecordMain = () => {
           </R.WriteBSubComment>
         </R.WriteB>
         {post.map((i, idx) => (
-          <Link key={i.date} to={`${userName}/${i}`}>
+          <Link key={i.date} to={`${userName}/${i.date}`}>
             <R.PostWrapper
               onMouseOver={() => setShowInfo(idx)}
               onMouseLeave={() => setShowInfo(-1)}

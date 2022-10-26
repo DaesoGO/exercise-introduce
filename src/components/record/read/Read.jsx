@@ -19,7 +19,7 @@ const Read = () => {
   const [content,setContent] = useState({
     username: "불러오는중입니다",
     date: "불러오는중입니다",
-    img: dumImg,
+    img:undefined,
     exe: ["불러오는중입니다"],
     part: ["불러오는중입니다"],
     content: "불러오는중입니다",
