@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { useNavigate } from "react-router-dom";
+import api from "../../../util/api";
 import * as W from "./index.style";
 
 const Write = () => {
-  window.scrollTo(0,0);
+  const navigate = useNavigate();
+  window.scrollTo(0, 0);
   const [paper, setPaper] = useState("");
   const [title, setTitle] = useState("");
   const textRef = useRef();
@@ -19,6 +22,23 @@ const Write = () => {
       textarea.style.height = `${height + 96}px`;
     }
   }, [paper]);
+
+  const sendData = () => {
+    if (paper.length > 0 && title.length > 0) {
+      api
+        .post("exercise/squatting/board", {
+          title: title,
+          content: paper,
+        })
+        .then((res) => {
+          console.log(res);
+          navigate("/introduce/:id");
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    }
+  };
 
   const checkKey = (e) => {
     if (e.key === " ") {
@@ -118,7 +138,7 @@ const Write = () => {
           onKeyDown={checkKey}
         ></textarea>
         <W.WriteTable>
-          <button>글 작성</button>
+          <button onClick={sendData}>글 작성</button>
         </W.WriteTable>
       </div>
       <div className="markdown--container">

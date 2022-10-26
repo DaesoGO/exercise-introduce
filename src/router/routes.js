@@ -17,7 +17,7 @@ export default [
   { path: "test", component: <Test />, nav: true, footer: true },
   { path: "record", component: <Record />, nav: true, footer: true },
   { path: "record/:user/:id", component: <Read />, nav: true, footer: true },
-  { path: "introduce", component: <Introduce />, nav: true, footer: true },
+  { path: "introduce/:id", component: <Introduce />, nav: true, footer: true },
   { path: "introduce/:id/:boardid", component: <Bulletin />, nav: true, footer: true },
   { path: "write", component: <Write />, nav: true, footer: true },
   { path: "recommend", component: <Recommand />, nav: true, footer: true },

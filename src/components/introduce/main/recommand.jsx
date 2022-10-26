@@ -19,7 +19,7 @@ const Render = ({ comment }) => {
 
   const makeComment = comment.data?.data.map((element, idx) => {
     // const name = boardid?.split("/")[1];
-    const name = "boardid";
+    const name = "squatting";
 
     return element.content.includes(search) ? (
       // <S.postContainer key={idx} onClick={() => navigate(`/introduce/${id}/${boardid}`)}>
@@ -31,7 +31,7 @@ const Render = ({ comment }) => {
       //     <S.commentCount>{element.comment}</S.commentCount>
       //   </S.commentContainer> */}
       // </S.postContainer>
-      <S.postContainer key={idx} onClick={() => navigate(`/introduce/${element.id}/${name}`)}>
+      <S.postContainer key={idx} onClick={() => navigate(`/introduce/${name}/${element.id}`)}>
         <S.authContainer>
           <S.writerName>{element.user.id}</S.writerName>
           <S.postName>{element.content}</S.postName>

@@ -54,10 +54,10 @@ export const postContainer = styled.div`
   align-items: center;
 
   cursor: pointer;
-  :hover {
+  /* :hover {
     transition: 0.5s;
     background-color: #5687d6;
-  }
+  } */
 `;
 export const authContainer = styled.div`
   display: flex;

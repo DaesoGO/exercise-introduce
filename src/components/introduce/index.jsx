@@ -24,9 +24,10 @@ const Render = () => {
   }, []);
 
   useEffect(() => {
-    api.get("exercise/pushup/comment/1").then(
+    api.get("exercise/squatting/comment/1").then(
       (res) => {
         setComments(res);
+        console.log(res.data.data);
       },
       (err) => {
         console.log(err);
