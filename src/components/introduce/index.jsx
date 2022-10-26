@@ -5,13 +5,16 @@ import * as S from "./index.style";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import dummy from "./pushup.json";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Render = () => {
   const [getInfo, setInfo] = useState(dummy);
   const [comments, setComments] = useState([]);
+  const navigate = useNavigate();
 
+  const name = window.location.href.split("/")[4];
   useEffect(() => {
-    api.get("exercise/Squatting").then(
+    api.get(`exercise/${name}`).then(
       (res) => {
         const d = res.data.data;
         d.muscle = d.muscle.split("/");
@@ -19,12 +22,13 @@ const Render = () => {
       },
       (err) => {
         console.log(err);
+        navigate("/");
       }
     );
   }, []);
 
   useEffect(() => {
-    api.get("exercise/squatting/comment/1").then(
+    api.get(`exercise/${name}/board`).then(
       (res) => {
         setComments(res);
         console.log(res.data.data);

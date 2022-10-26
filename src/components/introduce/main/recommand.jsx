@@ -12,32 +12,17 @@ const Render = ({ comment }) => {
   const [search, setSearch] = useState("");
   const [boardid, setBoardid] = useState("");
 
-  useEffect(() => {
-    setBoardid(comment.config?.url);
-    console.log(comment.config?.url);
-  }, []);
+  const name = window.location.href.split("/")[4];
 
   const makeComment = comment.data?.data.map((element, idx) => {
-    // const name = boardid?.split("/")[1];
-    const name = "squatting";
-
-    return element.content.includes(search) ? (
-      // <S.postContainer key={idx} onClick={() => navigate(`/introduce/${id}/${boardid}`)}>
-      //   <S.authContainer>
-      //     <S.writerName>{element.user.nickname}</S.writerName>
-      //     <S.postName>{element.title}</S.postName>
-      //   </S.authContainer>
-      //   {/* <S.commentContainer>
-      //     <S.commentCount>{element.comment}</S.commentCount>
-      //   </S.commentContainer> */}
-      // </S.postContainer>
+    return (
       <S.postContainer key={idx} onClick={() => navigate(`/introduce/${name}/${element.id}`)}>
         <S.authContainer>
           <S.writerName>{element.user.id}</S.writerName>
-          <S.postName>{element.content}</S.postName>
+          <S.postName>{element.title}</S.postName>
         </S.authContainer>
       </S.postContainer>
-    ) : null;
+    );
   });
 
   return (
@@ -51,7 +36,7 @@ const Render = ({ comment }) => {
           }}
         />
         <S.buttonContainer>
-          <S.divButton onClick={() => navigate("/write")}>
+          <S.divButton onClick={() => navigate(`/${name}/write`)}>
             <img src={EditImg} />
           </S.divButton>
           {/* <S.divButton><img src={filter}/></S.divButton> */}

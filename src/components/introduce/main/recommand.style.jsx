@@ -46,7 +46,11 @@ export const lowerContainer = styled.div`
   flex-direction: column;
   gap: 15px;
 
+  height: 220px;
+
   overflow-y: auto;
+  ::-webkit-scrollbar-thumb {
+  }
 `;
 export const postContainer = styled.div`
   display: flex;

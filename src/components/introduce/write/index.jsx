@@ -24,15 +24,18 @@ const Write = () => {
   }, [paper]);
 
   const sendData = () => {
+    const name = window.location.href.split("/")[3];
+    console.log(name);
+
     if (paper.length > 0 && title.length > 0) {
       api
-        .post("exercise/squatting/board", {
+        .post(`exercise/${name}/board`, {
           title: title,
           content: paper,
         })
         .then((res) => {
           console.log(res);
-          navigate("/introduce/:id");
+          navigate(`/introduce/${name}`);
         })
         .catch((res) => {
           console.log(res);

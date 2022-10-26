@@ -77,7 +77,7 @@ const Render = () => {
     let id = decodeStr.split("/")[4];
     console.log(id, boardid);
     //execrcise/id 운동/comment/boardid 댓글 번째 `exercise/${스쿼트}/comment/${1}`
-    api.get(`exercise/2/board/${boardid}`).then(
+    api.get(`exercise/${boardid}/board/${id}`).then(
       (res) => {
         const d = res.data.data;
         // console.log(d);
