@@ -29,7 +29,7 @@ const Render = ({
                 exercises.length >= 2 ?
                 <>
                 <Content
-                    img={Dumbbell}
+                    img={Pushup}
                 />
                     <S.ContentWrapper>
                     <span>{exercises[0].title}</span>
@@ -44,7 +44,7 @@ const Render = ({
                 exercises.length >= 2 ?
                 <>
                     <Content
-                        img={Hulahoop}
+                        img={SitUP}
                     />
                     <S.ContentWrapper>
                     <span>{exercises[1].title}</span>
