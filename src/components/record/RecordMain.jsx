@@ -13,6 +13,8 @@ import { useRecoilValue,useRecoilState } from "recoil";
 import { creatingStep } from "../../stores/write/writeData";
 import userInfoAtom from "../../global/user"
 
+import config from "../../config/server"
+
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [intersector, inView] = useInView();
@@ -46,7 +48,7 @@ const RecordMain = () => {
            result.data.data.map(
             (i) => {
               return {
-                photo:`http://10.80.161.250:8000/upload/${i.photo}`,
+                photo:`${config.server}/upload/${i.photo}`,
                 date:i.createdAt.split('T')[0].replaceAll('-','')
               }
             }

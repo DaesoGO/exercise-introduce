@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import api from "../../../util/api";
 import {useLocation } from "react-router-dom"
 
+import config from "../../config/config.json";
+
 const Read = () => {
   //이미지, 운동 종류, 운동 부위, 글
 
@@ -31,11 +33,11 @@ const Read = () => {
       (result) => {
         const resultData = result.data.data
         console.log(resultData);
-        console.log(`http://10.80.161.250:8000/upload/${resultData.photo}`);
+        console.log(`${config.server}/upload/${resultData.photo}`);
         setContent({
           username:resultData.user.nickname,
           date:resultData.createdAt,
-          img:`http://10.80.161.250:8000/upload/${resultData.photo}`,
+          img:`${config.server}/upload/${resultData.photo}`,
           exe:resultData.exercise.split("/"),
           part:resultData.part.split("/"),
           content:resultData.content
