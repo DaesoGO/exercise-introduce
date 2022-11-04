@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import api from "../../../util/api";
 import {useLocation } from "react-router-dom"
 
-import config from "../../config/config.json";
+import config from "../../../config/config.json"
 
 const Read = () => {
   //이미지, 운동 종류, 운동 부위, 글

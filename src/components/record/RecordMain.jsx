@@ -13,7 +13,7 @@ import { useRecoilValue,useRecoilState } from "recoil";
 import { creatingStep } from "../../stores/write/writeData";
 import userInfoAtom from "../../global/user"
 
-import config from "../../config/server"
+import config from "../../config/config.json"
 
 const RecordMain = () => {
   const [isLoading, setIsLoading] = useState(false);
