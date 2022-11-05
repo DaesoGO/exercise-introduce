@@ -12,7 +12,9 @@ import api from "../../../../util/api";
 
 const selectPart = ({exe, setExe, part, setPart,  }) => {
   const [searchValue, setSearchValue] = useState("");
+  // 서버에 저장된 운동종류들
   const [exeKinds,setExeKinds] = useState([]);
+
   useEffect(()=>{
     api.get(`/diary/exercise`).then(
       (result) => {
@@ -29,12 +31,11 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     )
   },[])
 
-  
 
 
 
   function addPart(exePart){
-    const index = part.findIndex((element) => element.name === exePart)
+    const index = part.findIndex((e) => e.name === exePart)
     if (index === -1){ //못 찾았을 때
       setPart((prev) => [...prev,{name:exePart,value:1}])
     } else {
@@ -43,12 +44,11 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       setPart(temp);
     }
 
-    setPart((prev) => sortValues(prev))
   }
   // 선택된 객체형식의 운동이 들어온다
   function addExe(selectedExe){
     // 못 찾았다면 결과값으로 -1이 나온다
-    const index = exe.findIndex((element) => element.name === selectedExe.name)
+    const index = exe.findIndex((e) => e.name === selectedExe.name)
     if (index === -1){ // 못 찾았을 때
         // 추가해준다, 가중치는 0으러
         selectedExe.value = 1;
@@ -61,7 +61,6 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
         setExe(temp);
     }
 
-    setExe((prev) => sortValues(prev));
 
     // 운동에 따른 part값 변경
     selectedExe.part.forEach((i) => {
@@ -70,20 +69,35 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
   }
 
 
-  function removeExe(selectedExe){
-    
+  function removeExe(index){
+    let temp = [...exe]
+
+    // part 삭제
+    removePart(temp[index].part)
+
+    if ((temp[index].value -= 1) <= 0) {
+      temp.splice(index,1)
+    }
+    setExe(temp)
   }
-  function removePart(selectedPart){
 
+  // partArr는 이름이 든 배열을 받는다
+  function removePart(partArr){
+    // 값 하나씩 삭제
+    let temp = [...part];
+
+    temp.map((i) => {
+      if(!partArr.includes(i.name)) return i
+      i.value -= 1
+      return i
+    })
+
+    setPart(temp.filter((i) => i.value > 0))
   }
+  
 
 
-
-  /**객체를 받고 객체의 value를 비교해 정렬해서 return*/ 
-  function sortValues(obj){
-    obj.sort((a,b) => b.value - a.value)
-    return obj
-  }
+  // 검색
   function searchExe() {
     console.log(searchValue, "를 서버에 검색");
   }
@@ -109,7 +123,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <hr/>
       <DropDownMenu title="선택된 운동" defaultOpen="open">
         <S.ItemRowWrapper>
-          {exe.map((i) => (
+          {exe.map((i,index) => (
             <S.rowItem 
             onClick={() => addExe(i)}
             key={i.name}
@@ -120,7 +134,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
               <span 
               onClick={(e) => {
                 e.stopPropagation(); // 이벤트 버블링 막기
-                removeExe(i)
+                removeExe(index)
               }}>
                 <img src={removeSvg} alt="운동 삭제" />
               </span>
@@ -140,7 +154,7 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
               </div>
               <span onClick={(e) => {
                 e.stopPropagation();
-                removePart(i)
+                removePart([i.name])
               }}>
                 <img src={removeSvg} alt="부위 삭제" />
               </span>

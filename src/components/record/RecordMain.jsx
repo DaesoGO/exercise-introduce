@@ -8,7 +8,6 @@ import Modal from "../../common/modal/Modal";
 import Write from "./write/Write";
 import api from "../../util/api";
 
-import mainDum from "./testimgs/mainDum.jpg"
 import { useRecoilValue,useRecoilState } from "recoil";
 import { creatingStep } from "../../stores/write/writeData";
 import userInfoAtom from "../../global/user"

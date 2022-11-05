@@ -33,7 +33,6 @@ const Read = () => {
       (result) => {
         const resultData = result.data.data
         console.log(resultData);
-        console.log(`${config.server}/upload/${resultData.photo}`);
         setContent({
           username:resultData.user.nickname,
           date:resultData.createdAt,
