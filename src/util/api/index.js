@@ -1,10 +1,10 @@
 import axios from "axios";
+import config from "../../config/config.json"
+
 const api = axios.create({
-  // 로그인 했을 때 서버통신
-  baseURL: "http://10.80.161.189:8000/api",
-  // baseURL: "http://10.80.161.250:8000/api",
-  timeout: 1000,
-});
+  baseURL: `${config.server}/api`,
+  timeout: 1000
+})
 
 api.interceptors.request.use(
   function (config) {

@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import api from "../../../util/api";
 import {useLocation } from "react-router-dom"
 
+import config from "../../../config/config.json"
+
 const Read = () => {
   //이미지, 운동 종류, 운동 부위, 글
 
@@ -19,7 +21,7 @@ const Read = () => {
   const [content,setContent] = useState({
     username: "불러오는중입니다",
     date: "불러오는중입니다",
-    img: dumImg,
+    img:undefined,
     exe: ["불러오는중입니다"],
     part: ["불러오는중입니다"],
     content: "불러오는중입니다",
@@ -34,7 +36,7 @@ const Read = () => {
         setContent({
           username:resultData.user.nickname,
           date:resultData.createdAt,
-          img:dumImg,
+          img:`${config.server}/upload/${resultData.photo}`,
           exe:resultData.exercise.split("/"),
           part:resultData.part.split("/"),
           content:resultData.content
