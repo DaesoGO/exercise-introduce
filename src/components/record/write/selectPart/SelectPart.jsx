@@ -17,12 +17,6 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
   // 서버에 저장된 운동종류들
   const [exeKinds,setExeKinds] = useState([]);
 
-  useEffect(() => {
-    console.log("exeKinds",exeKinds)
-    console.log("exe",exe);
-    console.log("part",part);
-  },[exeKinds,exe,part])
-
   useEffect(()=>{
     api.get(`/diary/exercise`).then(
       (result) => {
@@ -107,36 +101,19 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
 
   function searchExe(value) {
     if (value){ // value가 빌 때 무시
-      // api.get(`diary/exercise/${value}`).then(
-      //   (result) => {
-      //     setExeKinds(result.data.data.map((i,idx) => {
-            
-      //     }))
-      //   }
-      // )
       api.get(`/diary/exercise/${value}`).then(
         (result) => {
-          setExeKinds(result.data.data.map())
-        })
+          setExeKinds(result.data.data.map((i) => {
+            return {
+              part:i.muscle.split('/'),
+              name:i.title,
+            }
+          }))
+        },(error) => console.log(error))
     }
   }
 
   
-
-
-  // api.get(`/diary/exercise`).then(
-  //   (result) => {
-  //     setExeKinds(result.data.data.map((i,idx) => {
-  //       return {
-  //         id:idx,
-  //         part:i.muscle.split('/'),
-  //         name:i.title,
-  //       }
-  //     }))
-  //   },(error) => {
-  //     console.log(error)
-  //   }
-  // )
 
   return (
     <S.Wrapper>
