@@ -9,18 +9,26 @@ import { useEffect } from "react";
 import removeSvg from "../../../../static/record/write/remove.svg"
 import api from "../../../../util/api";
 
+import { useDebouncedEffect } from "../../../../hooks/useDebouncedEffect";
+
 
 const selectPart = ({exe, setExe, part, setPart,  }) => {
   const [searchValue, setSearchValue] = useState("");
   // 서버에 저장된 운동종류들
   const [exeKinds,setExeKinds] = useState([]);
 
+  useEffect(() => {
+    console.log("exeKinds",exeKinds)
+    console.log("exe",exe);
+    console.log("part",part);
+  },[exeKinds,exe,part])
+
   useEffect(()=>{
     api.get(`/diary/exercise`).then(
       (result) => {
-        setExeKinds(result.data.data.map((i,idx) => {
+        console.log(result.data.data);
+        setExeKinds(result.data.data.map((i) => {
           return {
-            id:idx,
             part:i.muscle.split('/'),
             name:i.title,
           }
@@ -95,13 +103,40 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
     setPart(temp.filter((i) => i.value > 0))
   }
   
+  useDebouncedEffect(() => searchExe(searchValue),2000,[searchValue])
 
-
-  // 검색
-  function searchExe() {
-    console.log(searchValue, "를 서버에 검색");
+  function searchExe(value) {
+    if (value){ // value가 빌 때 무시
+      // api.get(`diary/exercise/${value}`).then(
+      //   (result) => {
+      //     setExeKinds(result.data.data.map((i,idx) => {
+            
+      //     }))
+      //   }
+      // )
+      api.get(`/diary/exercise/${value}`).then(
+        (result) => {
+          setExeKinds(result.data.data.map())
+        })
+    }
   }
 
+  
+
+
+  // api.get(`/diary/exercise`).then(
+  //   (result) => {
+  //     setExeKinds(result.data.data.map((i,idx) => {
+  //       return {
+  //         id:idx,
+  //         part:i.muscle.split('/'),
+  //         name:i.title,
+  //       }
+  //     }))
+  //   },(error) => {
+  //     console.log(error)
+  //   }
+  // )
 
   return (
     <S.Wrapper>
@@ -109,13 +144,13 @@ const selectPart = ({exe, setExe, part, setPart,  }) => {
       <DropDownMenu title="운동 선택" defaultOpen="open">
         <S.ItemColWrapper>
           <S.SearchWrapper>
-            <S.SearchInput placeholder="검색" />
+            <S.SearchInput placeholder="검색" onChange={(e) => setSearchValue(e.target.value)} />
             <img src={search} alt="검색" onClick={searchExe} />
           </S.SearchWrapper>
           {exeKinds.map((i) => (
             <S.Item
             onClick={() => addExe(i)}
-            key={i.id}
+            key={i.name}
             >{i.name}</S.Item>
           ))}
         </S.ItemColWrapper>
