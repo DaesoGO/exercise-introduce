@@ -67,6 +67,8 @@ const Render = () => {
     "dfas&nbsp;&nbsp;&nbsp;dfsafdasdfsafsafsadf\n ## fsadf\n### fsadfsadf\n#### fsadfasd\n# adfsadfasdfsdfadfsad"
   );
 
+  const [title, setTitle] = useState("");
+
   const location = useLocation();
 
   useEffect(() => {
@@ -75,13 +77,17 @@ const Render = () => {
     let id = decodeStr.split("/")[4];
     console.log(id, boardid);
     //execrcise/id 운동/comment/boardid 댓글 번째 `exercise/${스쿼트}/comment/${1}`
-    api.get(`exercise/${id}/comment/${boardid}`).then(
+    api.get(`exercise/${boardid}/board/${id}`).then(
       (res) => {
         const d = res.data.data;
-        console.log(d);
-        console.log(d[boardid - 1]);
+        // console.log(d);
+        // console.log(d[boardid - 1]);
 
-        setPaper(d[boardid - 1].content);
+        setPaper(d.content);
+        setTitle(d.title);
+
+        console.log(d);
+        console.log("end");
       },
       (err) => {
         console.log(err);
@@ -106,14 +112,14 @@ const Render = () => {
   };
 
   const sendContent = () => {
-    console.log(content);
+    // console.log(content);
   };
 
   return (
     <B.BulletinContainer>
       <div className="markdown--container">
         <div className="markdown">
-          {/* <h1>{title}</h1> */}
+          <h1>{title}</h1>
           <br />
           <ReactMarkdown>{paper}</ReactMarkdown>
         </div>

@@ -4,6 +4,12 @@ import Chicken from '../../static/recommand/food/chicken.png'
 import Apple from '../../static/recommand/food/apple.png'
 import Avodado from '../../static/recommand/food/avocado.png'
 import Juice from '../../static/recommand/food/juice.png'
+import Ginger from '../../static/recommand/food/ginger.png'
+import Milk from '../../static/recommand/food/milk.png'
+import Salmon from '../../static/recommand/food/salmon.png'
+import Sweet_potato from '../../static/recommand/food/sweet_potato.png'
+import Tea from '../../static/recommand/food/tea.png'
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -42,7 +48,7 @@ const Render = ({
                     {
                         foods.length >= 3 ?
                         <PlateContent
-                            img={Juice} 
+                            img={Banana} 
                             amount={""}
                             name={foods[0].name}
                             info={foods[0].content}
@@ -55,7 +61,7 @@ const Render = ({
                     {
                         foods.length >= 3 ?
                         <PlateContent
-                            img={Chicken} 
+                            img={Milk} 
                             amount={""}
                             name={foods[1].name}
                             info={foods[1].content}
@@ -68,7 +74,7 @@ const Render = ({
                         {
                             foods.length >= 3 ?
                             <PlateContent
-                                img={Avodado} 
+                                img={Tea} 
                                 amount={""}
                                 name={foods[2].name}
                                 info={foods[2].content}

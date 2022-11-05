@@ -8,6 +8,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   function (config) {
+    // 로그인 되있을 때 access_token
     const accessToken = localStorage.getItem("access_token");
     if (accessToken) {
       config.headers = {

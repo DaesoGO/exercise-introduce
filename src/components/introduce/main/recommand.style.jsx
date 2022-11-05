@@ -46,7 +46,11 @@ export const lowerContainer = styled.div`
   flex-direction: column;
   gap: 15px;
 
+  height: 220px;
+
   overflow-y: auto;
+  ::-webkit-scrollbar-thumb {
+  }
 `;
 export const postContainer = styled.div`
   display: flex;
@@ -54,10 +58,10 @@ export const postContainer = styled.div`
   align-items: center;
 
   cursor: pointer;
-  :hover {
+  /* :hover {
     transition: 0.5s;
     background-color: #5687d6;
-  }
+  } */
 `;
 export const authContainer = styled.div`
   display: flex;
