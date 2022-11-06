@@ -39,12 +39,14 @@ const RecordMain = () => {
   const [post,setPost] = useState([]);
 
   function requestPost(reqUserName){
-    api.get(`/diary/${reqUserName}`).then(
+
+    api.get(`/diary/${reqUserName}/${post.length}`).then(
       (result) => {
-         console.log(result)
 
          setPost(
-           result.data.data.map(
+          
+          (prev) => [...prev,
+           ...Linkresult.data.data.map(
             (i) => {
               return {
                 photo:`${config.server}/upload/${i.photo}`,
@@ -52,7 +54,9 @@ const RecordMain = () => {
               }
             }
            )
-         )
+          ]
+          
+          )
 
       }, (error) => {
        console.log(error)
@@ -60,6 +64,9 @@ const RecordMain = () => {
    )
   }
 
+  useEffect(() => {
+    console.log(post);
+  },[post])
 
   // 오늘 일기를 썻는가
   const [writed, setWrited] = useState(false);
@@ -78,14 +85,15 @@ const RecordMain = () => {
 
   // 무한 스크롤
   useEffect(() => {
-    if (inView && userName) {
+    if (inView && userName && !isLoading) {
       setIsLoading(true);
+
       requestPost(userName);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
+
+      // 비동기 끝나고 unmount 될 때
+      return setIsLoading(false)
     }
-  }, [inView,userName]);
+  }, [inView,userName,isLoading]);
   /**
    * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
    */
