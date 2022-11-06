@@ -12,7 +12,7 @@ import api from "../../../../util/api";
 import { useDebouncedEffect } from "../../../../hooks/useDebouncedEffect";
 
 
-const selectPart = ({exe, setExe, part, setPart,  }) => {
+const selectPart = ({exe, setExe, part, setPart }) => {
   const [searchValue, setSearchValue] = useState("");
   // 서버에 저장된 운동종류들
   const [exeKinds,setExeKinds] = useState([]);

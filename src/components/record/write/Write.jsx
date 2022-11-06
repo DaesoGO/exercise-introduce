@@ -81,6 +81,8 @@ const Write = ({onClose}) => {
         formData.append('part',formatNameAndValue(part))
           
         api.post(`/diary/${"codingbot"}`,formData).then(res => console.log(res)).catch(err => console.log(err))
+
+        // post에 내가 방금 쓴 글 추가
         setStep(0)
         onClose();
       }
