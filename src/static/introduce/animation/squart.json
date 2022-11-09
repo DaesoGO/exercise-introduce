@@ -2,61 +2,44 @@
     "name": "pushup",
     "animations": [
         {
-            "name": "hello",
-            "src": "./animation/default/hello.json"
-        },
-        {
-            "name": "pointing",
-            "src": "./animation/default/pointing.json"
+            "name": "squart",
+            "src": "./animation/squart/squart.json"
         },
         {
             "name": "idle",
             "src": "./animation/default/idle.json"
-        },
-        {
-            "name": "squart",
-            "src": "./animation/squart/squart.json"
         }
     ],
     "timeline": [
-        "hello",
-        "hello",
-        "hello",
-        "hello",
-        "pointing",
+        "squart",
+        "squart",
+        "squart",
+        "squart",
+        "squart",
         "idle",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart",
-        "squart"
+        "idle",
+        "idle",
+        "idle",
+        "idle",
+        "idle",
+        "idle",
+        "idle"
     ],
-    "subtitle": [
+    "subtitles": [
         {
             "start": 0,
-            "content": "안녕하세요, 박병관입니다"
+            "end": 3000,
+            "content": "안녕하세요 여러분"
         },
         {
-            "start": 2300,
+            "start": 3000,
             "end": 6000,
-            "content": "이제부터 제가 운동하는 모습을 보여드리겠습니다"
+            "content": "오늘은 스쿼트를 진행해 볼 예정입니다"
         },
         {
             "start": 6000,
-            "end":16000,
-            "content": ""
-        },
-        {
-            "start": 16000,
-            "end": 20000,
-            "content": "지금은 스쿼트를 하고있습니다"
+            "end": 30000,
+            "content": "제가 시범을 먼저 보여드리겠습니다"
         }
     ]
 }
