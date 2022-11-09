@@ -32,7 +32,8 @@ const Router = () => {
 
   useLayoutEffect(
     (element) => {
-      let temp = routes.find((element) => element.path === location.pathname.split("/")[1]);
+      let temp = routes.find((element) => element.path.includes(location.pathname.split("/")[1]));
+      console.log(temp);
       if (temp === undefined) {
         temp = routes.find((element) => element.path === "*");
       }
@@ -40,6 +41,16 @@ const Router = () => {
     },
     [location.pathname]
   );
+
+  // useLayoutEffect(() => {
+  //   routes.find((e) => {
+  //     console.log(location.pathname.split("/")[1]);
+  //     console.log("PATH ", e.path.includes(location.pathname.split("/")[1]));
+  //     if (e.path.includes(location.pathname.split("/")[1])) {
+  //       setRenderInfo(e);
+  //     }
+  //   });
+  // }, [location.pathname]);
 
   useEffect(() => {
     if (getUserInfo === null && localStorage.getItem("access_token")) {
