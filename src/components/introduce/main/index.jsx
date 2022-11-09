@@ -12,17 +12,17 @@ const Render = ({ info, comment }) => {
   const [app, setApp] = useState();
   useEffect(() => {
     if (!isApp) {
-      // setApp(new App(dom.current, human, animation))
-      // isApp = true
+      // setApp(new App(dom.current, human, animation));
+      // isApp = true;
     }
   }, [dom]);
 
   return (
     <S.MainContainer>
       <S.DisplayContainer>
-        <Core/>
+        <Core />
       </S.DisplayContainer>
-      <Info info={info} comment={comment}/>
+      <Info info={info} comment={comment} />
     </S.MainContainer>
   );
 };

@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import GlobalStyle from './index.globalstyle'
-import logo from './navlogo.png'
-import profileImage from './dummyProfile.png'
-import * as S from './index.style'
-import { useRecoilValue } from 'recoil'
-import userInfoAtom from '../../global/user'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import GlobalStyle from "./index.globalstyle";
+import logo from "./navlogo.png";
+import profileImage from "./dummyProfile.png";
+import * as S from "./index.style";
+import { useRecoilValue } from "recoil";
+import userInfoAtom from "../../global/user";
 const Render = () => {
-  const userInfo = useRecoilValue(userInfoAtom)
+  const userInfo = useRecoilValue(userInfoAtom);
   const navToggling = () => {
-    return 0
-  }
+    return 0;
+  };
   const contents = [
-    { title: '운동', param: '/introduce' },
-    { title: '추천', param: '/recommend' },
-    { title: '기록', param: '/record' },
-  ]
+    { title: "운동", param: "/introduce/sqart" },
+    { title: "추천", param: "/recommend" },
+    { title: "기록", param: "/record" },
+  ];
   return (
     <>
       <GlobalStyle />
@@ -34,17 +34,17 @@ const Render = () => {
                     <S.menu>{item.title}</S.menu>
                   </Link>
                 </S.container>
-              )
+              );
             })}
           </S.navigator>
         </S.leftContainer>
         {userInfo === null ? (
           <S.loginForm>
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <S.loginText>로그인</S.loginText>
             </Link>
             <S.splitter />
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <S.loginText>회원가입</S.loginText>
             </Link>
           </S.loginForm>
@@ -56,6 +56,6 @@ const Render = () => {
         )}
       </S.background>
     </>
-  )
-}
-export default Render
+  );
+};
+export default Render;

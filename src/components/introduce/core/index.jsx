@@ -1,21 +1,21 @@
-import * as S from './index.style'
-import App from 'skeletalmuscle-drawer'
-import { useRef, useEffect, useState, useLayoutEffect } from 'react'
-import human from '../../../static/introduce/asset/man.gltf'
-import animation from '../../../static/introduce/animation/squart.json'
-import gym from '../../../static/introduce/asset/gym.glb'
-import Ui from './ui'
+import * as S from "./index.style";
+import App from "skeletalmuscle-drawer";
+import { useRef, useEffect, useState, useLayoutEffect } from "react";
+import human from "../../../static/introduce/asset/untitled.glb";
+import animation from "../../../static/introduce/animation/squart.json";
+import gym from "../../../static/introduce/asset/gym.glb";
+import Ui from "./ui";
 // import animation from '../../../static/introduce'
 
 export default () => {
-  const dom = useRef()
-  let app
+  const dom = useRef();
+  let app;
   useEffect(() => {
     if (app == undefined) {
-      app = new App(dom.current, human, gym)
-      app.animate(animation)
+      app = new App(dom.current, human, gym);
+      app.animate(animation);
     }
-  }, [dom])
+  }, [dom]);
   return (
     <S.monitorContainer>
       <S.monitorDisplay>
@@ -25,5 +25,5 @@ export default () => {
       <S.monitorDisplayBottom />
       <S.monitorArm></S.monitorArm>
     </S.monitorContainer>
-  )
-}
+  );
+};
