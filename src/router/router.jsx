@@ -42,16 +42,6 @@ const Router = () => {
     [location.pathname]
   );
 
-  // useLayoutEffect(() => {
-  //   routes.find((e) => {
-  //     console.log(location.pathname.split("/")[1]);
-  //     console.log("PATH ", e.path.includes(location.pathname.split("/")[1]));
-  //     if (e.path.includes(location.pathname.split("/")[1])) {
-  //       setRenderInfo(e);
-  //     }
-  //   });
-  // }, [location.pathname]);
-
   useEffect(() => {
     if (getUserInfo === null && localStorage.getItem("access_token")) {
       api
