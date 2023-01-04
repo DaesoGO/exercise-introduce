@@ -89,9 +89,7 @@ const RecordMain = () => {
       return setIsLoading(false);
     }
   }, [inView, userName, isLoading]);
-  /**
-   * @todo 아무 것도 선택되지 않았을 때 바깥에 드랍됐을 때도 인식
-   */
+  
   return (
     <R.Wrapper>
       {modalVisible && (
