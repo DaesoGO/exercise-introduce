@@ -2999,11 +2999,6 @@
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
-"fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
-
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
@@ -5226,10 +5221,10 @@
   dependencies:
     "is-arrayish" "^0.3.1"
 
-"skeletalmuscle-drawer@^0.5.1":
-  "integrity" "sha512-thZuUkh5NaehGXAjfNpK2BGDNnJyu1aYcviPERhhNx+iUppWwyE5SQ//xh6LMSLnAPax1AL4DfA7RQFicYaZkQ=="
-  "resolved" "https://registry.npmjs.org/skeletalmuscle-drawer/-/skeletalmuscle-drawer-0.5.1.tgz"
-  "version" "0.5.1"
+"skeletalmuscle-drawer@^0.5.2":
+  "integrity" "sha512-xtgNcQFRUslIt25pjDN8Ugn7Uezob0pBlRZZqG4i3dzn9JZmx48xAMwoD/HMpekGQScmHT2H/mfUH2bL+kgihQ=="
+  "resolved" "https://registry.npmjs.org/skeletalmuscle-drawer/-/skeletalmuscle-drawer-0.5.2.tgz"
+  "version" "0.5.2"
   dependencies:
     "@mediapipe/pose" "^0.5.1635988162"
     "axios" "^1.1.2"
